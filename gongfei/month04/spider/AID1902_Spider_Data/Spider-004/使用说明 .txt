@@ -1,0 +1,1 @@
+Redis Desktop Manager是一款简单快速、跨平台的Redis桌面管理工具，也被称作Redis可视化工具，是一款开源软件，支持通过SSH Tunnel连接，支持windows、mac等多平台，有需要的赶快下载吧！

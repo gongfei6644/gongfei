@@ -1,0 +1,268 @@
+1.request - 请求对象
+	1.什么是request对象
+		封装了请求信息
+		在Django中request是被封装到视图处理函数的参数中
+	2.request中的常用成员
+		1.request.scheme : 请求协议 
+		2.request.body : 请求主体
+		3.request.method : 请求方式
+		4.request.GET : 获取以get方式请求提交的数据
+		5.request.POST: 获取以post方式请求提交的数据
+		6.request.path: 获取请求路径
+		7.request.get_full_path(): 获取请求的完整路径
+		8.request.get_host(): 获取请求的主机/域名
+		9.request.COOKIES: 获取cookies中的数据
+		10.request.session: 获取session中的数据
+		11.request.META: 获取请求消息头
+			 request.META['HTTP_REFERER']:请求源地址
+			 1.判断HTTP_REFERER是否存在
+			 	if 'HTTP_REFERER' in request.META:
+					referer = request.META['HTTP_REFERER']
+			 2.获取不到HTTP_REFERER则给默认值
+			 	referer=request.META.get('HTTP_REFERER','/')
+	3.request.method
+		通常会根据request.method的值做进一步的请求处理
+		如果是get请求的话，则去往xx模板显示
+		如果是post请求的话，则接收请求提交数据并处理
+	4.获取请求提交的数据
+		1.GET
+			按照字典的方式取值
+			1.语法
+				request.GET['参数名']
+				request.GET.get('参数名','默认值')
+				request.GET.getlist('参数名')
+			2.能够产生GET请求方式的场合
+				1.地址栏上的请求
+					1.手动输入地址
+					2.<a> 标记超链接跳转
+					3.location.href="" 地址栏跳转
+				2.表单中使用GET方式进行请求
+		2.POST
+			1.语法
+				request.POST['参数名']
+				request.POST.get('参数名')
+				request.POST.getlist('参数名')
+
+				练习:
+					1.路由 /03-post
+					2.判断请求方式
+						1.get
+							则渲染 03-post.html 模板
+							模板中一个表单两个文本框-uname,uage
+							<input type="text" name="uname">
+							<input type="number" name="uage">
+							该表单以post的方式提交给 03-post
+						2.post
+							尝试着获取前端提交过来的两个数据
+			2.CSRF
+				Cross-Site Request Forgery
+				跨站点     请求    伪装
+				(跨站点请求伪装攻击)
+
+				解决方案:
+					1.删除 CsrfViewMiddleware 中间件
+						删除之后就没有csrf的验证，对程序有影响
+					2.开放验证
+						允许针对某个请求单独开放csrf验证
+						通过 @csrf_protect 装饰器开放验证
+					
+						@csrf_protect
+						def post_views(request):
+							if request.method == 'POST':
+								xxxx
+							return xxx
+
+						注意：该方式尽量保证在处理时对数据进行验证
+					3.让前端页面通过验证
+						在表单中增加一个标签
+						{% csrf_token %}
+						作用：
+							1.表单中会生成一个隐藏域，值为csrf的验证值
+							2.在cookies中也生成一个csrf的验证值
+2.使用forms模块处理表单
+	1.forms的作用
+		通过 class 类生成模板中的表单(form)
+	2.使用 forms 模块
+		1.在应用中创建 forms.py 文件
+		2.导入django提供的forms模块
+			from django import forms
+		3.创建class，一个类会生成一个表单
+			class ClassName(forms.Form)
+		4.在class中创建属性
+			一个属性对应到表单上就是一个控件
+	3.forms.Form类的语法规范
+		class ClassName(forms.Form):
+			属性 = forms.类型(参数)
+
+			1.类型
+				1.BooleanField : checkbox
+				2.CharField : text
+				3.ChoiceField : select
+				4.EmailField :　email
+				5.URLField : url
+				6.DateField : date
+				7.IntegerField : number
+			2.参数
+				1.required
+					取值为True表示该控件不能为空
+					默认值为True
+				2.label
+					控件前的label文本
+				3.initial
+					控件的初始化值，相当于 value 属性
+				4.widget
+					指定控件的小部件
+				5.error_message
+					错误时候的文本提示
+				6.disabled
+					取值为True表示该控件会被禁用
+	4.在模板中解析form对象
+		1.注意
+			1.需要自己提供<form>以及相关属性
+			2.表单中的按钮需要自己提供
+		2.解析form对象
+			1.在视图中创建Form对象并发送到模板中
+				示例:
+					form = RemarkForm()
+					return render(request,'x.html',locals())
+			2.在模板中进行解析
+				1.手动解析
+					{% for field in form %}
+						field:表示的就是form中的每个属性，也是要生成到表单中的每一个控件
+						{{field.label}}:控件的label参数值
+						{{field}}:表示的就是控件
+					{% endfor %}
+				2.自动解析
+					1. {{form.as_p}}
+						每个属性都使用 p 标记括起来
+
+					2.{{form.as_ul}}
+						特点:使用li标记括起来每个属性
+					3.{{form.as_table}}
+						特点:每个属性都使用 tr 标记括起来
+	5.通过 forms 模块获取表单数据
+		1.通过Form子类的构造器接收post数据
+			form = RemarkForm(request.POST)
+		2.调用 form 对象is_valid()，进行验证
+			form.is_valid()
+				返回True:通过验证
+				返回False:未通过验证
+		3.获取表单数据
+			通过 form.cleaned_data 来获取表单数据 -dict
+
+		练习:
+			1.创建一个数据库 - djangodb
+			2.创建一个实体类 - Users
+				uname - varchar(30)
+				upwd - varchar(30)
+				uage - int
+				uemail - varchar(200)
+			3.创建form模块
+				1.创建RegisterForm
+				2.属性参考 Users 实体类
+			4.解析form显示/处理数据
+				get ：将RegisterForm中的属性显示在模板中
+				post ：接收数据并插入到Users实体/表中
+	6.forms表单的高级处理
+		将Models类和Forms类结合到一起使用
+		1.在forms.py中创建class
+			继承自 form.ModelForm
+		2.创建内部类 - Meta，关联Model
+			1.model : 指定要关联的实体类
+			2.fields : 指定要从Model类中取哪些字段生成控件
+				1.取值为 "__all__"
+					从实体类中取出全部属性生成控件
+				2.取值为 列表
+					将要生成控件的属性名放在列表中
+			3.labels : 指定每个属性对应的label值
+				取值为字典
+				labels = {
+					"属性":"label值"
+				}
+	7.小部件-Widget
+		1.什么是小部件 - widget
+			要生成到网页上的控件
+			1.指定控件类型
+			2.为控件指定 html 的属性
+		2.小部件的类型
+			1.TextInput : type="text"
+			2.PasswordInput : type="password"
+			3.NumberInput : type="number"
+			4.EmailInput : type="email"
+			5.URLInput : type="url"
+			6.HiddenInput : type="hidden"
+			7.Textarea : <textarea>
+
+			uname = forms.CharField()
+			=========================================
+			1.CheckboxSelectMultiple : type="checkbox"
+				允许生成多个复选框 
+			2.RadioSelect : type="radio"
+				允许生成多个单选按钮
+			3.Select : <select>
+			4.SelectMultiple : <select multiple>
+
+			level = forms.ChoiceField(
+				choices = XXXX
+			)
+		3.小部件的使用
+			1.继承自forms.Form
+				1.基本版
+					1.语法
+						属性 = forms.CharField(
+							label = 'xxx',
+							widget = forms.小部件类型
+						)
+					2.示例
+						upwd = forms.CharField(
+							label = '用户密码',
+							widget = forms.PasswordInput 
+						)
+
+						LEVEL_CHOICE = (
+							("1","好评"),
+							("2","中评"),
+							("3","差评"),
+						)
+						level = forms.ChoiceField(
+							label = '级别',
+							widget = forms.RadioSelect,
+							choices = LEVEL_CHOICE,
+						)
+				2.高级版
+					1.特点
+						在指定控件类型的基础上又指定了控件的一些属性
+					2.语法
+						属性 = forms.CharField(
+							label = "xxx",
+							widget = forms.小部件类型(
+								attrs = {
+									"html属性名":"值",
+									"html属性名":"值",
+								}
+							) 
+						)
+
+						示例:
+							用户密码: <input type="password" name="upwd" placeholder="请输入您的密码" class="form-control">
+
+							class xxxForm(forms.Form):
+								upwd = forms.CharField(
+									label = "用户密码",
+									widget = forms.PasswordInput(
+										attrs = {
+											"placeholder":"请输入您的.",
+											"class":"form-control",
+										}
+									)
+								)
+			2.继承自forms.ModelForm
+
+
+
+
+
+
+
+
+

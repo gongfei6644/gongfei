@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	var a = 100;
+	function f1(){
+		console.log("f1:",a);
+	}
+	console.log(a);
+	f1();
+	function f2(){
+		f1();
+		//函数作用域中使用var创建的变量，都为局部变量
+		var b = 200;
+		console.log("f2:",b);
+		function f3(){
+			console.log("f2->f3");
+		}
+		return f3;
+		//return function (){};
+	}
+	var res = f2();//res接收函数
+	console.log(res);
+	res();
+
+	var age = 30;
+	function fn(){
+		var age = 18;
+		username = "张三";
+		console.log(age);//18
+	}
+	fn();
+	console.log(username,age);//30
+
+	//匿名函数自执行 (函数自身)(实参)
+	//构建局部作用域
+	(function (a){
+		console.log(a);
+	})(1000);
+	
+	//定义变量保存匿名函数，变量名即为函数名
+	var fun = function (){
+	
+	};
+	fun();
+	console.log(fun);
+
+
+
+
+
+	
+	
+
+
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

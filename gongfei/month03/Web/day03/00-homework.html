@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	#nav{
+		width:400px;
+		height:50px;
+		background:orange;
+		/*父元素字体大小为0，取消行内元素水平方向上的缝隙，子元素需要手动调整字体大小*/
+		font-size:0;
+	}
+	a{
+		font-size:16px;
+		display:inline-block;
+		width:100px;
+		height:50px;
+		color:white;
+		background:gray;
+		text-decoration:none;
+		text-align:center;
+		/*设置行高与元素高度保持一致，实现一行文本的垂直居中显示*/
+		line-height:50px;
+
+	}
+	a:hover{
+		color:red;
+		background:green;
+	}
+	ul,ol{
+		/*清除默认边距*/
+		padding:0;
+		/*清除项目符号*/
+		list-style:none;
+	}
+	/* 内层列表默认隐藏 */
+	ol{
+		display:none;
+	}
+	/* 鼠标悬停时显示 */
+	ul>li:hover ol{
+		display:block;
+	}
+	ol li:hover{
+		color:red;
+	}
+  </style>
+ </head>
+ <body>
+	<div id="nav">
+		<a href="">男装</a><a href="">女装</a>
+		<a href="">男装2</a>
+		<a href="">女装2</a>
+	</div>
+	<ul>
+		<li>
+			我的淘宝
+			<ol>
+				<li>我的物流</li>
+				<li>我的物流</li>
+				<li>我的物流</li>
+			</ol>
+		</li>
+		
+	</ul>
+
+
+
+
+ </body>
+</html>

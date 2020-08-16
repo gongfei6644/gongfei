@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="jquery-1.11.3.js"></script>
+ </head>
+ <body>
+	<input type="text">
+	<button onclick="show()">验证</button>
+	<div></div>
+	<script>
+		function show(){
+			//获取输入框的内容
+			var input = $("input").val();
+			console.log(input);
+			//判断长度是否在6~18位之间
+			if(input.length>=6 && input.length<=18){
+				$("div").html("合法").css("color","green");
+			}else{
+				$("div").html("不合法").css("color","red");
+			}
+		}
+
+	</script>
+
+ </body>
+</html>

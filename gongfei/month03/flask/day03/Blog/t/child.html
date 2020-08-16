@@ -1,0 +1,23 @@
+{% extends "parent.html"%}
+
+{% block content %}
+    <h2>child</h2>
+{% endblock %}
+
+{% block box%}
+    {{ super() }}
+    <h2>子模板</h2>
+    <h1>scheme:{{ params.scheme }}</h1>
+    <h1>method:{{ params.method }}</h1>
+    <h1>args:{{ params.args }}</h1>
+    <h1>uname:{{ params.args.uname }}</h1>
+    <h1>cookies:{{ params.cookies }}</h1>
+    <h1>url:{{ params.url }}</h1>
+
+
+
+
+
+
+{% endblock %}
+

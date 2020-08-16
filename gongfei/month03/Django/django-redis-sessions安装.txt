@@ -1,0 +1,2 @@
+在django中一般使用redis存储session：需安装django-redis-sessions包
+sudo pip install django-redis-sessions==0.5.6

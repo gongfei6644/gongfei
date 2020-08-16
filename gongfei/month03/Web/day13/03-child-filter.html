@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="jquery-1.11.3.js"></script>
+ </head>
+ <body>
+	<ul>
+		<li>列表项</li>
+		<li>列表项</li>
+		<li>列表项</li>
+		<li>列表项</li>
+	</ul>
+	<ol>
+		<li>列表项</li>
+		<li>列表项</li>
+		<li>列表项</li>
+		<li>列表项</li>
+	</ol>
+	<script>
+		//匹配元素列表中第一个
+		$("li:first").css("color","red");
+		//匹配元素列表中作为第一个子元素存在的li
+		$("li:first-child").css("background","orange");
+
+		$("li:last").css("color","green");
+		$("li:last-child").css("background","cyan");
+		//匹配第三个作为子元素存在的li
+		$("li:nth-child(3)").css("text-align","center");
+	</script>
+
+ </body>
+</html>

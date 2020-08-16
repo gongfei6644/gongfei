@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>.table-c table{border-right:1px solid #F00;border-bottom:1px solid #000}.table-c table td{border-left:1px solid #F00;border-top:1px solid #000}</style>
+<h4>{{ params.ls_day_time }}日采集量统计</h4>
+<div class="table-c">
+<table width="900" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>网站</td>
+        <td>案例量</td>
+        <td>标准化量</td>
+        <td>标准化率</td>
+        <td>楼盘字段量</td>
+        <!--<td>单价字段量</td>-->
+        <td>总价字段量</td>
+    </tr>
+    {% for web in params.webs %}
+        <tr>
+            <td>{{ web.name }}</td>
+            <td><font color="blue">{{ web.count }}</font></td>
+            <td><font color="green">{{ web.std_count }}</font></td>
+            {% if web.std_rate>=80 %}
+                <td><font color="black">{{ web.std_rate }}%</font></td>
+            {% else %}
+                <td><font color="red">{{ web.std_rate }}%</font></td>
+            {% endif %}
+            <td>{{ web.pro_count }}</td>
+            <!--<td>{{ web.unit_pri_count }}</td>-->
+            <td>{{ web.total_pri_count }}</td>
+        </tr>
+    {% endfor %}
+      <tr>
+          <td>合计</td>
+          <td><font color="blue">{{ params.all_count }}</font></td>
+          <td><font color="red">{{ params.all_std_count }}</font></td>
+          {% if params.std_rate_avg>=80 %}
+                <td><font color="black">{{ params.std_rate_avg }}%</font></td>
+          {% else %}
+                 <td><font color="red">{{ params.std_rate_avg }}%</font></td>
+          {% endif %}
+          <td>{{ params.all_pro_count }}</td>
+          <!--<td>{{ params.all_unit_pri_count }}</td>-->
+          <td>{{ params.all_total_pri_count }}</td>
+      </tr></table></div>
+
+<style>.table-w table{border-right:1px solid #F00;border-bottom:1px solid #000}.table-w table td{border-left:1px solid #F00;border-top:1px solid #000}</style>
+<!--*2019年第33周(2019-08-12-2019-08-18)统计量-->
+<h4>{{ params.year_time}}年第{{ params.week_time }}周({{ params.mond_time }}-{{ params.sund_time }})统计量</h4>
+<div class="table-w">
+    <table width="900" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>网站/星期</td>
+            <td>星期一</td>
+            <td>星期二</td>
+            <td>星期三</td>
+            <td>星期四</td>
+            <td>星期五</td>
+            <td>星期六</td>
+            <td>星期日</td>
+            <td>合计</td>
+        </tr>
+        {% for web in params.webs %}
+            <tr>
+                <td>{{ web.name }}</td>
+                <td><font color="blue">{{ web.mond_count}}</font><font color="red">/{{ web.mond_std_count}}</font></td>
+                <td><font color="blue">{{ web.tuesd_count}}</font><font color="red">/{{ web.tuesd_std_count}}</font></td>
+                <td><font color="blue">{{ web.wed_count}}</font><font color="red">/{{ web.wed_std_count}}</font></td>
+                <td><font color="blue">{{ web.thurd_count}}</font><font color="red">/{{ web.thurd_std_count}}</font></td>
+                <td><font color="blue">{{ web.frid_count}}</font><font color="red">/{{ web.frid_std_count}}</font></td>
+                <td><font color="blue">{{ web.satd_count}}</font><font color="red">/{{ web.satd_std_count}}</font></td>
+                <td><font color="blue">{{ web.sund_count}}</font><font color="red">/{{ web.sund_std_count}}</font></td>
+                <td><font color="blue">{{ web.week_count}}</font><font color="red">/{{ web.week_std_count}}</font></td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td>总计</td>
+            <td><font color="blue">{{ params.all_mond_count}}</font><font color="red">/{{ params.all_mond_std_count}}</font></td>
+            <td><font color="blue">{{ params.all_tuesd_count}}</font><font color="red">/{{ params.all_tuesd_std_count}}</font></td>
+            <td><font color="blue">{{ params.all_wed_count}}</font><font color="red">/{{ params.all_wed_std_count}}</font></td>
+            <td><font color="blue">{{ params.all_thurd_count}}</font><font color="red">/{{ params.all_thurd_std_count}}</font></td>
+            <td><font color="blue">{{ params.all_frid_count}}</font><font color="red">/{{ params.all_frid_std_count}}</font></td>
+            <td><font color="blue">{{ params.all_satd_count}}</font><font color="red">/{{ params.all_satd_std_count}}</font></td>
+            <td><font color="blue">{{ params.all_sund_count}}</font><font color="red">/{{ params.all_sund_std_count}}</font></td>
+            <td><font color="blue">{{ params.all_week_count}}</font><font color="red">/{{ params.all_week_std_count}}</font></td>
+        </tr>
+    </table>
+</div>
+
+<style>.table-w table{border-right:1px solid #F00;border-bottom:1px solid #000}.table-w table td{border-left:1px solid #F00;border-top:1px solid #000}</style>
+<h4>{{ params.ls_day_time }}各大网站任务采集量统计</h4>
+<div class="table-w">
+    <table width="900" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>城市</td>
+            {% for web in params.webs %}
+                <td>{{ web.name }}</td>
+            {% endfor %}
+        </tr>
+        {% for province in params.province_list %}
+            <tr>
+                <td> {{ province }}</td>
+                {% for web in params.webs %}
+                    {% if 'w' in web[province] %}
+                        <td><font color='black'>{{ web[province] }}</font></td>
+                    {% else %}
+                        <td><font color='red'>{{ web[province] }}</font></td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        <tr>
+            <td>合计</td>
+            {% for web in params.webs %}
+                <td>{{ web.count }}</td>
+            {% endfor %}
+        </tr>
+      </table></div>
+
+<style>.table-c table{border-right:1px solid #F00;border-bottom:1px solid #000}.table-c table td{border-left:1px solid #F00;border-top:1px solid #000}</style>
+<h4>{{ params.mon_time }}月采集量统计</h4>
+<div class="table-c"><table width="900" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>网站</td>
+      <td>案例量</td>
+      <td>标准化量</td>
+      <td>标准化率</td>
+      <td>楼盘字段量</td>
+      <!--<td>单价字段量</td>-->
+      <td>总价字段量</td>
+    </tr>
+    {% for web in params.webs %}
+        <tr>
+            <td>{{ web.name }}</td>
+            <td><font color="blue">{{ web.mon_count }}</font></td>
+            <td><font color="green">{{ web.mon_std_count }}</font></td>
+            {% if web.mon_std_rate>=80 %}
+                <td><font color="black">{{ web.mon_std_rate }}%</font></td>
+            {% else %}
+                <td><font color="red">{{ web.mon_std_rate }}%</font></td>
+            {% endif %}
+            <td>{{ web.mon_pro_count }}</td>
+            <!--<td>{{ web.mon_unit_pri_count }}</td>-->
+            <td>{{ web.mon_total_pri_count }}</td>
+        </tr>
+    {% endfor %}
+    <tr>
+        <td>合计</td>
+        <td><font color="blue">{{ params.all_mon_count}}</font></td>
+        <td><font color="green">{{ params.all_mon_std_count }}</font></td>
+        {% if params.mon_std_rate_avg>= 80 %}
+            <td><font color="black">{{ params.mon_std_rate_avg }}%</font></td>
+        {% else %}
+            <td><font color="red">{{ params.mon_std_rate_avg }}%</font></td>
+        {% endif %}
+        <td>{{ params.all_mon_pro_count }}</td>
+        <!--<td>{{ params.all_mon_unit_pri_count }}</td>-->
+        <td>{{ params.all_mon_total_pri_count }}</td>
+    </tr>
+    </table></div>
+<style>.table-c table{border-right:1px solid #F00;border-bottom:1px solid #000}.table-c table td{border-left:1px solid #F00;border-top:1px solid #000}</style>
+<h4>{{ params.ls_mon_time }}月采集量统计</h4>
+<div class="table-c">
+    <table width="900" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>网站</td>
+          <td>案例量</td>
+          <td>标准化量</td>
+          <td>标准化率</td>
+          <td>楼盘字段量</td>
+          <!--<td>单价字段量</td>-->
+          <td>总价字段量</td>
+        </tr>
+            {% for web in params.webs %}
+            <tr>
+                <td>{{ web.name }}</td>
+                <td><font color="blue">{{ web.ls_mon_count }}</font></td>
+                <td><font color="green">{{ web.ls_mon_std_count }}</font></td>
+                {% if web.ls_mon_std_rate>=80 %}
+                    <td><font color="black">{{ web.ls_mon_std_rate }}%</font></td>
+                {% else %}
+                    <td><font color="red">{{ web.ls_mon_std_rate }}%</font></td>
+                {% endif %}
+                <td>{{ web.ls_mon_pro_count }}</td>
+                <!--<td>{{ web.ls_mon_unit_pri_count }}</td>-->
+                <td>{{ web.ls_mon_total_pri_count }}</td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td>合计</td>
+            <td><font color="blue">{{ params.all_ls_mon_count}}</font></td>
+            <td><font color="green">{{ params.all_ls_mon_std_count }}</font></td>
+            {% if  params.ls_mon_std_rate_avg>=80 %}
+                <td><font color="black">{{ params.ls_mon_std_rate_avg }}%</font></td>
+            {% else %}
+                <td><font color="red">{{ params.ls_mon_std_rate_avg }}%</font></td>
+            {% endif %}
+            <td>{{ params.all_ls_mon_pro_count }}</td>
+            <!--<td>{{ params.all_ls_mon_unit_pri_count }}</td>-->
+            <td>{{ params.all_ls_mon_total_pri_count }}</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

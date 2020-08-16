@@ -1,0 +1,124 @@
+HTTPServer v3.0 （project/httpserver）
+
+1. 功能
+	 
+	 httpserver 
+			* 获取http请求
+			* 解析http请求
+			* 将请求发送给WebFrame
+			* 从WebFrame获取反馈数据
+			* 将数据组织为Response格式发送给客户端
+
+	 WebFrame
+	 		* 从httpserver获取请求
+			* 根据请求处理逻辑或者是数据
+			  [1] 静态网页
+				[2] 其他数据
+			* 将数据反馈给httpserver
+
+2.升级点
+
+* 采用httpserver和应用分离的模式，降低耦合
+* 采用了用户配置文件确定软件功能的思路
+* 在数据处理端，仿照后端框架的数据处理思想
+
+3. 技术点分析
+   
+	 * httpserver需要建立两个套接字，分别和两端通信
+	 * webframe部分采用多路复用接收请求
+
+4. 项目结构 
+
+5. 交互数据格式协议
+
+  httpserver--》webframe  {method:'GET',info:'/'}
+
+	webframe-->httpserver {status:'200',data:'ccccc'}
+
+
+cookie：
+
+	  import json
+		json.dumps(dict) 将python字典转换为json字串
+		json.loads(json) 将json字串转换为python字典
+
+In [3]: json.dumps(dict)
+Out[3]: '{"a": 1, "b": "abcd"}'
+In [6]: json.loads(a)
+Out[6]: {'a': 1, 'b': 'abcd'}
+
+
+第二阶段课程内容总结
+
+1. mysql数据库
+	 * 数据库基本概念
+	 * 数据库的基本操作管理
+	 * 数据库的创建思想
+	 * 数据操作
+	 * 高级查询和索引
+	 * 数据锁，事务，引擎，导入导出
+	 * pymysql
+
+2. 网络编程
+	 * 网络理论基础
+	 * TCP和UDP   （重点）
+	 * 套接字特点和属性
+	 * 本地套接字
+	 * 广播和HTTP协议
+	 * struct模块
+
+3. 多进程多线程
+	 * 进程理论
+	 * 进程的创建fork multiprocessing （重点）
+	 * 进程池和进程间通信
+	 * 线程线程的特征 （重点）
+	 * 线程锁和GIL
+
+4. 并发通信
+	 * IO多路复用  （重点）
+	 * 多进程多线程网络并发  （重点）
+	 * 协程通信
+
+5. MongoDB
+	 * 非关系型数据库
+	 * 数据库创建，集合创建
+	 * 增删改查
+	 * 索引聚合操作
+	 * 固定集合和文件处理Grid
+	 * pymongo
+
+6. 正则表达式
+	 * 元字符
+	 * 规则
+	 * re模块
+
+7. GIT使用
+	 * 使用
+
+8. 项目思想
+  
+	 * 聊天室 
+	   socket udp通信  fork
+
+	 * ftp文件服务器
+
+		 多进程并发思想，请求处理过程，请求协议设置
+
+	 * httpserver  2.0  3.0
+     2.0  功能类的编程  自己确定变量的传入，重写方法
+
+		 3.0  模块分开，采用配置文件的思想
+
+	 * 电子词典
+	   单独软件 ： 从命令行传入数据
+
+
+
+
+
+
+
+
+
+
+

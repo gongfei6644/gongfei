@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="jquery-1.11.3.js"></script>
+ </head>
+ <body>
+	<h1 class="c1">标题</h1>
+	<h1>标题</h1>
+	<h1 class="dc1">标题</h1>
+	<script>
+		console.log($("[class]"));
+		console.log($("[class='c1']"));
+		//类名以"c"开头
+		console.log($("[class^=c]"));
+		//类名以'1'结尾
+		console.log($("[class$=1]"));
+		//类名中包含"c"
+		console.log($("[class*=c]"));
+
+
+	</script>
+ </body>
+</html>

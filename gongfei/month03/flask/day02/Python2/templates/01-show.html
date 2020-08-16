@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>模板</h1>
+    <h1>列表，元组和字典都可以使用[key/index]和点语法访问</h1>
+    <h1>name:{{ params['name'] }}</h1>
+    <h1>age:{{ params.age }}</h1>
+    <h1>小泽{{ params.dic.name }}</h1>
+    <h1>爱好:{{　params.list[0]　}}</h1>
+    <h1>爱好:{{　params.list.0　}}</h1>
+    <h1>数据库:{{　params.tup[1]　}}</h1>
+    <h1>数据库:{{　params.tup.1　}}</h1>
+    <h1>宠物名:{{ params.cat.name}}</h1>
+    <h1>{{ params.cat.play()}}</h1>
+    <hr>
+    <h1>过滤器</h1>
+    <h2>upper:{{ params.s1|upper}}</h2>
+    <h2>title:{{ params.s1|title}}</h2>
+    <h2>参考{{ params.s2 }}</h2>
+    <h2>参考{{ params.s2|trim }}</h2>
+    <h2>first:{{ params.list|first }}</h2>
+    <h2>length:{{ params.list|length }}</h2>
+
+
+
+
+
+
+</body>
+</html>

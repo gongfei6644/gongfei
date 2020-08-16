@@ -1,0 +1,85 @@
+Django
+1.Django介绍
+	1.什么是Django框架
+		开源框架,2005年发布,采用Python语言编写
+		主做新闻和内容管理网站
+		Django提供了强大的后台管理系统
+
+		官网: http://www.djangoproject.com
+
+		版本：
+			最新：2.2 LTS
+			课程：1.11.8 LTS
+		框架模式：MTV
+			M：Models 模型层
+			T：Templates 模板层
+			V：Views 视图层
+
+		中文文档：http://djangobook.py3k.cn/2.0/  (非官方)
+	2.Django的安装
+		1.查看已安装的版本
+			在Python的交互模式中
+				import django
+				django.VERSION
+		2.在线安装
+			sudo pip3 install django
+			(安装pip中集成的django的最高版本)
+
+			sudo pip3 install django==1.11.8
+			(安装django 1.11.8版本)
+		3.离线安装
+			1.可以去django官网下载django指定版本的安装包
+				xxxx.tar.gz
+			2.使用 pip3 安装
+				sudo pip3 install 离线安装包路径
+2.Django框架的使用
+	1.创建项目
+		通过 django-admin 来创建django项目
+		语法: django-admin startproject 项目名称
+	2.Django项目的目录介绍
+		1.manage.py
+			提供了项目管理的各种操作指令
+			如：
+				启动服务 ：runserver
+				创建应用 ：startapp
+		2.主目录/主文件夹(与项目名称一致的文件夹)
+			1.__init__.py
+				项目的初始化文件，项目启动时自动运行
+			2.urls.py
+				基础路由配置文件
+			3.wsgi.py
+				Web Server Gateway Interface
+			4.settings.py
+				项目的主配置文件
+	3.URL的使用
+		1.urls.py
+			默认：在目录中
+			作用：通过urls中定义好的地址找到对应的处理程序
+
+			urlpatterns = []
+			在 urlpatterns 中定义访问地址和对应的视图处理函数
+
+			在[]中通过 url 函数来表示具体的处理关系的
+		2.url的语法
+			from django.conf.urls import url
+			语法：
+				url(regex,views,kwargs=None,name=None)
+					1.regex:允许是正则表达式的字符串，表示请求的url
+					2.views:对应的视图处理函数的名称/一个子路由
+					3.kwargs:向视图中所传递的参数,字典,可以省略
+					4.name:给当前的地址起别名,地址反向解析时使用
+		3.通过 url 向视图传参
+			1.示例
+				http://127.0.0.1:8000/02-url/2015
+				http://127.0.0.1:8000/02-url/2008
+			2.通过 正则表达式的子组 来声明参数
+				() - 子组，一个子组表示一个参数，多个参数的话使用多个子组，多个子组之间使用 / 隔开
+				# http://127.0.0.1:8000/02-url/四位数字/
+				四位数字:(\d{4})
+				url(r'^02-url/(\d{4})/$',url_views),
+
+				views.py
+				def url_views(request,year):
+					# year 表示的就是对应的地址中的第一个参数值
+					pass
+

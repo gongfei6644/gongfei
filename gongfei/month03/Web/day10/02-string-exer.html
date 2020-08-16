@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	var mail = "zhangsan@163.com";
+	//获取@符号的下标
+	var index = mail.indexOf("@");
+	//截取
+	var username = mail.substring(0,index);
+	var server = mail.substring(index+1);
+	console.log(username,server);
+
+
+	var cardID = "100100190012250123";
+	var year = cardID.substring(6,10);
+	var month = cardID.substring(10,12);
+	var day = cardID.substring(12,14);
+	console.log(year,month,day);
+
+	var str = "101=5&201=10&301=8";
+	//["101=5","201=10","301=8"]
+	var arr = str.split("&");
+	for(i in arr){
+		var res = arr[i].split("=");//["101","5"]
+		console.log(res[0],res[1]);
+	}
+
+
+
+	
+
+
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

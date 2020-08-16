@@ -1,0 +1,12 @@
+1.进入mysqld.cnf
+sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+
+2.更改bind-address为允许外部连接
+bind-address= 0.0.0.0
+
+3.进入linux的mysql赋权限:(*.*代表所有的表，root代表用户，%代表所有外部ip，也可以只指定一个ip（把%改成指定ip），123456代表密码：
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
+
+4.刷新权限
+flush privileges;

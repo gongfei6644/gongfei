@@ -1,0 +1,123 @@
+一、字符串
+	方法：
+		1.转换字母大小写(见上节)
+		2.根据下标获取指定的字符或字符编码
+			charAt(index)
+			charCodeAt(index)
+			参数可以省略，默认为0
+		3.根据指定字符查找对应下标
+			indexOf("",fromIndex)
+			lastIndexOf("",fromIndex)
+			参数：
+				参数一指定查找字符串
+				fromIndex设置起始下标
+			查找方式：
+				indexOf()从指定下标开始从前向后查找字符，找到即返回
+				lastIndexOf()从指定下标开始从后向前查找字符，找到即返回
+				查找失败，返回-1.
+		4.截取字符串	
+			substring(startIndex,endIndex)
+			截取start~end-1范围内的字符串，结束下标可以省略，表示从start截至末尾
+			练习：
+				1）指定邮箱字符串，提取用户名和服务商
+					zhangsan@qq.com
+				2）从身份证号中提取年月日
+		5.分割字符串
+			split(param)
+			参数为指定分割符，返回数组，存放分割结果。
+			注意：参数必须为字符串中存在的字符，否则分割无效。
+			练习：
+				"101=5&201=10&301=8"
+				id为..数量为..
+		6.模式匹配
+			正则表达式(RegExp)
+				指定字符串格式
+				语法：
+					var reg1 = /字符格式/修饰符;
+					修饰符：
+						i(ignorecase)忽略大小写
+						g(global)全局匹配
+				例：
+					//固定查找内容
+					var reg1 = /知乎/g;
+					//固定查找格式
+					var reg2 = /\d{6,10}/g;
+				
+			1）match(str/regexp)
+				参数用于指定查找内容，返回数组，存放查找结果	
+			2）replace(str/regexp,newStr)
+				查找并替换相关内容，返回替换后的字符串
+二、其他对象
+	1.正则表达式RegExp
+		创建：
+		属性：
+			lastIndex表示下一次匹配的起始下标
+		方法：
+			test(str)验证字符串中是否存在满足正则格式的内容，返回布尔值
+	2.数学Math
+		参见04-Math.html
+		
+	3.日期Date
+		创建
+		方法
+		参见05-Date.html
+三、BOM
+	1.Browser Object Model(浏览器对象模型)，提供操作当前窗口的方法。顶层对象为window,伴随页面运行自动产生，直接使用，使用时可以省略。
+	2.window对象的方法
+		1）网页弹框
+			alert("")
+			prompt("")
+			confirm("")确认框，返回布尔值对应确定和取消
+		2）关闭或打开窗口
+			close()关闭当前窗口
+			open("URL")新建窗口访问URL
+		3）定时器
+			1.间歇调用（周期性定时器）
+				每隔一段时间，执行一次代码
+				开启：
+					var timer=setInterval(function,interval);
+					参数：
+						function:需要执行的代码
+						interval:时间间隔，默认以毫秒为单位，1s=1000ms
+					返回值：
+						返回定时器的id
+				关闭：
+					clearInterval(timer);
+					根据定时器id，停止间歇调用
+
+			2.超时调用（一次性定时器）
+				等待一段时间后，执行一次代码
+				开启：
+					var timer=setTimeout(function,timeout);
+				关闭：
+					clearTimeout(timer);
+	3.window对象的属性
+		document(参见DOM)，location,history
+		1）location
+			保存当前页面的URL信息
+			属性：
+				href读取或设置窗口的URL
+			方法：
+				reload(false)重新加载页面,参数默认为false,表示从缓存中加载，设置为true,强制从服务器端请求
+		2）history
+			保存当前窗口访问过的URL信息
+			属性：
+				length保存当前窗口访问过的URL数量
+			方法：
+				back()后退<-
+				forward()前进->
+				go(n)参数为正值，表示前进n步，负值表示后退n步
+
+
+		
+
+			
+
+
+
+
+
+
+
+
+四、DOM

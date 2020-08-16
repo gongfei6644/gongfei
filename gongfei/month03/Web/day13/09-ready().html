@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="jquery-1.11.3.js"></script>
+  <script>
+  	console.log(window);
+	//文档加载完毕
+	/*
+	window.onload = function (){
+		alert("3");
+	};
+	if(window.onload){
+		var fn = window.onload;
+		fn();
+	}
+	window.onload = function(){
+		alert("4");
+	};
+	*/
+
+	$(document).ready(function (){
+		alert("1");
+	});
+	$().ready(function (){
+		alert("2");
+	});
+	$(function (){
+		alert("3");
+	})
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

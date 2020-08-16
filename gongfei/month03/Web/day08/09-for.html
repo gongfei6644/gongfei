@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	for(var i = 1; i <= 100;i++){
+		if(i == 3){
+			//结束循环
+			//break;
+			continue;
+		}
+		console.log(i);
+	}
+	//循环接收输入
+	var input;
+	/*
+	while(input != "exit"){
+		input = prompt("");
+		console.log(input);
+	}
+	*/
+	while(true){
+		input = prompt("");
+		if(input == "exit"){
+			break;
+		}
+		console.log(input);
+	}
+
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

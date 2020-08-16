@@ -1,0 +1,45 @@
+$(function (){
+	//banner
+	var imgIndex = 0;
+	var timer;
+	function autoPlay(){
+		//当前元素隐藏
+		$("#banner img").eq(imgIndex).css("display","none");
+		$("#banner li").eq(imgIndex).css("background","#fff");
+		//更新下标 先++后判断
+		imgIndex = ++imgIndex == $("#banner img").length ? 0 : imgIndex;
+		//设置显示
+		$("#banner img").eq(imgIndex).css("display","block");
+		$("#banner li").eq(imgIndex).css("background","gray");
+	}
+	//开启定时器
+	timer = setInterval(autoPlay,1500);
+	//鼠标移入移出
+	$("#banner").mouseover(function(){
+		clearInterval(timer);
+	});
+	$("#banner").mouseout(function(){
+		timer = setInterval(autoPlay,1500);
+	});
+	//手动调整轮播图
+	$("#banner .next").click(function(){
+		//当前元素隐藏
+		$("#banner img").eq(imgIndex).css("display","none");
+		$("#banner li").eq(imgIndex).css("background","#fff");
+		//更新下标 先++后判断(最后一张没有下一张，所以还得判断)
+		imgIndex = ++imgIndex == $("#banner img").length ? 0 : imgIndex;
+		//设置显示
+		$("#banner img").eq(imgIndex).css("display","block");
+		$("#banner li").eq(imgIndex).css("background","gray");
+	});
+	$("#banner .prev").click(function(){
+		//当前元素隐藏
+		$("#banner img").eq(imgIndex).css("display","none");
+		$("#banner li").eq(imgIndex).css("background","#fff");
+		//更新下标 先++后判断(最后一张没有下一张，所以还得判断),-1表示越界
+		imgIndex = --imgIndex == -1 ? $("#banner img").length-1 : imgIndex;
+		//设置显示
+		$("#banner img").eq(imgIndex).css("display","block");
+		$("#banner li").eq(imgIndex).css("background","gray");
+	});
+})

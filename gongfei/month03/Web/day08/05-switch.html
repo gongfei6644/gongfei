@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	var a = 3;
+	switch(a){
+		case "1":
+			console.log("a===1");
+			break;
+		case 2:
+			console.log("a===2");
+			break;
+		case 3:
+			console.log("匹配成功");
+			break;
+		default:
+			console.log("匹配失败");
+			break;
+	}
+	//省略break
+	switch(a){
+		case "1":
+			console.log("a===1");	
+		case 2:
+			console.log("a===2");	
+		case 3:
+			console.log("匹配成功");
+		case 4:
+			console.log("case 4");	
+		default:
+			console.log("匹配失败");		
+	}
+	//多个case共用代码段
+	var day = prompt("请输入1-7之间的数字");
+	switch(day){
+		case "1":
+		case "3":
+		case "5":
+			console.log("看电影");
+			break;
+		case "2":
+		case "4":
+		case "6":
+			console.log("唱K");
+			break;	
+	}
+
+
+
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

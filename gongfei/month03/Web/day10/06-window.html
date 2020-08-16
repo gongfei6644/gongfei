@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <Script>
+	console.log(window);
+	/*
+	var res = window.confirm("是否确定");
+	console.log(res);
+	if(res){
+		//关闭当前窗口
+		window.close();
+	}else{
+		//新建窗口访问URL
+		window.open("05-Date.html");
+	}
+	*/
+
+	//全局变量和全局函数作为window对象的属性和方法存在
+	var a = 100;
+	function f1(){
+		console.log("f1被调用");
+	};
+	console.log(a,window.a);
+	f1();
+	window.f1();
+
+
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

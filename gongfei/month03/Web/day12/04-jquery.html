@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="jquery-1.11.3.js"></script>
+  <script>
+	window.onload = function (){
+		//此时使用的是jquery的$(),根据标签选择器获取元素，返回jquery对象
+		console.log($("h1"));
+		//原生对象使用原生属性和方法；jquery对象使用jquery的属性和方法，不能混用
+		$("h1").html("哈哈");
+		//原生对象与JQ对象的互相转换
+		//1.JQ->原生
+		//从jq对象中通过下标取元素，返回原生对象
+		console.log($("h1")[0]);
+		$("h1")[0].innerHTML = "jq->原生";
+		//jquery对象调用get(index)，返回原生对象
+		$("h1").get(1).innerHTML = "get()转原生";
+
+		//2.原生转换jquery对象，使用$()封装
+		var h1 = document.getElementsByTagName("h1")[0];
+		console.log(h1,$(h1));
+
+
+
+		
+
+
+
+	};
+  </script>
+
+ </head>
+ <body>
+	<h1>标题</h1>
+	<h1>标题</h1>
+	<h1>标题</h1>
+	<h1>标题</h1>
+ </body>
+</html>

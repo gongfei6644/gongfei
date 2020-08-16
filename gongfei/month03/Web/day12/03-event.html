@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	div{
+		width:200px;
+		height:200px;
+		background:red;
+	}
+  </style>
+  <script src="index.js"></script>
+  <script>
+	window.onload = function (){
+		$("div").onclick = function (evt){
+			//鼠标事件对象
+			console.log(evt);
+			/*
+			clientX clientY 获取鼠标在页面坐标系中的位置
+			offsetX offsetY 获取鼠标在元素坐标系中的位置
+			screenX screenY 获取鼠标在屏幕坐标系中的位置
+			*/
+			console.log(evt.offsetX,evt.offsetY);
+			console.log(evt.clientX,evt.clientY);
+			console.log(evt.screenX,evt.screenY);
+		};
+		//键盘事件对象
+		onkeydown = function (e){
+			/*
+			key:获取按键名称（对应的字符）
+			which:获取按键对应的编码。在keydown、keyup中，对于字符按键一律返回大写字母的编码值，功能键返回键盘编码。在keypress中，which返回当前字符对应的编码，区分大小写
+			*/
+			//按键按下
+			console.log("keydown:",e.key,e.which);
+		};
+		onkeypress = function (e){
+			//只有字符键被按下才触发
+			console.log("keypress:",e.key,e.which);
+		};
+		onkeyup = function (e){
+			//按键抬起
+			console.log("keyup:",e.key,e.which);
+		}
+	};
+  </script>
+ </head>
+ <body>
+	<div></div>
+ </body>
+</html>

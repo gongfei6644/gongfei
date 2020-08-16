@@ -1,0 +1,133 @@
+一、HTML-表单控件(见01-form.html)
+	分类：
+	1.文本框与密码框
+		<input type="text">
+		<input type="password">
+		标签属性：
+			type:指定控件类型，必填
+			name:设置控件名称，跟随数据一起发送，必填
+			value:设置或读取控件的值
+			placeholder:设置输入框的提示文本
+			maxlength：设置可输入的最大字符数
+			readonly:设置输入框只读
+	2.单选按钮和复选按钮
+		<input type="radio"> 单选钮
+		<input type="checkbox"> 复选钮
+		注意：
+			1）一组按钮的控件名称必须保持一致
+			2）必须指定控件的值，最终提交给服务器
+			3）设置checked表示默认选中
+			4）“label for id” 实现控件与文本的绑定
+	3.文件选择框
+		<input type="file" name="">
+		二进制数据只能通过post方式提交，同时设置编码类型为 "multipart/form-data"
+	4.下拉选择框（了解）
+		<select>
+			<option>河北</option>
+			<option>河南</option>
+			<option>山东</option>
+		</select>
+	5.功能按钮
+		1）提交按钮：<input type="submit">
+		2）重置按钮：<input type="reset">
+		3）普通按钮：<input type="button">需要自定义功能
+		4）按钮标签：<button>点我</button>，书写位置不同，功能不同。
+			表单中书写：等价于submit
+			表单外书写：等价于普通按钮，需要自定义功能
+
+二、CSS
+	1.Cascading Style Sheet 层叠样式表，实现网页的排版布局以及样式美化。
+	2.CSS使用方式
+		1）行内样式
+			借助于style标签属性书写样式声明
+			常用的CSS属性：
+				color 设置文本颜色
+				background-color 设置背景颜色
+				font-size 设置字体大小
+			例：
+				<h1 style="color:red;font-size:16px;"></h1>
+		2）文档内嵌
+			将CSS代码与标签相分离，嵌入在HTML文件中。借助于<style></style>标签，标签内容即为CSS代码。
+			例：
+				<style>
+					选择器{
+						color:red;
+					}
+					/*标签选择器：根据标签名匹配元素*/
+					h1{
+						
+					}
+				</style>
+			选择器：根据标签名，属性值，或层级关系到页面中匹配元素，为其应用样式
+		3）外链
+			创建外部样式表文件(.css);
+			在HTML中使用<link>引入外部的样式表;
+			样式表中借助选择器匹配元素
+	3.样式表的特征（见05-CSS-TZ.html）
+		1）层叠性
+			多个样式声明共同作用于元素
+		2）继承性
+			后代元素可以继承祖先元素的文本样式.
+			注意：a标签的文本颜色需要单独设置
+		3）样式表优先级
+			发生样式冲突时，考虑优先级。
+			1.行内样式优先级最高；
+			2.选择器样式优先级一致，发生样式冲突时，主要看代码的书写顺序，后来者居上。
+			3.浏览器的默认样式和继承样式优先级最低
+	4.选择器
+		1）标签选择器
+			根据标签名匹配元素
+		2）id选择器（见06-selector-basic.html）
+			根据元素的id属性值匹配
+			#id属性值{
+			
+			}
+			注意：id具有唯一性，不能重复；id属性值自定义，可以由数字，字母，下划线，-组成，禁止数字开头。
+		3）class选择器
+			根据class属性值匹配相关元素，可以重复使用
+			.class属性值{
+			
+			}
+			特殊用法：
+				1.标签选择器与类选择器组合使用，必须标签名在前。例：p.c1{  }
+				2.class属性只能写一次，但是可取多个属性值，使用空格隔开。例：class="c1 c2 c3"
+		4）群组选择器
+			为一组元素统一设置样式
+			例：
+				selector1,selector2,selector3{
+				
+				}
+		5）后代选择器（见07-children-selector.html）
+			selector1 selector2{
+			
+			}
+			匹配所有满足selector2的后代元素
+		6）子选择器
+			selector1>selector2{
+			
+			}
+			匹配所有满足selector2的直接子元素
+		7）伪类选择器（见08-hover.html）
+			伪类用于对元素的不同状态设置样式。
+			使用：伪类只能与基础选择器（标签，id，class）结合使用
+			分类：
+				:link	超链接访问前
+				:visited	超链接访问后
+				:hover	鼠标滑过或悬停时（重点）
+				:active	鼠标点按不抬起（激活）
+				:focus	表单控件获取焦点时（常用）
+			作业：
+				1.横向导航栏，鼠标悬停元素时修改文本色，背景色
+				2.下拉菜单隐藏与显示
+					display:none; //元素隐藏
+					display:block;//元素显示
+
+
+			
+
+
+
+
+
+
+

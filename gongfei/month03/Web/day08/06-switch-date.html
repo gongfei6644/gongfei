@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	//1.接收用户输入的年月日
+	var year = prompt("请输入年");
+	var month = prompt("请输入月");
+	var day = Number(prompt("请输入日"));
+	//总天数
+	var sum = 0;
+	//闰年判断
+	var isRun = year%4==0&&year%100!=0 || year%400==0;
+	//整月天数累加，最多11个月
+	switch(month-1){
+		case 11:
+			sum += 30;	
+		case 10:
+			sum += 31;
+		case 9:
+			sum += 30;	
+		case 8:
+			sum += 31;
+		case 7:
+			sum += 31;	
+		case 6:
+			sum += 30;
+		case 5:
+			sum += 31;	
+		case 4:
+			sum += 30;
+		case 3:
+			sum += 31;	
+		case 2:
+			sum += 28;
+			if(isRun){
+				sum++;
+			}
+		case 1:
+			sum += 31;
+	}
+	//当前月天数累加
+	sum += day;
+	console.log(year+"年"+month+"月"+day+"日是当年的第"+sum+"天");
+
+
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

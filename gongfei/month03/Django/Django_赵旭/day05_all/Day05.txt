@@ -1,0 +1,140 @@
+1.后台管理
+	1.基本管理
+	2.高级管理
+		1.在 admin.py 中创建高级管理类并注册
+			class EntryAdmin(admin.ModelAdmin):
+				pass
+		2.注册高级管理类
+			admin.site.register(Entry,EntryAdmin)
+
+		练习：完成Publisher的高级管理功能
+			1.在列表页中显示 name,address,city属性
+				list_display = ('name','address','city')
+			2.address 和 city 是可编辑的
+				list_editable = ('address','city')
+			3.右侧增加过滤器，允许按照city和country进行筛选
+				list_filter = ('city','country')
+			4.顶部增加搜索框，允许按照name 和 website 进行搜索
+				search_fields = ('name','website')
+			5.在详情页中分组显示
+				1.name,address,city 为基本选项
+				2.country,website 为高级选项并可以折叠
+
+				fieldsets = (
+					("基本选项",{
+						"fields":("name","address","city"),
+					}),
+					("高级选项",{
+						"fields":("country","website"),
+						"classes":("collapse",)
+					})
+				)
+2.ORM - 关系映射
+	1.一对一映射
+		1.在关联的两个类中的任何一个类中:
+			属性 = models.OneToOneField(Entry)
+		2.示例
+			class Author(models.Model):
+				pass
+
+			class Wife(models.Model):
+				xxxx xxxx
+				author = models.OneToOneField(Author)
+			
+			注意：
+				1.在Wife表中会有一个author_id的列引用自Author表的主键
+				2.Wife实体类会有一个 author 属性来表示对对应的Author的引用
+				3.同时在Author的实体中增加一个隐式属性 - wife
+			在 Wife 中:
+				1.可以通过author属性，引用对应的Author对象
+				2.可以通过author_id属性，引用对应的AUthor的id
+			在 Author 中:
+				1.可以通过 wife 属性，引用对应的wife对象
+	2.一对多映射
+		1.语法
+			在"多"实体类中增加对"一"实体类的引用
+			属性 = models.ForeignKey(Entry)
+		2.示例
+			一个出版社(Publisher)允许出版多本图书(Book)
+			一本图书(Book)只能属于一个出版社(Publisher)
+			出版社(Publisher)[1] -> 图书(Book)[多]
+
+			class Publisher(models.Model):
+				xxx xxx
+
+			class Book(models.Model):
+				xxx xxx
+				publisher = models.ForeignKey(Publisher)
+
+			1.在Book的实体中增加了一个属性-publisher
+			2.在Book的实体中增加了一个属性-publisher_id
+				数据表中也会增加一个 publisher_id
+			3.在Publisher的实体中增加了一个属性-book_set
+				book_set 表示的是当前的publisher对应的所有的书籍的查询
+		3.数据的管理
+			1.增加/修改 数据
+				1.通过 book.publisher_id 插入/修改 关联数据
+					book = Book() / Book.objects.get()
+					book.publisher_id = 1
+					book.save()
+				2.通过 book.publisher 插入/修改 关联数据
+					book = Book()
+					pub = Publisher.objects.get(id=1)
+					book.publisher = pub
+					book.save()
+				练习：
+					1.指定 "海底两万里" 书籍的出版社为 "清华大学出版社"
+						book = Book.objects.get(title='海底两万里')
+						book.publisher_id = 1
+						book.save()
+
+					2.指定 "钢铁是咋练成的" 书籍的出版社为 "北京大学出版社"
+						book = Book.objects.get(title="钢铁是咋练成的")
+						pub = Publisher.objects.get(name='北京大学出版社')
+						book.publisher = pub
+						book.save()
+			2.查询数据
+				1.通过 Book 查询 Publisher
+					通过 属性 publisher 进行引用
+					book = Book.objects.get(id=1)
+					book.publisher # 表示的就是对应的出版社对象
+				2.通过 Publisher 查询对应的所有的 Book
+					通过 book_set 来获取对应的数据的查询
+	3.多对多映射
+		1.语法
+			在关联的两个类中的任意一个类中增加
+			属性 = models.ManyToManyField(Entry)
+		2.示例
+			一个出版社(Publisher)可以有多名签约作者(Author)
+			一名作者(Author)也可以签约多个出版社(Publisher)
+
+			class Publisher(models.Model):
+				xxxx xxx
+
+			class Author(models.Model):
+				xxxx xxx
+				publishers = models.ManyToManyField(Publisher)
+			
+			1.数据库中会创建第三张表 index_publisher_author
+				一个主键俩外键
+			2.在Author中会增加一个属性 publishers
+				表示的是对Publisher表的查询引用
+			3.在Publisher中会增加一个属性 author_set
+				表示的是对Author表的查询引用
+		3.数据管理
+			在 Author 中，通过 publishers 操作数据
+			在 Publisher中，通过 author_set 操作数据
+			
+			1.增加数据
+				通过关联属性的 add() 实现数据增加
+			2.删除数据
+				通过关联属性的 remove() 实现数据的删除
+			3.查询数据
+				通过关联属性查询数据
+				
+
+
+
+
+
+

@@ -1,0 +1,199 @@
+1.Django中的应用
+	1.什么是应用 - app
+		一个应用就是网站中的一个独立的业务逻辑程序包
+		Django中的主目录只做配置不做业务，所有的业务都要放在应用中去实现
+	2.创建应用
+		1.创建
+			./manage.py startapp 应用名称
+		2.注册
+			在 settings.py 中
+			INSTALLED_APPS = [
+				'',
+				'',
+				'创建好的应用名称'
+			]
+
+			练习:
+				1.创建 music 的应用，并注册
+				2.创建 sport 的应用，并注册
+				3.创建 index 的应用，并注册
+	3.应用的结构组成
+		1.migrations 文件夹
+			存放数据库迁移文件
+		2. __init__.py
+			应用的初始化文件
+		3.admin.py
+			后台的管理配置文件
+		4.apps.py
+			有关应用的属性配置文件
+		5.models.py
+			模型文件，创建所有的实体类
+		6.tests.py
+			应用的单元测试文件
+		7.views.py
+			视图文件，定义视图函数处理业务
+	4.分布式路由系统
+		1.每个应用中都创建一个 urls.py 文件
+			格式参考主路由配置文件
+		2.在主路由中，将具体的请求分发给应用的urls继续做处理
+			示例：
+				1.http://127.0.0.1:8000/news/index
+					将请求转交给news应用中的urls做进一步处理
+				2.http://127.0.0.1:8000/news/show
+					将请求转交给news应用中的urls做进一步处理
+				3.http://127.0.0.1:8000/news/xxxx
+					进入到服务器之后，访问路径是 news/ 开始的话，就一律交给news应用的urls做进一步的处理
+		3.在应用的urls中找到自己的views去做具体的业务处理
+			示例：
+				http://127.0.0.1:8000/news/show
+				交给 news 应用中的 show_views 函数处理
+			练习：
+				1.访问路径 /music/xxx
+					一律交给 music 应用中的 urls 处理
+
+					/music/index
+					交给 music 的urls 找到 views 中的 index_views() 执行
+				2.访问路径 /sport/xxx
+					一律交给 sport 应用中的 urls 处理
+				3.访问路径 /index/xxx
+					一律交给 index 应用中的 urls 处理
+
+				http://127.0.0.1:8000/music/index/
+				http://127.0.0.1:8000/music/
+				执行 music 应用中的 views 中的 index_views
+
+
+				127.0.0.1:8000/
+					交给 index 应用中的 index_views视图处理
+					通过 index 中的urls 找到 index_views处理
+				127.0.0.1:8000/login
+					通过 index 中的urls 找到 login_views处理
+				127.0.0.1:8000/register
+					通过 index 中的urls 找到 register_views
+				
+				访问路径如果不是 /news,/music,/admin的时候一律交给 index应用的 urls 去处理
+2.Django中的模板 - Templates
+	1.Django中的模板
+		Django的模板引擎是Django来提供的，并非Jinja2
+	2.模板的配置
+		在 settings.py 中的 TEMPLATES 变量
+	3.模板的加载方式
+		1.通过 loader 对象获取模板,通过HttpResponse进行响应(了解)
+			from django.template import loader
+			#1. 通过loader加载模板
+			t = loader.get_template("模板名称")
+			#2. 将模板渲染成字符串
+			html = t.render()
+			#3. 将字符串响应给客户端
+			return HttpResponse(html)
+
+			练习：
+				访问 http://127.0.0.1:8000/01-temp
+				呈现 01-temp.html 中的内容到浏览器中
+		2.使用render()加载并响应模板
+			from django.shortcuts import render
+			return render(request,'模板的名称')
+	4.模板的语法
+		1.变量
+			1.Django中允许作为变量的数据类型
+				字符串,数字,列表,元组,字典,对象,函数
+			2.变量的语法
+				1.服务器端的处理
+					注意:变量必须要封装到字典中才能传递给模板
+					dic = {
+						"var1":"value1",
+						"var2":"value2",
+					}
+
+					1.使用 loader 
+						t = loader.get_template('xxx.html')
+						html = t.render(dic)
+						return HttpResponse(html)
+					2.使用 render
+						return render(request,'x.html',dic)
+				2.在模板中的处理
+					模板中使用 {{变量名}} 显示变量的数据
+
+				练习:
+					1.访问路径 /02-var1
+					2.渲染 02-var1.html
+					3.声明几个变量带到模板上
+						1. uname : 吕泽Maria
+						2. age : 30
+						3. salary : 50000
+					4.模板中
+						姓名:吕泽Maria
+						年龄:30
+						工资:50000
+		2.标签
+			1.作用
+				将服务器端的功能嵌套在模板中
+			2.语法
+				{% 标签内容 %}
+				{% 结束标签 %}
+
+				1. if 标签
+					1. 
+						{% if 条件 %}
+						{% endif %}
+					2.
+						{% if 条件 %}
+						 ...
+						{% else %}
+						 ...
+						{% endif %}
+					3.
+						{% if 条件1 %}
+						 ...
+						{% elif 条件2 %}
+						 ...
+						{% else %}
+						 ...
+						{% endif %}
+				2. for 标签
+					{% for 变量 in 元组|列表|字典 %}
+					{% endfor %}
+					内置变量:forloop
+						forloop.counter : 记录当前迭代次数
+						forloop.counter0 : 效果同上
+						forloop.first : 是否第一次循环
+						forloop.last : 是否最后一次循环
+		3.过滤器
+			1.作用
+				在变量的输出前对变量进行筛选和过滤
+			2.语法
+				{{变量|过滤器:参数}}
+			3.常用过滤器
+				1.default
+					作用:如果变量是空字符串的话，则输出default过滤器后的值
+					语法:{{var|default:'values'}}
+				2.default_if_none
+					作用:如果变量是None的话,则输出后面的参数值
+					语法:{{var|default_if_none:'value'}}
+				3.floatformat 
+					作用:对小数进行四舍五入并保留到n位
+					语法:{{var|floatformat:num}}
+				4.truncatechars
+					作用:保留n位字符，后面用...显示
+					语法:{{var|truncatechars:n}}
+	5.静态文件
+		1.Django中的静态文件的处理
+			在 settings.py 中设置静态文件
+			1.设置静态文件的存储路径
+				STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
+			2.设置静态文件的访问路径
+				STATIC_URL = '/static/'
+
+				http://127.0.0.1:8000/static/xxxx
+
+
+	D:\images\a.jpg
+	http://localhost:8000/users/a.jpg
+
+
+
+
+
+
+
+

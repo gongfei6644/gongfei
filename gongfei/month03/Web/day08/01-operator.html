@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	//1.关系运算符
+	var r1 = "10" > "2";
+	console.log(r1);
+	var r2 = "15" > "151";
+	console.log(r2);
+	var r3 = "hello" > "apple";
+
+	var r4 = "10" > 2;//10 > 2
+	console.log(r4);
+	var r5 = "10" > true;//10 > 1
+	var r6 = 100 > undefined;//100 > NaN
+	console.log(r6);//false
+	var r7 = true > false;//1 > 0
+	console.log(r7);
+	/*
+	100 > true
+	100 > undefined
+	100 > null
+	"hello" > 100
+	"hello" > undefined
+	true > false
+	*/
+	var r8 = "10" == 10;//true
+	var r9 = "10" === 10;//false
+	console.log(r8,r9);
+	var res1 = "10" != 10;//false
+	console.log(res1);
+	var res2 = "10" !== 10;//true
+	console.log(res2);
+
+	var r3 = !3 > 5;
+	var r4 = !(3 > 5);
+	console.log(r3,r4);
+	/*
+	var year = prompt("请输入年");
+	//&&运算的优先级高于||
+	var r = year%400==0 || year%4==0 && year%100!=0;
+	console.log(r);
+	
+	//prompt()点击确定，会返回输入框中的内容（string），点取消，返回null
+	var a = prompt("请输入年");
+	console.log(a,typeof a);
+	*/
+
+	//位运算
+	var r1 = 3 & 5;
+	console.log(r1);
+
+	//三目运算符
+	var money = 1000;
+	var res = money>=1000 ? "存款" : "余额";
+	console.log(res);
+	//嵌套三目运算
+	var scroe = 85;
+	var res2 = score>=90 ? "A" : score>=80 ? "B" : "C";
+	console.log(res2);
+
+
+
+
+
+
+
+
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

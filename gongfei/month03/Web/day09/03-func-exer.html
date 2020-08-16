@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+  function isRun(year){
+	var res = year%4==0&&year%100!=0 || year%400==0;
+	return res;
+  }
+  function caculateDate(){
+	//1.接收用户输入的年月日
+	var year = prompt("请输入年");
+	var month = prompt("请输入月");
+	var day = Number(prompt("请输入日"));
+	//闰年判断
+	var res = isRun(year);
+	//已知1900.1.1是星期一，计算当前年月日距离参考日期经过的总天数，对7取余，余数0~6对应周日到周六
+	var sum = 0;
+	//整年天数的累加
+	for(var i = 1900;i < year;i++){
+		sum += 365;
+		var r = isRun(i);
+		if(isRun(i)){
+			sum++;
+		}
+	}
+	//当前年整月天数的累加
+	for(var j = 1;j < month; j++){
+		switch(j){
+			case 1:
+			case 3:
+			case 5:
+			case 7:
+			case 8:
+			case 10:
+				sum += 31;
+				break;
+			case 4:
+			case 6:
+			case 9:
+			case 11:
+				sum += 30;
+				break;
+			case 2:
+				sum += 28;
+				if(res){ //isRun(year)
+					sum++;
+				}
+		}
+	}
+	//当前月天数的累加
+	sum += day;
+	//取余算星期
+	var week = sum % 7;//余数0~6
+	//var show = "";
+	switch(week){
+		case 0:
+			//show="日";
+			week="日";
+			break;
+	}
+	console.log("星期"+week);
+  }
+  </script>
+ </head>
+ <body>
+	<button onclick="caculateDate()">日期计算</button>
+ </body>
+</html>

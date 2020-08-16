@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	h1{
+		color:red;
+	}
+	#d1{
+		background:pink;
+	}
+	.c1{
+		background:green;
+	}
+	/*标签选择器与类选择器组合使用*/
+	p.c1{
+		/*匹配类名为c1的p元素，设置文本加粗*/
+		font-weight:bold;
+	}
+	.c2{
+		text-decoration:underline;
+	}
+	#d1,.c1{
+		/*设置文本的水平对齐方式,默认左对齐，可取left/center/right */
+		text-align:center;
+	}
+
+  </style>
+ </head>
+ <body>
+	<h1 id="d1">小泽</h1>
+	<h1 class="c1 c2">旭旭</h1>
+	<h1>隔壁老王wangwc</h1>
+	<h1 class="c1">铭铭</h1>
+	<p class="c1">测试</p>
+	<p>参考</p>
+	<div></div>
+ </body>
+</html>

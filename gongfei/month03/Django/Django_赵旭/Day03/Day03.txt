@@ -1,0 +1,141 @@
+1.模板
+	1.设置
+	2.变量 - {{}}
+	3.标签 - {%%}
+	4.过滤器 - {{var|filter:params}}
+	5.静态文件
+		在 settings.py 中进行设置
+		1.设置静态文件的存储路径
+			STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
+		2.设置静态文件的访问路径
+			STATIC_URL = "/static/"
+	6.模板的继承
+		1.父模板中
+			{% block 名称 %}
+			{% endblock %}
+
+			特征:
+				1.在父模板中允许正常显示
+				2.在子模板中允许被重写
+		2.子模板中
+			1.指定继承自哪个父模板
+				{% extends '父模板名称' %}
+			2.重写父模板中的内容
+				{% block 名称 %}
+				{% endblock %}
+
+				特征
+					1.允许重写父模板中的内容
+					2.如果不重写，将继续显示父模板中对应的内容
+2.模型 - Models
+	1.什么是模型
+		模型是根据数据库表结构而创建出来的class
+	2.ORM
+		Django使用的是自带的ORM框架
+		三大特征:
+			1.数据表 到 编程类 的映射
+			2.数据类型的映射
+			3.关系映射
+	3.创建 和 配置 数据库
+		1.创建一个数据库 - webdb
+		2.Django的数据库配置
+			在 settings.py 中找到
+			DATABASES = {
+					'default': {
+							'ENGINE': 'django.db.backends.sqlite3',
+							'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+					}
+			}
+			
+			1.ENGINE:指定数据库的引擎
+				django.db.backends.mysql
+				以上取值就是连接到mysql的引擎字符串
+			2.NAME:要连接到的数据库的名称
+			3.USER:登录到数据库的用户名
+			4.PASSWORD:登录到数据库的密码
+			5.HOST:指定要连接到的主机
+			6.PORT:指定端口号，mysql为3306
+		3.数据库的同步操作
+			1. ./manage.py makemigrations
+				作用：将每个应用下的models.py文件生成一个中间文件并保存在migrations的目录中
+			2. ./manage.py migrate
+				作用：将每个应用下的migrations目录中的中间文件同步回数据库
+		4.编写Models
+			1.示例
+				见代码
+
+			2.Models的语法
+				class ClassName(models.Model):
+					属性 = models.字段类型(字段选项)
+				1.字段类型(Field Types)
+					1.BooleanField()
+						编程语言中使用True 和 False表示值
+						数据库中使用 0 和 1 来表示值
+					2.CharField()
+						字符串
+						注意:必须指定max_length参数值来表示长度
+					3.DateField()
+						允许使用字符串或date类型的数据表示值
+					4.DateTimeField()
+						允许使用字符串或datetime类型的数据表示
+					5.DecimalField()
+						数据库类型:decimal
+						示例:
+							money = models.DecimalField(
+								max_digits = 7,
+								decimal_places = 2
+							)
+
+							整体占7位数字，小数点后占2为，那么整数位则占5位
+					6.FloatField()
+						数据库中的类型:float
+					7.IntegerField()
+						数据库中的类型:int
+					8.EmailField()
+						数据库中的类型:varchar
+					9.URLField()
+						数据库中的类型:varchar
+					10.TextField()
+						数据库中的类型:text
+					11.ImageField()
+						作用:保存图片的路径到数据库中
+						注意:配合Django的后台一起使用
+						image = models.ImageField(
+							upload_to="static/images/"
+						)
+						upload_to:
+							1.后台上传图片时，会将图片上传至static/images/xxxxx.xxx
+							2.会将后面的值(static/images)再拼上图片的名称插入到数据库中
+
+				2.字段选项(Field Options)
+					1.primary_key
+						取值为True的话表示该列为主键
+					2.null
+						取值为True的话表示该列值允许为空
+						默认值为 False
+					3.default
+						指定该列的默认值
+					4.db_column
+						指定该属性映射到表的列的名称
+					5.db_index
+						取值为True则给该列增加索引
+					6.unique
+						取值为True则表示该列的值唯一
+				
+				练习：
+					在 index 应用中的 models.py中追加class
+					1.Author - 作者
+						1.name - 姓名(增加索引)
+						2.age - 年龄
+						3.email - 邮箱(允许为空)
+					2.Book - 图书
+						1.title - 书名
+						2.publicate_date - 出版时间
+					3.在Author实体中增加一个列
+						isActive - 是否为活动用户，布尔类型，默认值为True
+		5.相关指令
+			1.通过数据库自动导出Models
+				./manage.py inspectdb > 文件名.py
+
+
+

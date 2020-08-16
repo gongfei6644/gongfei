@@ -1,0 +1,86 @@
+一、事件处理
+	1.事件分类
+		1）鼠标事件
+			onclick
+			ondblclick
+			onmouseover
+			onmouseout
+			onmousemove
+		2）键盘事件
+			onkeydown
+			onkeypress
+			onkeyup
+		3）窗口，文档，图片等元素加载完毕
+			onload
+		4）表单控件相关的元素状态
+			onfocus获取焦点
+			onblur失去焦点
+			oninput实时监听输入
+			onchange监听状态是否发生变化
+			onsubmit监听数据是否可以发送
+	2.事件绑定
+		1）内联绑定
+			<button onclick=""></button>
+		2）动态绑定
+			btn.onclick = function (){};
+	3.this
+		永远表示函数或方法的触发对象
+	4.事件对象
+		事件对象伴随事件触发自动产生，储存与当前事件相关的信息。以参数的形式自动传入事件处理函数中，我们只需要接收。
+		例：
+			btn.onclick = function (event){//e,evt
+				console.log(event);
+			};
+二、jQuery
+	1.介绍：
+		官网：jquery.com
+		中文API：jquery123.com
+		jQuery是一个JS的工具库，对原生JS中的方法进行封装，可以实现更简便的操作。
+	2.使用
+		1）引入jQuery文件
+		2）核心对象：jquery对象（使用$表示）
+		3）工厂函数
+			$():用于获取元素，创建节点，原生对象转JQ对象等。
+			例：使用$("选择器")获取元素
+		4）使用
+			$()获取JQ对象，注意原生对象使用原生属性和方法；jquery对象使用jquery的属性和方法，不能混用。
+			转换类型:
+				1.jq->原生
+					从jq对象中通过下标或者get(index)取元素，返回原生对象
+				2.原生->jq
+					使用$()封装，返回jquery对象
+	3.获取元素
+		$("selector")根据选择器获取元素
+		选择器分类：
+			1）基础选择器
+				标签，id,class,群组
+				例：
+					$("h1")/$("#box")/$(".c1")/$("body,h1")
+			2）层级选择器
+				1.后代选择器
+					$("#box span")
+				2.子代选择器
+					$("#box>span")
+				3.相邻兄弟选择器
+					向后查找相邻的一个兄弟元素，同时必须满足指定的选择器
+					$("h1+p")//获取h1后面的相邻兄弟p
+				4.通用兄弟选择器
+					向后查找所有满足选择器的兄弟元素
+					$("h1~p")//获取h1后面所有的兄弟元素p
+				作业：
+					jquery改版00-work.html
+					jquery获取表单控件的值val()
+
+
+			
+			
+
+	
+
+
+
+
+		
+		
+		
+		

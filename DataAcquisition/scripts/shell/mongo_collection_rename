@@ -1,0 +1,58 @@
+#!/opt/anaconda3/bin/python
+
+# -*- coding: utf-8 -*-
+
+import time
+from datetime import datetime
+from datetime import timedelta
+
+import pymongo
+
+
+def rename():
+    print('ready to change mongodb collection name')
+    last = datetime.now() - timedelta(days=1)
+    # client = pymongo.MongoClient('192.168.4.89', 27017)
+    # client.admin.authenticate('app_xiqu', 'eQ5fy5tIKxBg9vp07E9q')
+    client = pymongo.MongoClient('192.168.4.103', 27017)
+    client.admin.authenticate('admin', 'fxtxq1205')
+    new_name = 'Dat_case_' + last.strftime('%Y_%m')
+    result = client['DataCollecting'][new_name].find_one()
+    if result:
+        write_status()
+        return
+    clt = client['DataCollecting']['Dat_case']
+    clt.rename(new_name)
+    print('changed Dat_case collection name with {}'.format(new_name))
+    clt.create_index([('city', 1), ('d_status', 1), ('is_std', 1), ('case_happen_date', 1), ('detail_time', 1)],
+                     background=True)
+    clt.create_index([('city', 1), ('std_date', 1), ('data_source', 1), ('is_std', 1)], background=True)
+    clt.create_index([('city', 1), ('d_status', 1), ('detail_time', 1), ('data_source', 1)], background=True)
+    clt.create_index([('data_source', 1), ('city', 1), ('d_status', 1), ('crt_time', 1)], background=True)
+    clt.create_index([('data_source', 1), ('d_status', 1)], background=True)
+    clt.create_index([('city', 1), ('d_status', 1), ('detail_time', 1), ('project_name', 1)], background=True)
+    clt.create_index([('city', 1), ('d_status', 1), ('detail_time', 1), ('house_area', 1)], background=True)
+    clt.create_index([('city', 1), ('d_status', 1), ('detail_time', 1), ('unitprice', 1)], background=True)
+    print('indexes of mongodb has created')
+    write_status()
+
+
+def write_status():
+    with open('rename_status', 'w') as f:
+        f.write('1')
+
+
+if __name__ == '__main__':
+    flag = 0
+    while True:
+        try:
+            rename()
+            with open('rename_status', 'r') as f:
+                v = f.read()
+                if v == '1':
+                    flag = 1
+        except Exception as e:
+            print('{} 异常: {}'.format(datetime.now(), e))
+        if flag == 1:
+            break
+        time.sleep(180)

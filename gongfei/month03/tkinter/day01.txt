@@ -1,0 +1,43 @@
+项目
+　面向对象编程 + GUI
+
+魏明择
+  01 毕业, 水利水电动力工程
+  02 IT行业
+  03 文曲星
+  05 诺亚舟
+  08 医疗器械
+  12 IT教育
+
+
+Tkinter 图形用户接口
+
+GUI(Graphical User Interface)
+   input()
+   print()
+
+GUI 简介
+  cocos-3d
+  Qt
+  GTK
+  MFC
+
+常用控件(Widget)
+  Label
+  Button
+  Entry(输入框) 相当于input
+
+事件Event
+  示例见:
+    event.py
+
+布局 Layout
+
+
+
+
+
+
+
+
+

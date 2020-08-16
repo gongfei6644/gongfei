@@ -1,0 +1,149 @@
+一、Web前端与后端（Python Web）
+	1.Web前端：
+		网页，包含HTML，CSS，JS。
+		静态网页：不能与服务器交互的网页
+		动态网页：能够与服务器交互的网页
+	2.Web后端：
+		Flask，Django
+		Ajax技术
+二、服务器
+	1.服务器：为用户提供服务的计算机，将数据抽象成URL，以供用户访问。
+	2.组成：
+		1）硬件
+			主机
+		2）软件
+			能够处理用户请求的程序：
+			Apache
+			Tomcat
+			IIS (Internet Information Service)
+			Nginx
+	3.作用：
+		存储Web相关的数据
+		处理请求和响应
+		具备安全性
+三、框架
+	1.框架：为了解决一些开放性问题，重复性问题而产生的程序结构
+	2.框架模式：
+		1）MVC
+			M：模型层Model，与数据库打交道
+			V：视图层View
+			C：控制层Controller，处理请求与响应
+
+		2）MTV（Flask）
+			M：模型层Model
+			T：Template模板（HTML模板），
+			V：View视图层，处理请求与响应
+四、Flask使用
+	1.Flask是一个基于Python并依赖于Jinja2模板引擎和WerkZeug WSGI服务的框架。
+		WSGI：Web Server Gateway Interface.Web服务网关接口，提供处理网络请求相关的功能
+	2.安装Flask
+		1）查看已安装的flask
+			>>>import flask
+				没反应，说明已安装；
+				报错：说明未安装（可选在线安装）
+			>>>flask.__version__
+	3.Flask的路由
+		1）路由是为了匹配用户的请求地址，会自动执行视图函数，视图函数中必须有返回值，返回字符串显示到相应的页面中。
+		2）使用：
+			1.定义路由及视图函数
+				@app.route('/地址')
+				def funcName():
+					return "" #响应到页面中的内容
+				例：
+					@app.route('/') # '/'表示根路径
+					def index(): # 匹配到路径后执行的视图函数
+						return "首页"
+			2.定义带参数的路由
+				变量：<变量名>
+				@app.route("/login/<name>/<age>")
+				def login(name,age):
+					return "%s,%s" % (name,age)
+				练习：
+					配置路由：/calaute/<num1>/<num2>
+					视图函数中接收参数，
+					返回“3 + 5 = 8”
+				注意：路径中的参数变量永远是字符串类型
+			3.类型转换器
+				分类：
+					缺省	字符串，不能包含'/'
+					int:	转换整数
+					float:	转换小数
+					path:	字符串，允许包含'/'
+				使用：
+					@app.route('/show/<int:num>')
+			4.多个URL执行同一个视图函数
+				例：
+					@app.route('/')
+					@app.route('/index')
+					def index():
+						return "首页"
+				练习：
+					定义以下路由
+					127.0.0.1:5000/show
+					127.0.0.1:5000/show/list
+					127.0.0.1:5000/show/<name>
+					执行同一个视图函数,返回相应内容
+				实现：
+					@app.route('/show')
+					@app.route('/show/list')
+					@app.route('/show/<name>')
+					def show(name="ze"):
+							return "show %s" % name
+				注意：
+					如果在app.run()设置host="0.0.0.0"
+					不影响当前虚拟IP（127.0.0.1）
+					可以让当前局域网中其他的计算机，通过内网IP访问服务器
+五、模板
+	1.模板是一种特殊的HTML文件，Python+html网页结构，允许在模板文件中使用变量
+	2.导入render_template
+	3.项目中创建“templates”文件夹，存放模板文件
+	练习：
+		视图函数中定义变量
+		name=""
+		age=
+		dic=
+		tub
+		list
+		将数据传递到模板文件中显示
+		例:
+			def show():
+				name="xb"
+				return render_remplate("",uname=name)
+		模板文件中使用
+			{{ uname }}
+	
+
+
+				
+				
+				
+				
+		
+
+		
+	
+
+	
+	
+	
+		
+	
+
+
+
+	
+	
+		
+			
+			
+		
+	
+	
+
+	
+	
+
+		
+		
+
+	

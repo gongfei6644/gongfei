@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	function show(){
+		//获取元素
+		var input = document.getElementsByTagName("input")[0];
+		var div = document.getElementsByTagName("div")[0];
+		//传值显示
+		div.innerHTML = "<h1>"+input.value+"</h1>";	
+	}
+  </script>
+ </head>
+ <body>
+	<input type="text" name="uname">
+	<button onclick="show()">显示</button>
+	<div></div>
+ </body>
+</html>

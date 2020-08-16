@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>
+    {% block title %}
+    FirstPage
+    {% endblock %}
+  </title>
+  <link rel="stylesheet" href="/static/css/base.css">
+  {% block style %}
+    <link rel="stylesheet" href="/static/css/index.css" type="text/css">
+  {% endblock %}
+  <script src="/static/js/jquery-1.11.3.js"></script>
+  {% block js %}
+    <script src="/static/js/index.js"></script>
+  {% endblock %}
+ </head>
+ <body>
+  <!--大框架-->
+  <div id="container">
+	<!--1.Top(togather)-->
+	<div id="top">
+		<!--left,center,right-->
+		<div id="logo">
+			<a href="index.html">
+				<img src="/static/images/header/logo.png">
+			</a>
+      {% block welcome %}
+      {% endblock %}
+		</div>
+    {% block top-nav %}
+		<div id="search">
+			<input type="text" name="search" placeholder="Please input goods you want">
+			<!-- 通过js操作跳转 -->
+			<a href="javascript:void(0)">
+				<img src="/static/images/header/search.png">
+			</a>
+		</div>
+		<div id="top-nav">
+			<ul>
+				<li>
+					<!--Chorm浏览器不支持空标签写在已有标签后面，渲染上会出错-->
+					<a href="">
+						<img src="/static/images/header/care.png">
+					</a>
+				</li>
+				<li>
+					<b></b>
+					<a href="">
+						<img src="/static/images/header/order.png">
+					</a>
+				</li>
+				<li>
+					<b></b>
+					<a href="">
+						<img src="/static/images/header/shop_car.png">
+					</a>
+				</li>
+				<li>
+					<b></b>
+					<a href="">help</a>
+				</li>
+				<li>
+					<b></b>
+					<a href="login.html">login</a>
+				</li>
+			</ul>
+		</div>
+    {% endblock %}
+	</div>
+
+	<!--2.Navigation-->
+  {% block nav %}
+	<div id="nav">
+		<ul>
+			<li>
+				<a href="index.html">homepage</a>
+			</li>
+			<li>
+				<a href="">custom-made</a>
+			</li>
+		</ul>
+	</div>
+  {% endblock %}
+
+  {% block main %}
+	<!--3.Banner-->
+	<div id="banner">
+		<div>
+			<img src="/static/images/index/index_banner1.jpg">
+			<img src="/static/images/index/index_banner2.jpg">
+			<img src="/static/images/index/index_banner3.jpg">
+			<img src="/static/images/index/index_banner4.jpg">
+			<img src="/static/images/index/index_banner5.jpg">
+		</div>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<a href="javascript:void(0)" class="prev">
+			<!-- <img src="/static/images/index/arrow-left.png"> -->
+		</a>
+		<a href="javascript:void(0)" class="next"></a>
+	</div>
+
+	<!--4.Recommend-->
+	<div id="recommend">
+		<div class="commend1">
+			<a href="" title="backpack">
+				<img src="/static/images/index/index_Sbanner_img1.png">
+			</a>
+		</div>
+		<div class="commend2" title="bucket bag">
+			<a href="">
+				<img src="/static/images/index/index_Sbanner_img2.png">
+			</a>
+		</div>
+		<div class="commend3" title="trunk">
+			<a href="">
+				<img src="/static/images/index/index_Sbanner_img3.png">
+			</a>
+		</div>		
+	</div>
+
+	<!--5.Wrapper-->
+	<div id="wrapper"></div>
+
+	<!--6.Main-->
+	<div id="main">
+		<div class="item-type">
+			<!--Title-->
+			<p>
+				Bag
+				<a href="">more>></a>
+			</p>
+			<!--goods display-->
+			<div>
+				<div class="item1">
+					<img src="/static/images/index/index_bp1.png">
+					<p class="brand">
+						U'REVO
+					</p>
+					<p class="subtitle">
+						活力学院休闲双肩包
+					</p>
+					<p class="price">
+						限时特惠 ￥6688.00
+					</p>
+					<p class="detail">查看详情</p>
+				</div>
+				<div class="item2">
+					<img src="/static/images/index/index_bp2.png">
+					<p class="subtitle">
+						Grinder  牛津休闲双肩包
+					</p>
+					<p class="price">
+						￥6688.00
+					</p>
+					<p class="detail">查看详情</p>
+				</div>
+				<div class="item3">
+					<img src="/static/images/index/index_Sbanner_img1.png">
+					<p class="subtitle">
+						90分户外休闲双肩包
+					</p>
+					<p class="price">
+						￥68.00
+					</p>
+					<p class="detail">查看详情</p>
+				</div>
+			</div>
+		</div>
+		<div class="item-type">
+			<!--Title-->
+			<p>
+				Trunk
+				<a href="">more>></a>
+			</p>
+			<!--goods display-->
+			<div>
+				<div class="item1">
+					<img src="/static/images/index/index_Sbanner_img3.png">
+					<p class="brand">
+						90分旅行箱 1A
+					</p>
+					<p class="subtitle">
+						与你走向更远的地方
+					</p>
+					<p class="price">
+						限时特惠 ￥6688.00
+					</p>
+					<p class="detail">查看详情</p>
+				</div>
+				<div class="item2 item2-1">
+					<img src="/static/images/index/index_trunk1.png">
+					<p class="subtitle">
+						与爱箱随 一路精彩
+					</p>
+					<p class="price">
+						￥6688.00
+					</p>
+					<p class="detail">查看详情</p>
+				</div>
+				<div class="item3 item3-1">
+					<img src="/static/images/index/index_trunk2.png">
+					<p class="subtitle">
+						让美好旅行触手可及
+					</p>
+					<p class="price">
+						￥68.00
+					</p>
+					<p class="detail">查看详情</p>
+				</div>
+			</div>
+		</div>
+		<div class="item-type">
+			<!--Title-->
+			<p>
+				Handbag
+				<a href="">more>></a>
+			</p>
+			<!--goods display-->
+			<div>
+				<div class="item1">
+					<img src="/static/images/index/index_hb1.png">
+					<p class="brand">
+						时尚都市菱格双肩包
+					</p>
+					<p class="subtitle">
+						经典百搭 时尚优雅
+					</p>
+					<p class="price">
+						限时特惠 ￥6688.00
+					</p>
+					<p class="detail">查看详情</p>
+				</div>
+				<div class="item2 item2-2">
+					<img src="/static/images/index/index_Sbanner_img2.png">
+					<p class="subtitle">
+						CATTY'0 轻奢级牛皮水桶包
+					</p>
+					<p class="price">
+						￥6688.00
+					</p>
+					<p class="detail">查看详情</p>
+				</div>
+				<div class="item3 item3-2">
+					<img src="/static/images/index/index_hb2.png">
+					<p class="subtitle">
+						英伦复古轻奢级马鞍包
+					</p>
+					<p class="price">
+						￥68.00
+					</p>
+					<p class="detail">查看详情</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+  {% endblock %}
+
+	<!--7.Footer-->
+  {% block footer %}
+	<div id="footer">
+		<div>
+			<img src="/static/images/footer/icon1.png">
+			<p>品质保障</p>
+		</div>
+		<div>
+			<img src="/static/images/footer/icon2.png">
+			<p>私人订制</p>
+		</div>
+		<div>
+			<img src="/static/images/footer/icon3.png">
+			<p>皮粉特供</p>
+		</div>
+		<div>
+			<img src="/static/images/footer/icon4.png">
+			<p>专属特权</p>
+		</div>
+	</div>
+  {% endblock %}
+
+	<!--8.Bottom(togather)-->
+	<div id="bottom">
+		<div class="download">
+			<img src="/static/images/footer/erweima.png">
+		</div>
+		<div class="service">
+			<p>皮爷の商城客户端</p>
+			<img src="/static/images/footer/android.png">
+			<img src="/static/images/footer/ios.png">
+		</div>
+		<p>
+			<img src="/static/images/footer/logo.png" id="footLogo">
+		</p>
+		<p>
+			<img src="/static/images/footer/footerFont.png" id="footFont">
+		</p>
+	</div>
+
+  </div>
+ </body>
+</html>

@@ -1,0 +1,126 @@
+在django中一般使用redis存储session：需安装django-redis-sessions包
+sudo pip install django-redis-sessions==0.5.6
+
+
+1.keys *  查看所有键
+
+2.exists （key）查看键是否存在
+
+3.type （key） 查看数据类型
+
+4.ttl （key） 查看数据时效
+
+一：string
+
+5.增加单条数据
+
+set （key）（value） 
+
+6.增加多条数据
+
+mset（key1）（value1）（key2）（value2）。。。
+
+7.获取单个值
+
+get（key）
+
+8.获取多个值
+
+mget（key1）（key2）
+
+9.删除键值对
+
+del（key）
+
+二：hash
+
+10.增加单条数据
+
+hset（key）（field）（value）
+
+11.增加多条数据
+
+hmset（key）（field1）（value1）（field2）（value2）
+
+12.获取单个字段值
+
+hget（key）（field）
+
+13.获取多个字段值
+
+hmget（key）（field1）（field2）。。。
+
+14.查看某个键对应的所有字段
+
+hkeys（key）
+
+15.查看某个键对应的所有值
+
+hvals（key）
+
+16.删除键值对
+
+del（key）
+
+三：list
+
+17.向左插入数据  
+
+lpush（key）（一个或多个元素）  
+	例 lpush a1 a b c d    得到的结果为：d，c，b，a
+
+18.向右插入数据
+
+rpush（key）（一个或多个元素）  
+
+19.获取对应下标的值
+
+lrange 列表（下标1）（下标2）  例：lrange 0 -1 获取所有值
+
+20.删除数据
+
+lrem（key）（要删除数量）（要删除的内容）
+	例：lrem a1 -2 b  负数表示从尾往前删2个‘b’值，正数从前往后删
+
+21. 插入元素（在某个元素之前或之后）：
+
+linsert （key）before （原有元素）（要插入的元素）   
+linsert （key）after  （原有元素）（要插入的元素）
+
+四：set
+
+22.增加数据
+
+sadd（key）（member1）（member2）。。。
+
+23.获取数据
+
+smembers（key）
+
+24.删除数据
+
+srem （key）（member）  
+
+五：zset（有序集合）
+
+25.增加数据
+
+zadd（key）（权重score）（member1）（权重score）（member2）。。。
+
+26.获取数据
+
+zrange（key）（下标1）（下标2）
+
+例:zrange a1 0 -1 获取所有值
+
+27.通过权重获取值
+
+zrangebyscore（key）（score1）（score2）
+
+28.查询值得权重
+
+zscore（key）（值）
+
+29.删除数据
+
+zrem（key）（值）

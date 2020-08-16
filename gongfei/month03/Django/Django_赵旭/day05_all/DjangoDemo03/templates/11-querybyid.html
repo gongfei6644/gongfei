@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <h2>姓名:{{ author.name }}</h2>
+  <h2>年龄:{{ author.age }}</h2>
+  <h2>邮箱:{{ author.email }}</h2>
+  <h2>状态:
+    {% if author.isActive %}
+      激活
+    {% else %}
+      未激活
+    {% endif %}
+  </h2>
+</body>
+</html>

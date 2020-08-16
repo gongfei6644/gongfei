@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="jquery-1.11.3.js"></script>
+ </head>
+ <body>
+	<p>段落标签</p>
+	<p>段落标签</p>
+	<p>段落标签</p>
+	<p>段落标签</p>
+	<p>段落标签</p>
+	<p>段落标签</p>
+	<p>段落标签</p>
+	<p>段落标签</p>
+	<button onclick="first()">:first</button>
+	<button onclick="last()">:last</button>
+
+	<button onclick="even()">:even</button>
+	<button onclick="odd()">:odd</button>
+
+	<button onclick="eq()">:eq</button>
+	<button onclick="gt()">:gt</button>
+	<button onclick="lt()">:lt</button>
+
+	<script>
+		//否定筛选
+		$("p:not(:eq(5))").css("color","cyan");
+		//$("p:not(.c1)")
+
+		function eq(){
+			$("p:eq(5)").css("color","red");
+		}
+		function gt(){
+			$("p:gt(5)").css("color","blue");
+		}
+		function lt(){
+			$("p:lt(5)").css("color","orange");
+		}
+
+		function even(){
+			//匹配下标为偶数的p元素
+			$("p:even").html("偶数下标");
+		}
+		function odd(){
+			//匹配下标为奇数的p元素
+			$("p:odd").html("奇数下标").css("text-align","center");
+		}
+
+		function first(){
+			$("p:first").css("color","red");
+		}
+		function last(){
+			$("p:last").css("color","green");
+		}
+
+
+	</script>
+ </body>
+</html>

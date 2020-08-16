@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+  	/*
+	//成绩判断
+	var score = prompt("输入成绩");
+	var res = score>=90 ? "A" : score>=80 ? "B" : score>=60 ? "C" :"D";
+	console.log(score,res);
+	*/
+	//bmi计算
+	var h = prompt("请输入身高(m)");
+	var w = prompt("请输入体重(kg)");
+	var bmi = w / (h * h);
+	//保留两位小数
+	bmi = bmi.toFixed(2);
+	//判断范围
+	var res = bmi>=23.9 ? "月半" : bmi>=18.5 ? "健康" : "营养不良";
+	console.log(bmi,res,typeof bmi);
+
+
+
+
+
+
+
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="jquery-1.11.3.js"></script>
+ </head>
+ <body>
+	<h1>标题</h1>
+	<p>段落</p>
+	<input type="checkbox" checked>
+	<script>
+		$("h1").attr("id","d1");
+		$("p").attr("id","d2").prop("class","c1");
+
+		console.log($("h1").attr("id"),$("p").prop("class"));
+		//获取按钮的选中状态
+		console.log("attr():",$("input").attr("checked"));
+		console.log("prop():",$("input").prop("checked"));
+		//移除
+		$("h1").removeAttr("id");
+
+
+
+
+	</script>
+ </body>
+</html>

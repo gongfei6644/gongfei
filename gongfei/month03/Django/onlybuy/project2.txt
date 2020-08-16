@@ -1,0 +1,217 @@
+优化users登录以及跳转功能
+from django.contrib.auth.decorators import login_required#用于登录状态验证
+
+@login_required(login_url='/users/login/')
+def logout(request):
+    ...
+
+在login.html中 form表单添加隐藏域
+<input type="hidden" name="next" value="{{ next }}">
+
+def login(request):
+    if request.user.is_authenticated():
+        return redirect('/')
+
+    if request.method == 'GET':
+        next = request.GET.get('next','')
+        return render(request,'users/login.html',locals())
+
+    else:
+        user_verify = request.POST.get('verify').lower()
+        verify_code = request.session['verifycode'].lower()
+        if user_verify != verify_code:
+            return HttpResponse('验证码错误')
+        username = request.POST.get('username','')
+        password = request.POST.get('password','')
+        if not username or not password:
+            return HttpResponse('用户名或密码不能为空')
+        user = auth.authenticate(request=request,username=username,password=password)
+
+        next = request.POST.get('next','/')
+
+        if user and user.is_active:
+            auth.login(request,user)
+            print('user:'+user.username+'is login!')
+
+            return redirect(next)
+
+        else:
+            return HttpResponse('登录失败')
+
+
+将资料goods.zip解压替换掉static/images/goods
+将静态页product_list和product_detail页面放到goods应用下的templates/goods
+
+商品goods
+1.商品分类模型
+2.商品模型
+3.商品规格模型
+
+from django.db import models
+from users.models import User
+# Create your models here.
+# 1.商品分类模型
+class GoodsType(models.Model):
+    title = models.CharField('分类名称',max_length=30,null=False,default='分类名称')
+    is_delete = models.BooleanField('是否下架',default=False)
+    def __str__(self):
+        return self.title
+
+# 2.商品模型
+class Goods(models.Model):
+    title = models.CharField('商品名称',max_length=100,default='商品名称')
+    desc = models.CharField('商品描述',max_length=1000,null=True)
+    goods_images = models.CharField('商品图片列表',max_length=1000,default='[]')varchar(1000) '[]'
+    detail_images = models.CharField('商品详情图片列表', max_length=1000, default='[]')
+    goods_type = models.ForeignKey(GoodsType,on_delete=models.CASCADE)
+    spec_name = models.CharField('商品规格',max_length=20,default='规格')
+    saller = models.ForeignKey(User,on_delete=models.CASCADE)
+    is_saller_empower = models.BooleanField('卖家上架',default=True)
+    is_admin_empower = models.BooleanField('管理员审批',default=False)
+    is_delete = models.BooleanField('商品无效',default=False)
+
+class GoodsSpecification(models.Model):
+    goods = models.ForeignKey(Goods,on_delete=models.CASCADE)
+    price = models.DecimalField('此规格的价格',max_digits=8,decimal_places=2)
+    spec_info =  models.CharField('规格信息',max_length=100,null=False)
+    stock = models.IntegerField('库存',default=1,null=False)
+
+    def __str__(self):
+        return '%s,价格：%s' % (self.spec_info,self.price)
+
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+修改init_test_databases.py 
+改表名和字段名
+   
+改所有goods字段信息 将最后一个值改为1
+"(1, '梵地亚（Vantiiear）万向轮拉杆箱耐磨抗摔24英寸旅行箱男女行李箱登机箱 银色', '梵地亚（Vantiiear）万向轮拉杆箱耐磨抗摔24英寸旅行箱男女行李箱登机箱 银色', "
+     + goods_images + ", " + details_images + ", '规格', 1, 1, 0, 1, 1);",
+
+改完之后运行文件 生成测试数据库内容
+python3 init_test_databases.py 
+
+
+显示商品列表页面视图
+    if type_id:
+        try:
+            goods_type = GoodsType.objects.get(id=type_id)
+            goods = Goods.objects.filter(goods_type_id=type_id, is_delete=False, is_saller_empower=True,is_admin_empower=True)
+        except:
+            goods = Goods.objects.filter(is_delete=False, is_saller_empower=True, is_admin_empower=True)
+    else:
+        goods = Goods.objects.filter(is_delete=False,is_saller_empower=True,is_admin_empower=True)
+    for a_product in goods:
+ 
+        s = a_product.goods_images
+        goods_images = eval(s)
+        try:
+            a_product.head_image = '/static/images/goods/'+str(a_product.id)+goods_images[0]
+        except IndexError:
+            a_product.head_image = '/static/images/default.png'
+        goods_specs = GoodsSpecification.objects.filter(goods=a_product)
+        try:
+            a_product.price = goods_specs[0].price
+        except IndexError:
+            a_product.price = 998
+    return render(request,'goods/product_list.html',locals())
+
+
+修改静态页面为模板
+<div class="salc_content">
+            {% for good in goods %}
+             <div class="product" id="1">
+              <a href="/goods/detail/{{ good.id }}">
+                <img src="{{ good.head_image }}" alt="{{ good.title }}">
+              </a>
+              <div class="addRemoveProduct">
+                <p>
+                  <span class="price">￥{{ good.price }}</span>
+                  <a href="/goods/detail/{{ good.id }}" class="title" title="{{ good.title }}">
+                    {{ good.desc }}
+                  </a>
+                </p>
+                <div>
+                  <span class="reduc lf">-</span>
+                  <input type="text" value="1" class="lf">
+                  <span class="add lf">+</span>
+                  <div class="addcart">
+                    加入购物车
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            </div>
+
+详情页面路由
+url(r'^detail/(?P<goods_id>\d+)/$',views.detail),
+详情页面视图
+def detail(request,goods_id):
+    #获取商品id
+    try:
+        a_goods = Goods.objects.get(id=goods_id)
+    except:
+        #商品找不到 返回404
+        raise Http404()
+    #通过商品id查找商品
+    #处理显示
+    title = a_goods.title
+    desc = a_goods.desc
+    #图片
+    image_list = eval(a_goods.goods_images)
+    image_list = [ '/static/images/goods/'+str(a_goods.id)+'/'+img for img in image_list]
+    #如果图片列表能获取到 第一个作为主图
+    if image_list:
+        head_image = image_list[0]
+    #否则显示默认图片
+    else:
+        head_image = '/static/images/defult.png'
+    #页面下方的详情大图片
+    detail_list = eval(a_goods.detail_images)
+    #展示商品规格
+    goods_specs = GoodsSpecification.objects.filter(goods_id=a_goods.id)
+    #如果没找到 返回404
+    if not goods_specs:
+        raise Http404()
+    #一下逻辑判断当前为哪个规格
+    #点击按钮 通过路由传值的传递spec_id到视图中
+    return render(request,'goods/product_details.html',locals())
+
+
+    <div id="preview" class="lf">
+            <div id="mediumDiv">
+                 <img id="mImg" src="{{ head_image }}" />
+            </div>
+            <div id="icon_all">
+                <ul id="icon_list">
+                  {% for img in image_list %}
+                     <li class="i1"><img src="{{ img }}" /></li>
+                  {% endfor %}
+                </ul>
+            </div>
+    </div>
+
+
+    def detail(request,goods_id,spec_id=None):
+    try:
+        if spec_id:
+            aspec = GoodsSpecification.objects.get(id = spec_id)
+            a_goods = Goods.objects.get(id=aspec.goods_id)
+        else:
+            a_goods = Goods.objects.get(id=goods_id)
+    except:
+        raise Http404()
+    ... ...
+
+    if not spec_id:
+        spec_id  = goods_specs[0].id
+    else:
+        spec_id = int(spec_id)
+    for item in goods_specs:
+        if spec_id == item.id:
+            price = item.price
+            item.is_select = True
+    return render(request,'goods/
+    product_details.html',locals())

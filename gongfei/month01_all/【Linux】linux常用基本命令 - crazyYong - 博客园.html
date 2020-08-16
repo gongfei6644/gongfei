@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://www.cnblogs.com/crazylqy/p/5818745.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="never">
+<title>【Linux】linux常用基本命令 - crazyYong - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/bundle-SimpleBlue.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/bundle-SimpleBlue-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/crazylqy/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/crazylqy/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/crazylqy/wlwmanifest.xml">
+<script async="" src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/analytics.js.下载"></script><script type="text/javascript" src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/encoder.js.下载"></script><script src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/jquery-2.2.0.min.js.下载"></script>
+<script type="text/javascript">var currentBlogApp = 'crazylqy', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+		
+<!--done-->
+<div class="title"><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/crazylqy/">crazyYong</a></div>
+<div class="subtitle"></div>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li id="nav_myhome"><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/crazylqy/">首页</a></li>
+<li id="nav_newpost"><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li id="nav_contact"><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/crazyYong">联系</a></li>
+<li id="nav_rss"><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/crazylqy/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/crazylqy/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li id="nav_admin"><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔-519&nbsp;
+文章-1&nbsp;
+评论-35&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/crazylqy/p/5818745.html">【Linux】linux常用基本命令</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><p>转：http://blog.csdn.net/xiaoguaihai/article/details/8705992</p>
+<p>&nbsp;</p>
+<p align="left"><strong><span style="font-size: 24px;">Linux中许多常用命令是必须掌握的，这里将我学linux入门时学的一些常用的基本命令分享给大家一下，希望可以帮助你们。</span></strong></p>
+<p align="left"><strong><span style="font-size: 24px;"><br>
+</span></strong></p>
+<p align="left"><strong>这个是我将鸟哥书上的进行了一下整理的，希望不要涉及到版权问题。</strong></p>
+<p align="left"><br>
+</p>
+<h1><a name="t0"></a><strong>1、显示日期的指令： date</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363935954_6311.png" alt=""></strong></p>
+<p align="left"><strong><br>
+<br>
+</strong></p>
+<h1><a name="t1"></a><strong>2、显示日历的指令：cal</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363935980_1369.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363935990_8670.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363935996_9522.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t2"></a><strong>3、简单好用的计算器：bc</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936042_6658.png" alt=""></strong></p>
+<p align="left"><span style="font-weight: bold;"><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936054_8908.png" alt=""></span></p>
+<p align="left"><span style="font-weight: bold;"><br>
+</span></p>
+<p align="left"><strong><span style="font-size: 18px;">怎么10/100会变成0呢？这是因为bc预设仅输出整数，如果要输出小数点下位数，那么就必须要执行 scale=number ，那个number就是小数点位数，例如：</span></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936069_2896.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t3"></a><strong>4、重要的几个热键[Tab],[ctrl]-c, [ctrl]-d&nbsp;</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><span style="font-size: 18px;">[Tab]按键---具有『命令补全』不『档案补齐』的功能</span></strong></p>
+<p align="left"><strong><span style="font-size: 18px;"><br>
+</span></strong></p>
+<p align="left"><strong><span style="font-size: 18px;">[Ctrl]-c按键---让当前的程序『停掉』</span></strong></p>
+<p align="left"><strong><span style="font-size: 18px;"><br>
+</span></strong></p>
+<p align="left"><strong><span style="font-size: 18px;">[Ctrl]-d按键---通常代表着：『键盘输入结束(End Of File, EOF 戒 End OfInput)』的意思；另外，他也可以用来取代exit</span></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t4"></a><strong>5、man</strong></h1>
+<p align="left"><strong><span style="font-size: 18px;">退出用q，</span></strong></p>
+<p align="left"><strong><span style="font-size: 18px;">man -f man</span></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936109_3235.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t5"></a><strong>6、数据同步写入磁盘：&nbsp;sync</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><span style="font-size: 18px;">输入sync，那举在内存中尚未被更新的数据，就会被写入硬盘中；所以，这个挃令在系统关机戒重新启劢乀前， 径重要喔！最好多执行几次！</span></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936120_9820.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t6"></a><strong>7、惯用的关机指令：shutdown</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936132_1780.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<p align="left"><strong><span style="font-size: 18px;">此外，需要注意的是，时间参数请务必加入指令中，否则shutdown会自动跳到 run-level 1 (就是单人维护的登入情况)，这样就伤脑筋了！底下提供几个时间参数的例子吧：</span></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936145_2758.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<p align="left"><strong><span style="font-size: 18px;">重启，关机： reboot, halt,poweroff</span></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936158_4694.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t7"></a><strong>8、切换执行等级： init</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><span style="font-size: 18px;">Linux共有七种执行等级：</span></strong></p>
+<p align="left"><strong><span style="font-size: 18px;"><br>
+</span></strong></p>
+<p align="left"><strong><span style="font-size: 18px;">--run level 0 :关机</span></strong></p>
+<p align="left"><strong><span style="font-size: 18px;"><br>
+</span></strong></p>
+<p align="left"><strong><span style="font-size: 18px;">--run level 3 :纯文本模式</span></strong></p>
+<p align="left"><strong><span style="font-size: 18px;"><br>
+</span></strong></p>
+<p align="left"><strong><span style="font-size: 18px;">--run level 5 :含有图形接口模式</span></strong></p>
+<p align="left"><strong><span style="font-size: 18px;"><br>
+</span></strong></p>
+<p align="left"><strong><span style="font-size: 18px;">--run level 6 :重新启动</span></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<p align="left"><strong>&nbsp;</strong></p>
+<p align="left"><strong><span style="font-size: 18px;">使用init这个指令来切换各模式：</span></strong></p>
+<p align="left"><strong><span style="font-size: 18px;"><br>
+</span></strong></p>
+<p align="left"><strong><span style="font-size: 18px;">如果你想要关机的话，除了上述的shutdown -h now以及poweroff之外，你也可以使用如下的指令来关机：&nbsp;&nbsp;</span></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936183_6281.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t8"></a><strong>9、改变文件的所属群组：chgrp</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936198_8642.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t9"></a><strong>10、改变文件拥有者：chown</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><span style="font-size: 18px;">他还可以顸便直接修改群组的名称</span></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936213_8090.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t10"></a><strong>11、改变文件的权限：chmod</strong></h1>
+<div><strong><br>
+</strong></div>
+<p>&nbsp;</p>
+<table style="width: 722px;" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top">
+<p align="left"><span style="font-size: 18px;">权限的设定方法有两种， 分别可以使用数字或者是符号来进行权限的变更。</span></p>
+
+
+
+
+</td>
+
+
+
+
+</tr>
+
+
+
+
+</tbody>
+
+
+
+
+</table>
+<p>
+
+<span style="font-size: 18px;"><span style="font-size: 18px;"><br></span></span></p>
+<p align="left"><strong><span style="font-size: 18px;">--数字类型改变档案权限：</span></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936248_2355.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<p align="left"><strong>&nbsp;</strong></p>
+<p align="left"><strong><span style="font-size: 18px;">--符号类型改变档案权限：</span></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936259_4661.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t11"></a><strong>12、查看版本信息等</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936285_4549.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t12"></a><strong>13、变换目录：cd</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936297_1247.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t13"></a><strong>14、显示当前所在目录：pwd</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936306_6088.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t14"></a><strong>15、建立新目录：mkdir</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936321_4240.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936335_4740.png" alt=""></strong></p>
+<p align="left"><strong>&nbsp;</strong></p>
+<p align="left"><strong><span style="font-size: 18px;">不建议常用-p这个选项，因为担心如果你打错字，那么目录名称就回变得乱七八糟的</span></strong></p>
+<p align="left"><strong>&nbsp;</strong></p>
+<h1><a name="t15"></a><strong>16、删除『空』的目录：rmdir</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936353_8065.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t16"></a><strong>17、档案与目录的显示：ls</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936364_8540.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936378_2040.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t17"></a><strong>18、复制档案或目录：cp</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936391_3459.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936405_1275.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936421_3936.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936434_7475.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936447_1389.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936473_8128.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936488_3487.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t18"></a><strong>19、移除档案或目录：rm</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936513_9642.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936523_3283.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936534_8970.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t19"></a><strong>20、移动档案与目录，或更名：mv</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936546_1932.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936558_1163.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t20"></a><strong>21、取得路径的文件名与目录名：basename，dirname</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936571_2352.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936582_4520.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t21"></a><strong>22、由第一行开始显示档案内容：cat</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936609_6282.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936621_3423.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t22"></a><strong>23、从最后一行开始显示：tac（可以看出 tac 是 cat 的倒着写）</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936634_1541.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t23"></a><strong>24、显示的时候，顺道输出行号：nl</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936651_6458.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936671_4557.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936684_7797.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t24"></a><strong>25、一页一页的显示档案内容：more</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936710_9067.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t25"></a><strong>26、与 more 类似，但是比 more 更好的是，他可以往前翻页：less</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936728_2729.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t26"></a><strong>27、只看头几行：head</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936748_3301.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t27"></a><strong>28、只看尾几行：tail</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936798_8160.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t28"></a><strong>29、以二进制的放置读取档案内容：od</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936808_2619.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936819_8586.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t29"></a><strong>30、修改档案时间或新建档案：touch</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936832_1025.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936847_2396.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936857_7179.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t30"></a><strong>31、档案预设权限：umask</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936868_1680.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t31"></a><strong>32、配置文件档案隐藏属性：chattr</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936877_4715.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936886_3351.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936897_2939.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t32"></a><strong>33、显示档案隐藏属性：lsattr</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936910_4210.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t33"></a><strong>34、观察文件类型：file</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936923_3379.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t34"></a><strong>35、寻找【执行挡】：which</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936932_2949.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936946_1973.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t35"></a><strong>36、寻找特定档案：whereis</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363936956_5666.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t36"></a><strong>37、寻找特定档案：locate</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363937757_9288.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t37"></a><strong>38、寻找特定档案：find</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363937773_3082.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363937784_2757.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t38"></a><strong>39、压缩文件和读取压缩文件：gzip，zcat</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363937793_4694.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363937802_1953.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t39"></a><strong>40、压缩文件和读取压缩文件：bzip2，bzcat</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363937816_9269.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363937900_4463.png" alt=""></strong></p>
+<p align="left"><strong><br>
+</strong></p>
+<h1><a name="t40"></a><strong>41、压缩文件和读取压缩文件：tar</strong></h1>
+<div><strong><br>
+</strong></div>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363937990_3354.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363938001_5653.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363938031_1319.png" alt=""><br>
+</strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363938044_9852.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363938052_3223.png" alt=""></strong></p>
+<p align="left"><strong><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/1363938061_6833.png" alt=""></strong></p>
+<p align="left"><strong>&nbsp;</strong></p>
+<p align="left"><strong>ps:<span class="ask-title ">IP.GZIP.TAR有啥区别？那个压缩的程度大？</span></strong></p>
+<div class="cnblogs_code">
+<pre>tar是打包，不是压缩，只是把一堆文件打成一个文件而已GZIP用在HTTP协议上是一种用来改进WEB应用程序性能的技术，将网页内容压缩后再传输。<br>zip就不用说了，主流的压缩格式。<br>zip最新的压缩算法还是很好的，建议还是用zip格式化，全平台通用。</pre>
+</div>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">tar没有怎样压缩，压缩率100%，主要是永远打包，
+zip压缩率看文件类型，jpg就没怎么压缩率，但bmp很高
+gzip一般比zip高</span></pre>
+</div>
+<p>&nbsp;</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #000000;">zip
+zip -r myfile.zip ./*
+将当前目录下的所有文件和文件夹全部压缩成myfile.zip文件,－r表示递归压缩子目录下所有文件.
+
+unzip
+unzip -o -d /home/sunny myfile.zip
+把myfile.zip文件解压到 /home/sunny/
+-o:不提示的情况下覆盖文件；
+-d:-d /home/sunny 指明将文件解压缩到/home/sunny目录下
+
+zip 命令：
+# zip test.zip test.txt
+它会将 test.txt 文件压缩为 test.zip ，当然也可以指定压缩包的目录，例如 /root/test.zip
+# unzip test.zip
+它会默认将文件解压到当前目录，如果要解压到指定目录，可以加上 -d 选项
+# unzip test.zip -d /root/ </span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p align="left"><strong>&nbsp;<br></strong></p>
+<p align="left">&nbsp;</p>
+<p align="left">&nbsp;</p>
+<p align="left">&nbsp;</p>
+<p align="left">&nbsp;</p>
+<p align="left">&nbsp;</p>
+<p align="left"><strong><span style="font-size: 18px;">好了，累死了，终于搞完了，希望能对的大家有所帮助。</span></strong></p>
+<p>&nbsp;</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/crazylqy/category/874612.html" target="_blank">linux指令</a></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(5818745,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;6fdb573e-5d26-e211-aa8f-842b2b196315&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/crazylqy/" target="_blank"><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/sample_face.gif" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/crazylqy/">crazyYong</a><br>
+            <a href="http://home.cnblogs.com/u/crazylqy/followees">关注 - 2</a><br>
+            <a href="http://home.cnblogs.com/u/crazylqy/followers">粉丝 - 164</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;6fdb573e-5d26-e211-aa8f-842b2b196315&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(5818745,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">19</span>
+    </div>
+    <div class="buryit" onclick="votePost(5818745,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/crazylqy/p/5779042.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/crazylqy/p/5779042.html" title="发布于2016-08-17 10:48">MySQL数据库使用mysqldump导出数据详解</a><br><a href="http://www.cnblogs.com/crazylqy/p/5820957.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/crazylqy/p/5820957.html" title="发布于2016-08-30 10:33">Linux中重定向</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2016-08-29 17:08</span> <a href="http://www.cnblogs.com/crazylqy/">crazyYong</a> 阅读(<span id="post_view_count">140501</span>) 评论(<span id="post_comment_count">9</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=5818745" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/crazylqy/p/5818745.html#" onclick="AddToWz(5818745);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=203262,cb_entryId=5818745,cb_blogApp=currentBlogApp,cb_blogUserGuid='6fdb573e-5d26-e211-aa8f-842b2b196315',cb_entryCreatedDate='2016/8/29 17:08:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<!--done-->
+<div class="feedback_area_title">评论列表</div>
+<div class="feedbackNoItems"></div>
+	
+
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/crazylqy/p/5818745.html#3588192" class="layer">#1楼</a><a name="3588192" id="comment_anchor_3588192"></a>  <span class="comment_date">2016-12-23 17:29</span> <a id="a_comment_author_3588192" href="http://www.cnblogs.com/Hi-blog/" target="_blank">starnight_cyber</a> <a href="http://msg.cnblogs.com/send/starnight_cyber" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3588192" class="blog_comment_body">多谢博主分享！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3588192,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3588192,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3588192_avatar" style="display:none;">http://pic.cnblogs.com/face/624934/20160125104220.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/crazylqy/p/5818745.html#3728821" class="layer">#2楼</a><a name="3728821" id="comment_anchor_3728821"></a>  <span class="comment_date">2017-07-05 11:35</span> <a id="a_comment_author_3728821" href="http://www.cnblogs.com/xiaoxi666/" target="_blank">xiaoxi666</a> <a href="http://msg.cnblogs.com/send/xiaoxi666" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3728821" class="blog_comment_body">good!</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3728821,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3728821,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3728821_avatar" style="display:none;">http://pic.cnblogs.com/face/609124/20180328214946.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/crazylqy/p/5818745.html#3769616" class="layer">#3楼</a><a name="3769616" id="comment_anchor_3769616"></a>  <span class="comment_date">2017-08-29 16:04</span> <a id="a_comment_author_3769616" href="http://www.cnblogs.com/sim-lq/" target="_blank">sim_lq</a> <a href="http://msg.cnblogs.com/send/sim_lq" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3769616" class="blog_comment_body">谢谢分享！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3769616,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3769616,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/crazylqy/p/5818745.html#3836461" class="layer">#4楼</a><a name="3836461" id="comment_anchor_3836461"></a>  <span class="comment_date">2017-11-09 23:36</span> <a id="a_comment_author_3836461" href="http://home.cnblogs.com/u/1276365/" target="_blank">小哥阿虺</a> <a href="http://msg.cnblogs.com/send/%E5%B0%8F%E5%93%A5%E9%98%BF%E8%99%BA" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3836461" class="blog_comment_body">跟鸟哥私房菜一毛一样的，很详细，谢谢，受益了！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3836461,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3836461,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/crazylqy/p/5818745.html#3851302" class="layer">#5楼</a><a name="3851302" id="comment_anchor_3851302"></a>  <span class="comment_date">2017-11-27 12:50</span> <a id="a_comment_author_3851302" href="http://home.cnblogs.com/u/1099709/" target="_blank">wkcly</a> <a href="http://msg.cnblogs.com/send/wkcly" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3851302" class="blog_comment_body">你好，可以请教一下文章中的问题吗？QQ:330553991,谢谢。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3851302,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3851302,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/crazylqy/p/5818745.html#3860236" class="layer">#6楼</a><a name="3860236" id="comment_anchor_3860236"></a>  <span class="comment_date">2017-12-07 16:02</span> <a id="a_comment_author_3860236" href="http://www.cnblogs.com/kimyeee/" target="_blank">_至尊宝</a> <a href="http://msg.cnblogs.com/send/_%E8%87%B3%E5%B0%8A%E5%AE%9D" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3860236" class="blog_comment_body">谢谢分享,这个真是太有用了!</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3860236,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3860236,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3860236_avatar" style="display:none;">http://pic.cnblogs.com/face/1122842/20170310145226.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/crazylqy/p/5818745.html#3918193" class="layer">#7楼</a><a name="3918193" id="comment_anchor_3918193"></a>  <span class="comment_date">2018-03-09 00:53</span> <a id="a_comment_author_3918193" href="http://www.cnblogs.com/nelson-hu/" target="_blank">果感</a> <a href="http://msg.cnblogs.com/send/%E6%9E%9C%E6%84%9F" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3918193" class="blog_comment_body">赞👍， 楼主辛苦了</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3918193,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3918193,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3918193_avatar" style="display:none;">http://pic.cnblogs.com/face/1082890/20170116211630.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/crazylqy/p/5818745.html#3922494" class="layer">#8楼</a><a name="3922494" id="comment_anchor_3922494"></a>  <span class="comment_date">2018-03-14 11:15</span> <a id="a_comment_author_3922494" href="http://www.cnblogs.com/Miss-yuan/" target="_blank">sakura_zly</a> <a href="http://msg.cnblogs.com/send/sakura_zly" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3922494" class="blog_comment_body">受用，感谢分享。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3922494,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3922494,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3922494_avatar" style="display:none;">http://pic.cnblogs.com/face/1045835/20180112154452.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/crazylqy/p/5818745.html#4021538" class="layer">#9楼</a><a name="4021538" id="comment_anchor_4021538"></a><span id="comment-maxId" style="display:none;">4021538</span><span id="comment-maxDate" style="display:none;">2018/7/16 17:12:28</span>  <span class="comment_date">2018-07-16 17:12</span> <a id="a_comment_author_4021538" href="http://home.cnblogs.com/u/1430393/" target="_blank">于是乎哈哈</a> <a href="http://msg.cnblogs.com/send/%E4%BA%8E%E6%98%AF%E4%B9%8E%E5%93%88%E5%93%88" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_4021538" class="blog_comment_body">请问压缩和打包不是一回事吗?</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4021538,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(4021538,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/crazylqy/p/5818745.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/crazylqy/p/5818745.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】超50万VC++源码: 大型组态工控、电力仿真CAD与GIS源码库！</a><br><a href="https://www.grapecity.com.cn/developer/spreadjs?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=SpreadJS&amp;utm_campaign=community" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-T2-Spread&#39;)">【前端】SpreadJS表格控件，可嵌入应用开发的在线Excel</a><br><a href="https://cloud.tencent.com/developer/labs?fromSource=gwzcw.1087957.1087957.1087957" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-T2 - 腾讯云&#39;)">【推荐】如何快速搭建人工智能应用？</a><br><a href="http://challenge.xfyun.cn/?ch=bk" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-xfyun&#39;)">【大赛】2018首届“顶天立地”AI开发者大赛</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="https://cloud.tencent.com/act/campus?fromSource=gwzcw.1087959.1087959.1087959" target="_blank"><img width="300" height="250" src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/24442-20180731143120064-1676144687.jpg" alt="qcloud" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;C1&#39;);"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="https://news.cnblogs.com/n/603321/" target="_blank">格力设俩院士工作站！董明珠：希望在员工中培养出10个院士</a><br> ·  <a href="https://news.cnblogs.com/n/603320/" target="_blank">近日小米与P2P产生了一番纠葛 现在雷军旗下风投入股的P2P又出事</a><br> ·  <a href="https://news.cnblogs.com/n/603316/" target="_blank">外媒：特斯拉计划50亿美元在上海建厂 考虑在华募集资金</a><br> ·  <a href="https://news.cnblogs.com/n/603314/" target="_blank">基于快速GeoHash，如何实现海量商品与商圈的高效匹配？</a><br> ·  <a href="https://news.cnblogs.com/n/603313/" target="_blank">OpenAI挑战《索尼克》，阿里南大队如何一举夺魁？</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://click.aliyun.com/m/34770/" target="_blank"><img src="./【Linux】linux常用基本命令 - crazyYong - 博客园_files/TB1gBPhgZLJ8KJjy0FnXXcFDpXa-468-60.jpg" alt="" style="width: 468px; height: 60px;"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/602903/" target="_blank">历史转折中的“杭派工程师”</a><br> ·  <a href="http://kb.cnblogs.com/page/602573/" target="_blank">如何提高代码质量？</a><br> ·  <a href="http://kb.cnblogs.com/page/602486/" target="_blank">在腾讯的八年，我的职业思考</a><br> ·  <a href="http://kb.cnblogs.com/page/602163/" target="_blank">为什么我离开了管理岗位</a><br> ·  <a href="http://kb.cnblogs.com/page/602053/" target="_blank">那些让人睡不着觉的bug，你有没有遭遇过？</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/crazylqy/">crazyYong</a><br>园龄：<a href="https://home.cnblogs.com/u/crazylqy/" title="入园时间：2012-11-04">5年8个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/crazylqy/followers/">164</a><br>关注：<a href="https://home.cnblogs.com/u/crazylqy/followees/">2</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;6fdb573e-5d26-e211-aa8f-842b2b196315&#39;)">+加关注</a></div><script>getFollowStatus('6fdb573e-5d26-e211-aa8f-842b2b196315')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/07/01&#39;);return false;">&lt;</a></td><td align="center">2018年8月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/09/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td class="CalTodayDay" align="center">1</td><td align="center">2</td><td align="center">3</td><td class="CalWeekendDay" align="center">4</td></tr><tr><td class="CalWeekendDay" align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td align="center">9</td><td align="center">10</td><td class="CalWeekendDay" align="center">11</td></tr><tr><td class="CalWeekendDay" align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td align="center">16</td><td align="center">17</td><td class="CalWeekendDay" align="center">18</td></tr><tr><td class="CalWeekendDay" align="center">19</td><td align="center">20</td><td align="center">21</td><td align="center">22</td><td align="center">23</td><td align="center">24</td><td class="CalWeekendDay" align="center">25</td></tr><tr><td class="CalWeekendDay" align="center">26</td><td align="center">27</td><td align="center">28</td><td align="center">29</td><td align="center">30</td><td align="center">31</td><td class="CalOtherMonthDay" align="center">1</td></tr><tr><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/crazylqy/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/crazylqy/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/crazylqy/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/crazylqy/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/crazylqy/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block"></div><div id="sidebar_categories">
+<div class="catListPostCategory">
+<h3 class="catListTitle">随笔分类</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="https://www.cnblogs.com/crazylqy/category/627193.html">(张子秋)从零开始学习jQuery系列(11)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="https://www.cnblogs.com/crazylqy/category/884013.html">aws(5)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="https://www.cnblogs.com/crazylqy/category/1076239.html">dubbo(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="https://www.cnblogs.com/crazylqy/category/893057.html">eclipse-myeclipse(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="https://www.cnblogs.com/crazylqy/category/652352.html">Ehcache(13)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="https://www.cnblogs.com/crazylqy/category/627459.html">hibernate学习笔记(35)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="https://www.cnblogs.com/crazylqy/category/1200624.html">java8(10)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="https://www.cnblogs.com/crazylqy/category/1125084.html">javaIO(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="https://www.cnblogs.com/crazylqy/category/629792.html">javascript(6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_9" href="https://www.cnblogs.com/crazylqy/category/638088.html">javaweb学习总结(32)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_10" href="https://www.cnblogs.com/crazylqy/category/1113616.html">java并发编程的艺术（方腾飞 魏鹏 程晓明 ）-2015</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_11" href="https://www.cnblogs.com/crazylqy/category/654734.html">java反射(8)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_12" href="https://www.cnblogs.com/crazylqy/category/655181.html">java集合(4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_13" href="https://www.cnblogs.com/crazylqy/category/785618.html">java加密(10)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_14" href="https://www.cnblogs.com/crazylqy/category/722026.html">java设计模式(6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_15" href="https://www.cnblogs.com/crazylqy/category/1092536.html">java数据结构与算法(14)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_16" href="https://www.cnblogs.com/crazylqy/category/654193.html">java虚拟机(18)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_17" href="https://www.cnblogs.com/crazylqy/category/643047.html">java杂(23)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_18" href="https://www.cnblogs.com/crazylqy/category/859607.html">jboss(7)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_19" href="https://www.cnblogs.com/crazylqy/category/627188.html">JqueryDemo(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_20" href="https://www.cnblogs.com/crazylqy/category/1008178.html">Linux鸟哥(13)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_21" href="https://www.cnblogs.com/crazylqy/category/652973.html">Linux杂(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_22" href="https://www.cnblogs.com/crazylqy/category/874612.html">linux指令(6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_23" href="https://www.cnblogs.com/crazylqy/category/1104143.html">LVS专题(4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_24" href="https://www.cnblogs.com/crazylqy/category/838669.html">mangodb(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_25" href="https://www.cnblogs.com/crazylqy/category/897037.html">maven(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_26" href="https://www.cnblogs.com/crazylqy/category/842236.html">mybaties(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_27" href="https://www.cnblogs.com/crazylqy/category/625963.html">MySQL性能调优与架构设计（简朝阳）(22)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_28" href="https://www.cnblogs.com/crazylqy/category/651936.html">mysql杂(28)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_29" href="https://www.cnblogs.com/crazylqy/category/745940.html">netty权威指南(16)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_30" href="https://www.cnblogs.com/crazylqy/category/883974.html">nginx(11)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_31" href="https://www.cnblogs.com/crazylqy/category/967340.html">rabbitMQ(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_32" href="https://www.cnblogs.com/crazylqy/category/810729.html">redis(20)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_33" href="https://www.cnblogs.com/crazylqy/category/650821.html">spring(50)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_34" href="https://www.cnblogs.com/crazylqy/category/760495.html">springsecurity(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_35" href="https://www.cnblogs.com/crazylqy/category/678679.html">struts2.1.6教程(13)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_36" href="https://www.cnblogs.com/crazylqy/category/641852.html">utils(15)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_37" href="https://www.cnblogs.com/crazylqy/category/627180.html">web安全(16)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_38" href="https://www.cnblogs.com/crazylqy/category/1029116.html">zookeeper(10)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_39" href="https://www.cnblogs.com/crazylqy/category/1043145.html">第一本docker笔记(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_40" href="https://www.cnblogs.com/crazylqy/category/1104195.html">分布式(5)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_41" href="https://www.cnblogs.com/crazylqy/category/720073.html">服务器(9)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_42" href="https://www.cnblogs.com/crazylqy/category/856783.html">构建(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_43" href="https://www.cnblogs.com/crazylqy/category/760966.html">集成(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_44" href="https://www.cnblogs.com/crazylqy/category/1104189.html">架构案例(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_45" href="https://www.cnblogs.com/crazylqy/category/863653.html">开发工具(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_46" href="https://www.cnblogs.com/crazylqy/category/841823.html">面试(18)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_47" href="https://www.cnblogs.com/crazylqy/category/838440.html">其他(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_48" href="https://www.cnblogs.com/crazylqy/category/1124780.html">微服务(10)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_49" href="https://www.cnblogs.com/crazylqy/category/625962.html">系统架构(21)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_50" href="https://www.cnblogs.com/crazylqy/category/1072083.html">性能优化(2)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListPostArchive">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="https://www.cnblogs.com/crazylqy/archive/2018/07.html">2018年7月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="https://www.cnblogs.com/crazylqy/archive/2018/05.html">2018年5月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="https://www.cnblogs.com/crazylqy/archive/2018/04.html">2018年4月 (10)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_3" href="https://www.cnblogs.com/crazylqy/archive/2017/12.html">2017年12月 (19)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_4" href="https://www.cnblogs.com/crazylqy/archive/2017/11.html">2017年11月 (7)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_5" href="https://www.cnblogs.com/crazylqy/archive/2017/10.html">2017年10月 (36)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_6" href="https://www.cnblogs.com/crazylqy/archive/2017/09.html">2017年9月 (31)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_7" href="https://www.cnblogs.com/crazylqy/archive/2017/08.html">2017年8月 (13)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_8" href="https://www.cnblogs.com/crazylqy/archive/2017/07.html">2017年7月 (17)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_9" href="https://www.cnblogs.com/crazylqy/archive/2017/06.html">2017年6月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_10" href="https://www.cnblogs.com/crazylqy/archive/2017/05.html">2017年5月 (14)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_11" href="https://www.cnblogs.com/crazylqy/archive/2017/03.html">2017年3月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_12" href="https://www.cnblogs.com/crazylqy/archive/2016/12.html">2016年12月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_13" href="https://www.cnblogs.com/crazylqy/archive/2016/10.html">2016年10月 (8)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_14" href="https://www.cnblogs.com/crazylqy/archive/2016/09.html">2016年9月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_15" href="https://www.cnblogs.com/crazylqy/archive/2016/08.html">2016年8月 (7)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_16" href="https://www.cnblogs.com/crazylqy/archive/2016/07.html">2016年7月 (18)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_17" href="https://www.cnblogs.com/crazylqy/archive/2016/06.html">2016年6月 (13)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_18" href="https://www.cnblogs.com/crazylqy/archive/2016/05.html">2016年5月 (7)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_19" href="https://www.cnblogs.com/crazylqy/archive/2016/04.html">2016年4月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_20" href="https://www.cnblogs.com/crazylqy/archive/2016/02.html">2016年2月 (15)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_21" href="https://www.cnblogs.com/crazylqy/archive/2016/01.html">2016年1月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_22" href="https://www.cnblogs.com/crazylqy/archive/2015/12.html">2015年12月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_23" href="https://www.cnblogs.com/crazylqy/archive/2015/11.html">2015年11月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_24" href="https://www.cnblogs.com/crazylqy/archive/2015/10.html">2015年10月 (19)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_25" href="https://www.cnblogs.com/crazylqy/archive/2015/09.html">2015年9月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_26" href="https://www.cnblogs.com/crazylqy/archive/2015/08.html">2015年8月 (10)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_27" href="https://www.cnblogs.com/crazylqy/archive/2015/04.html">2015年4月 (16)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_28" href="https://www.cnblogs.com/crazylqy/archive/2015/03.html">2015年3月 (53)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_29" href="https://www.cnblogs.com/crazylqy/archive/2015/02.html">2015年2月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_30" href="https://www.cnblogs.com/crazylqy/archive/2015/01.html">2015年1月 (50)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_31" href="https://www.cnblogs.com/crazylqy/archive/2014/12.html">2014年12月 (52)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_32" href="https://www.cnblogs.com/crazylqy/archive/2014/11.html">2014年11月 (55)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_33" href="https://www.cnblogs.com/crazylqy/archive/2014/10.html">2014年10月 (19)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListArticleCategory">
+<h3 class="catListTitle">文章分类</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_2_Link_0" href="https://www.cnblogs.com/crazylqy/category/638661.html">javaweb 杂</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_scorerank" class="sidebar-block">
+<div class="catListBlogRank">
+<h3 class="catListTitle">积分与排名</h3>
+<ul>
+	<li class="liScore">
+		积分 -	200056
+	</li>
+	<li class="liRank">
+		排名 -	1335
+	</li>
+</ul>
+</div>
+
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/crazylqy/p/7638780.html#4025084">1. Re:时间复杂度的计算</a></li>
+        <li class="recent_comment_body">时间复杂度只有在循环体才会有吗？</li>
+        <li class="recent_comment_author">--热爱前端的17号诶</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/crazylqy/p/5649860.html#4023213">2. Re:linux系统中如何进入退出vim编辑器，方法及区别</a></li>
+        <li class="recent_comment_body">hello, 强制退出之后，提示：请按enter或者其他命令继续； 按了任意键之后又进入 vim了。 我现在强制退出vim，不想再编辑了， 这后续又让我进入vim 了。。怎么避免？...</li>
+        <li class="recent_comment_author">--Julian89757</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/crazylqy/p/5649860.html#4023190">3. Re:linux系统中如何进入退出vim编辑器，方法及区别</a></li>
+        <li class="recent_comment_body">非常棒。。！</li>
+        <li class="recent_comment_author">--Julian89757</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/crazylqy/p/5818745.html#4021538">4. Re:【Linux】linux常用基本命令</a></li>
+        <li class="recent_comment_body">请问压缩和打包不是一回事吗?</li>
+        <li class="recent_comment_author">--于是乎哈哈</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/crazylqy/p/7689447.html#4017186">5. Re:Mysql加锁过程详解（7）-初步理解MySQL的gap锁</a></li>
+        <li class="recent_comment_body">请问间隙锁的gap，是在B+树的叶子节点上定位的吗</li>
+        <li class="recent_comment_author">--j.liu</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="https://www.cnblogs.com/crazylqy/p/5649860.html">1. linux系统中如何进入退出vim编辑器，方法及区别(145981)</a></li><li><a href="https://www.cnblogs.com/crazylqy/p/5818745.html">2. 【Linux】linux常用基本命令(140500)</a></li><li><a href="https://www.cnblogs.com/crazylqy/p/5589547.html">3. 面试(4)-spring-Spring面试题和答案(21835)</a></li><li><a href="https://www.cnblogs.com/crazylqy/p/6891929.html">4. Nginx教程(一) Nginx入门教程(21245)</a></li><li><a href="https://www.cnblogs.com/crazylqy/p/7638780.html">5. 时间复杂度的计算(16736)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="https://www.cnblogs.com/crazylqy/p/5818745.html">1. 【Linux】linux常用基本命令(9)</a></li><li><a href="https://www.cnblogs.com/crazylqy/p/5821105.html">2. linux硬链接与软链接(3)</a></li><li><a href="https://www.cnblogs.com/crazylqy/p/5649860.html">3. linux系统中如何进入退出vim编辑器，方法及区别(3)</a></li><li><a href="https://www.cnblogs.com/crazylqy/p/4706223.html">4. Tomcat服务器原理详解(3)</a></li><li><a href="https://www.cnblogs.com/crazylqy/p/7689447.html">5. Mysql加锁过程详解（7）-初步理解MySQL的gap锁(3)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="https://www.cnblogs.com/crazylqy/p/5818745.html">1. 【Linux】linux常用基本命令(19)</a></li><li><a href="https://www.cnblogs.com/crazylqy/p/5649860.html">2. linux系统中如何进入退出vim编辑器，方法及区别(14)</a></li><li><a href="https://www.cnblogs.com/crazylqy/p/4706223.html">3. Tomcat服务器原理详解(5)</a></li><li><a href="https://www.cnblogs.com/crazylqy/p/5542558.html">4. MySQL 主从复制与读写分离概念及架构分析 (转)(3)</a></li><li><a href="https://www.cnblogs.com/crazylqy/p/5589547.html">5. 面试(4)-spring-Spring面试题和答案(2)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2018 crazyYong
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+</body></html>

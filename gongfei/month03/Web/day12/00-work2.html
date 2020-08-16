@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="index.js"></script>
+  <style>
+	table,th,td{
+		border:1px solid #000;
+	}
+	table{
+		width:600px;
+		margin-top:50px;
+	}
+
+  </style>
+ </head>
+ <body>
+	<div>
+		<input type="text" name="gname">
+		<input type="text" name="gcount">
+		<input type="text" name="gprice">
+		<button onclick="add()">增加</button>
+	</div>
+	<table>
+		<tbody>
+			<tr>
+				<th>商品名称</th>
+				<th>商品数量</th>
+				<th>商品价格</th>
+				<th>操作</th>
+			</tr>
+		</tbody>
+	</table>
+	<script>
+		function add(){
+			//1.获取输入框的值
+			var gname = $("input").value;
+			var gcount = $("input",1).value;
+			var gprice = $("input",2).value;
+			//2.获取相关元素
+			var tbody = $("tbody");
+			//3.动态创建行和单元格
+			var tr = document.createElement("tr");
+			var tdName = document.createElement("td");
+			tdName.innerHTML = gname;
+
+			var tdCount = document.createElement("td");
+			tdCount.innerHTML = gcount;
+
+			var tdPrice = document.createElement("td");
+			tdPrice.innerHTML = gprice;
+
+			var tdOper = document.createElement("td");
+			tdOper.innerHTML = "<button>更新</button><button>删除</button>";
+
+			//4.追加到页面中显示
+			tr.appendChild(tdName);
+			tr.appendChild(tdCount);
+			tr.appendChild(tdPrice);
+			tr.appendChild(tdOper);
+
+			tbody.appendChild(tr);
+
+
+		
+		
+		
+		}
+
+
+
+	</script>
+ </body>
+</html>

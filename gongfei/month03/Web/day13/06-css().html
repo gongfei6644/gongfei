@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="jquery-1.11.3.js"></script>
+  <style>
+	#d1{
+		color:red;
+	}
+	.c1{
+		background:green;
+	}
+	.c2{
+		text-align:center;
+	}
+  </style>
+ </head>
+ <body>
+	<h1>标题</h1>
+	<p>动态操作类名</p>
+	<div>行内样式</div>
+	<button onclick="toggle()">切换</button>
+	<script>
+		//1.操作id/class属性对应选择器样式
+		$("h1").attr("id","d1").prop("class","c1").prop("class","c1 c2");
+		//2.动态操作类名
+		$("p").addClass("c1").addClass("c2");
+		$("h1").removeClass("c1").removeAttr("id");
+		function toggle(){
+			$("h1").toggleClass("c1 c2");
+		}
+		//3.操作行内样式
+		$("div").css({
+			"width":"200px",
+			"height":"200px",
+			"background":"red"
+		}).css("width","300px");
+
+
+	</script>
+ </body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="index.js"></script>
+ </head>
+ <body>
+	<div id="box">
+		<p>段落</p>
+		<h1 id="d1" class="c1">
+			标题
+			<span>span</span>
+		</h1>
+		<p>段落</p>
+	</div>
+	<script>
+		var h1 = $("h1");
+		//获取父节点
+		console.log(h1.parentNode);
+		//获取子节点数组
+		console.log($("div").childNodes);
+		//获取子元素数组（不包含文本节点）
+		console.log($("div").children);
+		//获取兄弟节点
+		console.log(h1.nextSibling,h1.nextElementSibling);
+		console.log(h1.previousSibling,h1.previousElementSibling);
+		//获取属性节点
+		console.log(h1.attributes);
+
+		console.log(h1.innerHTML);
+		console.log(h1.childNodes);
+
+	</script>
+ </body>
+</html>

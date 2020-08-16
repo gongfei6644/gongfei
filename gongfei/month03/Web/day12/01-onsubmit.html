@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="index.js"></script>
+  <script>
+	//等待窗口加载完毕后再执行相关代码
+	window.onload = function (){
+		//获取元素节点
+		var btn = $("button");
+		//绑定双击事件
+		btn.ondblclick = function (){
+			console.log("双击");
+		};
+		//表单事件
+		//获取相关元素
+		var form = $("form");
+		var uname = $("input");//输入框
+		var save = $("input",1);//复选框
+		//1.焦点状态
+		uname.onfocus = function (){
+			console.log("获取焦点");
+		};
+		//2.失去焦点
+		uname.onblur = function (){
+			console.log("失去焦点",uname.value);
+		};
+		//3.实时监听输入
+		uname.oninput = function (){
+			//console.log(uname.value);
+		};
+		//4.onchange监听前后两次输入的内容是否发生变化，前后不一致并且失去焦点时才触发。
+		uname.onchange = function (){
+			console.log("onchange:",uname.value);
+		};
+		//onchange监听按钮的状态，状态改变（选中/取消选中）自动触发
+		save.onchange = function (){
+			//按钮checked属性值返回true/false对应选中和取消选中
+			console.log("按钮状态改变",save.checked);
+		};
+		console.log(save.checked);
+		//5.onsubmit事件由form监听，当点击提交按钮时自动触发,判断表单中的数据是否可以提交，允许返回布尔值，true表示允许发送，false表示阻止发送
+		form.onsubmit = function (){
+			//用户名为空时阻止发送
+			if(uname.value.length == 0){
+				return false;
+			}else{
+				return true;
+			}
+		};
+	};
+	console.log("hello");
+  </script>
+ </head>
+ <body>
+	<button>双击</button>
+	<form action="login" method="" enctype="">
+		<input type="text" name="uname">
+		<input type="checkbox" checked="checked">
+		<input type="submit">
+	</form>
+	
+
+ </body>
+</html>

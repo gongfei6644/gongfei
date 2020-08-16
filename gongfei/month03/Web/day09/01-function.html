@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	//1.无参数，无返回值的函数
+	function f1 (){
+		console.log("f1被调用");
+	}
+	f1();
+	//2.带参数
+	function f2(a,b){
+		console.log(a,b,a*b);
+		//arguments只能在函数体中访问，保存实际参数
+		console.log(arguments);
+	}
+	//允许形参与实参个数不匹配
+	f2(10,5,3);
+	f2(10);
+	//3.返回值：将函数内部的结果传递给外界使用，只能返回一个值；return后面的代码不执行
+	function f3(a){
+		var r1 = a + a;
+		var r2 = a * a;
+		return r1,r2;
+		console.log("---------------");
+	}
+	var res1 = f3(10);
+	console.log(res1);
+	
+
+
+
+
+
+
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

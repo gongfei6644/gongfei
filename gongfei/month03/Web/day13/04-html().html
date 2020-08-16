@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="jquery-1.11.3.js"></script>
+ </head>
+ <body>
+	<h1>标题</h1>
+	<h1>标题</h1>
+	<h1>标题</h1>
+	<input type="text">
+	<button onclick="show()">显示</button>
+	<div></div>
+	<script>
+		//内部会遍历元素列表，修改每个元素的内容
+		$("h1").html("<a href=''>超链接</a>");
+		//eq(index)从jquery的元素列表中获取指定下标对应的元素。返回jquery对象
+		$("h1").eq(0).html("动态修改");
+		//获取标签内容，默认返回列表中第一个元素的标签内容
+		console.log($("h1").html());
+
+		function show (){
+			$("div").html("<h1>"+$("input").val()+"</h1>");
+		}
+
+	</script>
+ </body>
+</html>

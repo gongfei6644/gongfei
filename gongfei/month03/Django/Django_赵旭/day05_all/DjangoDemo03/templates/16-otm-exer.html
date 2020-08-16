@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="/static/js/jquery-1.11.3.js"></script>
+  <script>
+    $(function(){
+      $("#selPub").change(function(){
+        location.href = '/16-otm-exer/'+this.value;
+      });
+    })
+  </script>
+</head>
+<body>
+  <p>
+    <select id="selPub">
+      <option value="0">===请选择===</option>
+      {% for pub in publishers %}
+        <option value="{{ pub.id }}"
+          {% if publisher %}
+            {% if publisher.id == pub.id %}
+              selected
+            {% endif %}
+          {% endif %}
+        >
+        {{ pub.name }}
+        </option>
+      {% endfor %}
+    </select>
+  </p>
+  <div>
+    <table border="1" width="300">
+      <tr>
+        <th>书名</th>
+        <th>出版时间</th>
+      </tr>
+      {% for b in books %}
+        <tr>
+          <td>{{ b.title }}</td>
+          <td>{{ b.publicate_date }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <Script>
+	//创建日期对象
+	//获取系统日期时间
+	var date = new Date();
+	//根据指定的日期时间创建对象
+	var date1 = new Date("2020-12-27 11:11:11");
+	console.log(date);
+	console.log(date1);
+	//指定日期时间创建对象，年月日必填
+	var date2 = new Date("2020-12-25");
+	var date3 = new Date("11:11:11");
+	console.log(date2);
+	console.log(date3);
+
+	//提取时间分量
+	var year = date.getFullYear();//获取年
+	//getMonth()返回0~11对应12个月，需手动+1
+	var month = date.getMonth();
+	console.log(year,month+1);
+	//获取日期
+	var day = date.getDate();
+	//获取星期,返回0~6对应周日~周六
+	var week = date.getDay();
+	console.log(day,week,date1.getDay());
+	//时分秒
+	var hour = date.getHours();
+	var minute = date.getMinutes();
+	var second = date.getSeconds();
+	console.log(hour,minute,second);
+
+	//转换日期对象的显示格式(转换字符串)
+	var timeStr = date.toLocaleString();
+	console.log(timeStr);
+	//获取年月日字符串
+	var str1 = date.toLocaleDateString();
+	//获取时分秒字符串
+	var str2 = date.toLocaleTimeString();
+	console.log(str1);
+	console.log(str2);
+
+
+
+
+
+	
+
+
+
+
+
+
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	//1.数组创建（Array）
+	var arr1 = [10,20,30];//字面量方式
+	var arr2 = new Array(1,2,3);
+	console.log(arr1,arr2);
+	var arr3 = [5];
+	//使用new关键字，只传入一个整数参数时，代表预分配数组长度
+	var arr4 = new Array(5);
+	console.log(arr3,arr4);
+	//2.操作数组元素
+	arr4[0] = "hello";
+	arr4[8] = "world";
+	console.log(arr4);
+	arr4[0] = 100;
+	console.log(arr4[0]);
+	//3.遍历数组
+	var arr5 = [10,2,3,5,6,2,34];
+	for(var i=0;i < arr5.length;i++){
+		console.log(arr5[i]);
+	}
+	for(var i=arr5.length-1;i >= 0;i--){
+		console.log(arr5[i]);
+	}
+	//for-in
+	for(var i in arr5){
+		console.log(i,arr5[i]);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

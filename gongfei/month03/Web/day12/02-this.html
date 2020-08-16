@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <Script src="index.js"></script>
+  <script>
+	function f1(){
+		console.log(this);
+	}
+	f1();
+	window.f1();
+	window.onload = function (){
+		//获取元素
+		$("h1").onclick = function (){
+			//this表示当前事件的触发对象
+			console.log(this);
+			console.log($("h1").innerHTML,this.innerHTML);
+		};
+		//下拉菜单点击传值
+		//获取元素
+		var span = $("span");//地址栏
+		//获取选项列表
+		var list = $("ol").children;
+		for(var i=0; i<list.length;i++){
+			console.log(i);
+			//循环添加单击事件
+			list[i].onclick = function (){
+				//传值
+				span.innerHTML = this.innerHTML;
+			};
+		}
+	};
+
+  </script>
+  <style>
+	ul,ol{
+		margin:0;
+		padding:0;
+		list-style:none;
+	}
+	ul{
+		background:orange;
+		height:50px;
+		line-height:50px;
+		text-align:center;
+	}
+	ul>li{
+		float:left;
+		width:150px;
+		margin-right:30px;
+		background:pink;
+	}
+	ol{
+		display:none;
+	}
+	.address:hover ol{
+		display:block;
+	}
+	ol>li:hover{
+		background:cyan;
+	}
+
+  </style>
+ </head>
+ <body>
+	<h1>标题</h1>
+	<ul>
+		<li class="address">
+			<span>北京</span>
+			<ol>
+				<li>北京</li>
+				<li>上海</li>
+				<li>广州</li>
+				<li>深圳</li>
+			</ol>
+		</li>
+		<li>登录</li>
+		<li>注册</li>
+	</ul>
+ </body>
+</html>

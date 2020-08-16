@@ -1,0 +1,34 @@
+1.查看系统是否安装了virtualenv:
+	virtualenv --version
+
+2.安装虚拟环境(需在联网状态下)
+	sudo pip install virtualenv
+	sudo pip install virtualenvwrapper
+
+3.创建虚拟环境(ubuntu里须在联网状态下)
+	mkvirtualenv  xxx(虚拟环境名称)
+
+4.进入虚拟环境
+	workon xxx(虚拟环境名称)
+
+5.退出虚拟环境
+	deactivate 
+
+6.指定flask版本安装
+	pip install flask==0.10.1
+
+7.导出/生成依赖包(须在虚拟环境中)
+	pip/pip3 freeze > requirements.txt 
+
+8.导入/安装依赖包(须在虚拟环境中)
+	pip/pip3 install -r requirements.txt
+
+
+
+virtualenv 的一个最大的缺点就是：
+
+	每次开启虚拟环境之前要去虚拟环境所在目录下的 bin 目录下 source 一下 activate，这就需要我们记住每个虚拟环境所在的目录。并且还有可能你忘记了虚拟环境放在哪.
+
+解决方法:
+
+	使用virtualenvwrapper管理你的虚拟环境（virtualenv），其实他就是统一管理虚拟环境的目录，并且省去了source的步骤。

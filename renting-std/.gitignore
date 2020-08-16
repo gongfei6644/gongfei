@@ -1,0 +1,13 @@
+# Created by .ignore support plugin (hsz.mobi)
+venv
+exported_excel/*.xlsx
+tools/*.xlsx
+!tools/城市与表索引对照表.xlsx
+.spyproject/*
+bak
+/.vscode
+
+.idea
+*.iml
+**pycache**
+

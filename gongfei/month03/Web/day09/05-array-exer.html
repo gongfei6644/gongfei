@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	function addData(){
+		var arr = [];
+		while(true){
+			var input = prompt("请输入");
+			if(input == "exit"){
+				//结束循环
+				break;
+			}
+			//添加至数组中
+			arr[arr.length] = input;
+		}
+		console.log(arr);
+	}
+	//addData();
+	function findMax(){
+		var arr = [1,56,78,-5,78,-98,666];
+		var max = arr[0];
+		for(i in arr){
+			if(arr[i] > max){
+				//更改最大值
+				max = arr[i];
+			}
+		}
+		console.log(max);
+	}
+	findMax();
+
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

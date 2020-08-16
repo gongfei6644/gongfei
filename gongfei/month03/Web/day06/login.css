@@ -1,0 +1,118 @@
+/* 清除默认样式，设置基础样式 */
+body,h2,p{
+	margin:0;
+}
+body{
+	color:#999;
+	font-size:14px;
+}
+a{
+	color:#999;
+	text-decoration:none;
+}
+input:focus{
+	/*取消表单控件在焦点状态下的轮廓线*/
+	outline:none;
+}
+/* 页面整体结构的样式 */
+#top,#main{
+	width:1000px;
+	margin:0 auto;
+}
+/* 顶部标题 */
+#top h2{
+	border-bottom:1px solid #eee;
+	padding:30px 0;
+	/*取消标题的加粗效果*/
+	font-weight:normal;
+}
+/* 主体区域 */
+#main{
+	margin-top:30px;
+	overflow:hidden;
+}
+/* 左列 */
+.left{
+	float:left;
+	position:relative;
+}
+.left a{
+	position:absolute;
+	bottom:20px;
+	left:50%;
+	margin-left:-75px;
+	width:150px;
+	height:50px;
+	text-align:center;
+	line-height:50px;
+	border:1px solid #64a131;
+	color:#64a131;
+	font-size:20px;
+	border-radius:5px;
+}
+/* 右列 */
+form{
+	float:right;
+	margin-right:40px;
+	margin-top:70px;
+}
+.form-line{
+	margin-bottom:30px;
+}
+.form-line>p{
+	float:left;
+	width:56px;
+	height:50px;
+	text-align:right;
+	line-height:50px;
+	margin-right:40px;
+}
+.uinput{
+	width:300px;
+	height:50px;
+	border:1px solid #999;
+	box-sizing:border-box;
+	padding-left:20px;
+}
+/* 第三行 */
+.form-line>div>p{
+	float:right;
+}
+.form-line>div>p a{
+	text-decoration:underline;
+}
+.form-line>div>input{
+	width:15px;
+	height:15px;
+	vertical-align:top;
+}
+/* 第四行 */
+.form-line .btn{
+	box-sizing:border-box;
+	width:140px;
+	height:50px;
+	background:#64a131;
+	color:white;
+	border:1px solid #64a131;
+	font-size:20px;
+	border-radius:5px;
+	text-align:center;
+	line-height:50px;
+}
+.form-line a.btn{
+	float:right;
+	background:#fff;
+	color:#64a131;
+}
+
+
+
+
+
+
+
+
+
+
+
+

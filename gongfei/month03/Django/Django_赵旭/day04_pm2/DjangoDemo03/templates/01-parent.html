@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>
+    {% block title %}
+    01-parent.html
+    {% endblock %}
+  </title>
+</head>
+<body>
+  <h1>欢迎:{{ uname }}</h1>
+  <h1>这是01-parent中的内容</h1>
+  {% block content %}
+  <h1>这是01-parent中允许被修改的内容</h1>
+  {% endblock %}
+  <h1>这是01-parent中的底部内容</h1>
+</body>
+</html>

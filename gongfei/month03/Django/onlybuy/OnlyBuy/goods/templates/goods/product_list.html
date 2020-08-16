@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://www.codeboy.com/products.html -->
+<html>
+<!--
+author:lvlu
+date:2018-07
+desc:this demo is about blog. PLEASE NOTE:If you have trouble running it ,try any of the other demos or connect with auther.
+A ny individuals and organizations and not for commercial use, professiona website for customized web site.
+-->
+<head lang="en">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>皮爷の箱包馆List</title>
+  <link rel="icon" href="/static/images/index/py.ico">
+  <link rel="stylesheet" href="/static/css/index.css">
+  <link rel="stylesheet" href="/static/css/base.css">
+  <link rel="stylesheet" href="/static/css/products.css">
+  <script src="/static/js/init.js"></script>
+</head>
+
+<body>
+  <header id="header"></header>
+  <!-- banner部分-->
+  <div class="store">
+    <img src="/static/images/list/gulid.jpg">
+  </div>
+
+  <!-- -->
+  <div class="store_action">
+    <div class="store_action_left">
+      <div class="store_action_left_content">
+        <div id="plist">
+          <div class="salc_top">
+            全部产品
+          </div>
+          <div class="salc_content">
+            {% for good in goods %}
+             <div class="product" id="1">
+              <a href="/goods/detail/{{ good.id }}">
+                <img src="{{ good.head_image }}" alt="{{ good.title }}">
+              </a>
+              <div class="addRemoveProduct">
+                <p>
+                  <span class="price">￥{{ good.price }}</span>
+                  <a href="/goods/detail/{{ good.id }}" class="title" title="{{ good.title }}">
+                    {{ good.desc }}
+                  </a>
+                </p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+
+
+
+
+
+            <!--分页条-->
+             <div class="pager">
+              <span class="disabled">上一页</span>
+              <span class="current">1</span>
+              <a href="javascript:;" class="tcdNumber">2</a>
+              <a href="javascript:;" class="tcdNumber">3</a>
+              <a href="javascript:;" class="tcdNumber">4</a>
+              <a href="javascript:;" class="tcdNumber">5</a>
+              <a href="javascript:;" class="nextPage">下一页</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="store_action_right rt">
+        <div class="store_action_right_top">
+          <p><img src="/static/images/list/foodstore_icon2.png" alt="">商家公告</p>
+          <div>
+            <p>皮爷皮爷</p>
+            <p>英明神武</p>
+            <p>千秋万代</p>
+            <p>一统江湖</p>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+    <!--商家-->
+  </div>
+  <footer id="footer"></footer>
+
+  <script src="/static/js/jquery-3.1.1.min.js"></script>
+  <script src="/static/js/jquery.page.js"></script>
+  <!-- <script src="../js/base.js"></script> -->
+  <script src='/static/js/index.js'></script>
+  <!-- <script src="../js/products.js"></script> -->
+  <script>
+    $('#header').load('header.html');
+    $('#footer').load('footer.html');
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>login</title>
+        {% load static %}
+    </head>
+    <body>
+        <form action="{% url 'register_in' %}" method="post">
+            {% csrf_token %}
+            <p><input type="text" name="username"></p>
+            <p><input type="password" name="pwd"></p>
+            <p><img src="/verifycode"></p>
+            <input type="submit" value="提交">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,129 @@
+#top,#bottom{
+	width:1000px;
+	margin:0 auto;
+}
+/* top */
+#top{
+	height:50px;
+}
+#top img{
+	width:168px;
+	border-radius:10px;
+}
+#top span{
+	font-size:24px;
+	color:#4f4e4d;
+	margin-left:10px;
+	/* 调整行内块元素的垂直对齐方式 */
+	vertical-align:bottom;
+}
+/* main */
+#main{
+	width:80%;
+	margin:0 auto;
+	height:560px;
+	background-image:url("../images/login/regist.jpg");
+	/* 等比例缩放背景图片直至填满元素 */
+	background-size:cover;
+}
+#main form{
+	float:right;
+	width:280px;
+	height:375px;
+	background:rgba(0,0,0,.3);
+	margin-top:122px;
+	margin-right:122px;
+}
+#main .content{
+	padding:10px;
+}
+#main p{
+	font-size:18px;
+	color:#fff;
+	border-bottom:1px solid #fff;
+	padding-bottom:10px;
+}
+.content a{
+	float:right;
+	color:#fff;
+	font-size:14px;
+	margin-top:1px;
+}
+.text{
+	position:relative;
+}
+.text input{
+	width:218px;
+	border:1px solid #ddd;
+	margin-top:16px;
+	padding:10px 20px;
+	border-radius:5px;
+}
+.text img{
+	position:absolute;
+	top:25px;
+	right:5px;
+	width:20px;
+	height:20px;
+}
+.validate{
+	height:70px;
+	margin-top:30px;
+}
+.validate input{
+	width:102px;
+	float:right;
+	border:1px solid #ddd;
+	padding:10px 20px;
+	border-radius:5px;
+}
+.choose{
+	color:#fff;
+	margin-bottom:10px;
+	font-size:14px;
+}
+.choose input{
+	vertical-align:middle;
+}
+.btn-login{
+	width:260px;
+	height:35px;
+	background:#997679;
+	color:#fff;
+	border:none;
+	font-weight:bold;
+}
+
+
+
+#bottom{
+	margin-top:30px;
+}
+.download{
+	float:right;
+}
+.download img{
+	width:100px;
+	height:100px;
+}
+.service{
+	float:right;
+	width:125px;
+	margin-right:10px;
+}
+.service p{
+	font-size:14px;
+	text-align:center;
+	margin-bottom:10px;
+	color:#333;
+}
+.service img:last-child{
+	margin-top:3px;
+}
+#footLogo{
+	width:168px;
+	border-radius:10px;
+}
+#footFont{
+	width:650px;
+}

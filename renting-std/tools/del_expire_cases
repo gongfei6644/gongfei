@@ -1,0 +1,47 @@
+#!/opt/anaconda3/bin/python
+
+# -*- coding: utf-8 -*-
+# @Desc    : 删除过期的列表数据
+
+import os
+import sys
+current = os.path.abspath(__file__)
+prj_path = os.path.dirname(os.path.dirname(current))
+sys.path.append(prj_path)
+
+from datetime import datetime
+from datetime import time
+from datetime import timedelta
+
+from app.dbs.pymongo_manager import factory
+from app.switch_table import *
+
+
+def del_expire():
+    now = datetime.combine(datetime.now(), time.min)
+    pre = (now - timedelta(days=5)).strftime('%Y-%m-%d %H:%M:%S')
+    # base_table = 'renting_case'
+    # for i in range(0, SPLIT_TABLE_NUM):
+    #     tn = table_name(base_table, i)
+    tn = 'renting_case'
+    print("table: {}".format(tn))
+    clt = factory.collection(tn)
+    # lst = list(clt.find({'city': {'$ne': None}, 'd_status': None, 'crt_time': {'$lt': pre}}).limit(100))
+    rs = clt.delete_many({'city': {'$ne': None}, 'd_status': {'$ne': 1}, 'crt_time': {'$lt': pre}})
+    print(rs.raw_result)
+
+
+if __name__ == '__main__':
+    # clt = factory.collection('Dat_case_2019_06')
+    # while True:
+    #     lst = list(clt.find({'city': {'$ne': None}, 'd_status': None}, {'_id': 1}).limit(5000))
+    #     if not lst:
+    #         break
+    #     ids = []
+    #     for id in lst:
+    #         ids.append(id['_id'])
+    #     # rs = clt.delete_many({'city': {'$ne': None}, 'd_status': None})
+    #     rs = clt.delete_many({'_id': {'$in': ids}})
+    #     print(rs.raw_result)
+    del_expire()
+    pass

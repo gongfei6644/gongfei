@@ -1,0 +1,149 @@
+一、jquery操作DOM元素
+	1.获取元素
+		$("选择器")获取元素
+		1）基础选择器
+		2）层级选择器
+		3）过滤选择器
+			需要与基础选择器结合使用
+			1.匹配第一个
+				:first	
+			2.匹配最后一个
+				:last
+			3.匹配偶数下标对应的元素
+				:even
+			4.匹配奇数下标对应的元素
+				:odd
+			5.匹配指定下标对应的元素
+				:eq(index)
+			6.匹配大于指定下标的元素
+				:gt(index)
+			7.匹配小于指定下标的元素
+				:lt(index)
+			8.否定筛选
+				:not(selector)
+		4）属性选择器[]
+			根据标签属性匹配元素
+			1.匹配包含指定属性名的元素
+				[attrName]
+			2.匹配属性名=属性值的元素
+				[attrName=value]/[attrName='value']
+			3.模糊匹配（了解）
+				[attrName^=value]
+					匹配属性值以指定的value开头的元素
+				[attrName$=value]
+					匹配属性值以指定的value结尾的元素
+				[attrName*=value]
+					匹配属性值中包含value的元素
+		5）子元素过滤选择器
+			:first-child
+				匹配第一个子元素
+			:last-child
+				匹配最后一个子元素
+			:nth-child(n)
+				匹配第n个子元素
+	
+	2.操作元素内容
+		1）html("")
+			读取或设置元素的内容，可以识别标签语法
+		2）text("")
+			读取或设置元素的内容，不能识别标签语法
+		3）val()
+			读取或设置表单控件的值
+		练习：
+			创建输入框，按钮和div，点击按钮时将输入框中的内容以一级标题的形式显示在div中
+
+	3.操作元素属性
+		1）attr("attrName","value")
+			读取或设置标签属性
+		2）prop("attrName","value")
+			读取或设置标签属性。如果属性用于表示元素的状态（按钮的选中和取消选中），只能使用prop()设置
+		3）removeAttr("attrName")
+			移除指定的标签属性	
+
+	4.操作元素样式
+		1）操作id/class属性，对应选择器的样式
+		2）直接添加或修改类名，针对类选择器样式
+			addClass("class属性值")
+			removeClass("class属性值")
+			toggleClass("class属性值")
+				由事件触发，动态切换类名，有则删除，无则添加
+		3）操作行内样式
+			1.传入CSS的属性名和属性值
+				css("attrName","value")
+			2.传入JSON对象统一设置样式
+				css({JSON对象})
+				JSON格式：
+					{
+						"color":"red",
+						"text-align":"center"
+					}
+	5.层次方法（根据层级结构取元素）
+		1）parent()
+			获取唯一的父元素
+		2）parents("selector")
+			获取满足选择器的祖先元素
+		3）children()/children("selector")
+			获取子元素数组/满足选择器的子元素数组
+			注：只获取直接子元素
+		4）find("selector")
+			获取满足选择器的所有后代元素
+		5）next()/next("selector")
+			获取下一个兄弟元素/获取下一个兄弟，必须满足选择器
+		6）prev()/prev("selector")
+			获取前一个兄弟元素/获取前一个兄弟，必须满足选择器
+		7）siblings()/siblings("selector")
+			获取所有兄弟元素/获取所有满足选择器的兄弟元素	
+	6.元素的创建，添加和删除
+		1）创建
+			语法：$("标签语法")
+			例：$("<h1>标题</h1>")
+		2）添加
+			1.作为子元素添加
+				$parent.append($obj)作为最后一个子元素添加
+				$parent.prepend($obj)作为第一个子元素添加
+			2.作为兄弟元素添加
+				$obj.before($new)
+					新元素添加在$obj之前
+				$obj.after($obj)
+					新元素添加在$obj之后
+		3）移除
+			$obj.remove()
+			移除$obj
+
+二、jquery处理事件
+	1.事件绑定方式
+		1）等待文档加载完毕
+			$(document).ready(function (){
+				//文档加载完毕后执行
+			})
+			$().ready(function (){
+				//文档加载完毕后执行
+			})
+			$(function (){
+				//文档加载完毕后执行
+			})
+			与原生onload事件的区别：
+				原生onload事件会造成覆盖问题，永远只执行最后一个onload,需要手动检测;
+				ready()内部实现了检测，不会产生覆盖问题，按照代码书写顺序，依次执行
+		2）事件绑定
+			1.jquery对象调用on()
+				例：
+					$("h1").on("click",function (){})
+			2.jquery对象调用bind()
+				例：
+					$("input").bind("change",function (){})
+			3.省略on前缀的事件名作为方法名直接调用
+				例：
+					$("input").change(function (){})
+	2.this
+		this指代事件的触发对象，直接使用，表示原生JS对象，只能调用原生方法；可以使用$(this)转换为jquery对象，调用jquery的方法
+	
+
+
+
+
+
+
+
+
+

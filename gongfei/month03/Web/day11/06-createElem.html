@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+ 	
+	<script>
+		//创建元素节点
+		var h1 = document.createElement("h1");
+		h1.innerHTML = "动态创建标题";
+		h1.id = "d1";
+		console.log(h1);
+		//添加至页面显示,body元素作为document对象的属性存在，可以直接访问
+		//console.log(window);
+		document.body.appendChild(h1);
+		//页面标签与元素节点一一对应，页面中想要出现几个标签，就对应创建几个节点
+		/*
+		//以下代码重复添加一个元素节点，页面中最终只显示一个
+		document.body.appendChild(h1);
+		document.body.appendChild(h1);
+		*/
+
+		var h2 = document.createElement("h2");
+		h2.innerHTML = "标题2";
+		document.body.insertBefore(h2,h1);
+
+		//删除节点
+		document.body.removeChild(h2);
+
+
+
+	</script>
+ </body>
+</html>

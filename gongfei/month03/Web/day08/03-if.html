@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	//if语句
+	var a = 10;
+	if(a > 0){
+		//条件成立时执行
+	}
+	//省略{}，if只控制其后的一行代码
+	if(a < 0) console.log("a < 0");	
+	console.log("--------------");
+	//if-else语句
+	if(a < 0){
+		console.log("a<0");
+	}else{
+		//条件不成立时执行
+		console.log("a>0");
+	}
+	//多重分支 if-else if
+	var score = prompt("成绩是");
+	/*
+		>=90
+		80 <= score && score < 90
+	*/
+	if(score < 60){
+		console.log("D");
+	}else if(score < 80){
+		//[60,80)
+		console.log("C");	
+	}else if(score < 90){
+		//[80,90)
+		console.log("B");
+	}else{
+		//>=90
+		console.log("A");
+	}
+
+
+
+	
+
+
+
+
+
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="jquery-1.11.3.js"></script>
+  <script>
+	window.onload = function (){
+		$("h1").html("标签选择器");
+		//id选择器和类选择器的前缀不能省略
+		//jquery提供css()方法操作行内样式
+		$("#d1").css("color","red");
+		$(".c1").css("background","green");
+		//jquery的链式调用，方法返回当前的jquery对象，可以实现连续调用
+		$("#d1,.c1").css("text-align","center").css("font-size","20px").html("链式调用");	
+	};
+
+  </script>
+ </head>
+ <body>
+	<h1 id="d1">标题</h1>
+	<h1 class="c1">标题</h1>
+	<h1>标题</h1>
+	<h1 class="c1">标题</h1>
+ </body>
+</html>

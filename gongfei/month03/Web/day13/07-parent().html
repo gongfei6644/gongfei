@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="jquery-1.11.3.js"></script>
+ </head>
+ <body>
+	<div id="box">
+		<div class="c1">
+			<h1>标题</h1>
+			<h2>示例</h2>
+		</div>
+		<h2>示例</h2>
+		<p>段落</p>
+	</div>
+	<script>
+		console.log($("h1").parent());
+		//parents()省略参数，获取所有祖先元素
+		console.log($("h1").parents());
+		//获取指定的祖先元素
+		console.log($("h1").parents("#box"));
+		//获取直接子元素数组
+		console.log($("#box").children());
+		//获取满足选择器的子元素数组
+		console.log($("#box").children("h2"));
+		//获取后代元素
+		console.log($("#box").find("h2"));
+		//获取相邻兄弟元素
+		console.log($(".c1").next());
+		console.log($(".c1").next("p"));
+		console.log($("p").prev());
+		//获取所有兄弟元素
+		console.log($("p").siblings());
+		console.log($("p").siblings("div"));
+
+
+
+
+
+	</script>
+ </body>
+</html>

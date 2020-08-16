@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <Script>
+	function start(){
+		/*
+		//每隔一秒在控制台打印系统时间
+		timerId = setInterval(function (){
+			var date = new Date();
+			console.log(date);
+		},1000);
+		console.log("------------timerid:",timerId);
+		*/
+		//3秒后关闭当前窗口
+		timer = setTimeout(function (){
+			//window.close();
+			console.log("超时调用");
+		},3000);
+	}
+	function stop(){
+		//clearInterval(timerId);
+		clearTimeout(timer);
+	}
+
+
+
+
+
+	//在控制台实现倒计时
+	var i = 5;
+	/*
+	var timer = setInterval(function (){
+		console.log(i);
+		i--;
+		if(i == 0){
+			//停止
+			clearInterval(timer);
+		}
+	},1000);
+	*/
+	for(var i = 5; i >=1;i--){
+		console.log(i);
+	}
+	console.log("--------------");
+
+
+
+  </script>
+ </head>
+ <body>
+	<button onclick="start()">开启</button>
+	<button onclick="stop()">关闭</button>
+ </body>
+</html>

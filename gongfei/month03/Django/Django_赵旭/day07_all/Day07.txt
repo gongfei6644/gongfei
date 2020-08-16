@@ -1,0 +1,51 @@
+1.cookie 和 session
+	1.cookie
+		1.什么是cookie
+			保存在客户端浏览器上的文本数据
+		2.在Django中操作cookie
+			1.设置cookie
+				使用 响应对象 将cookie保存进客户端
+				1. HttpResponse("")
+					目的：将一句话响应给客户端
+					resp = HttpResponse("")
+				2. render()
+					目的：渲染模板给客户端
+					resp = render(request,'xxx.html')
+				3. redirect("/xxx")
+					目的：通知客户端向新的地址发送请求
+					resp = redirect("/xxx")
+				
+				响应对象.set_cookie(key,value,max_age)
+					key:cookie的名称，字符串
+					value:cookie的值，字符串
+					max_age:cookie最大的存活时长，数字
+			2.获取cookie
+				request.COOKIES
+				以字典的方式返回了当前站点下所有的cookies
+			3.删除cookie
+				响应对象.delete_cookie('key')
+	2.session
+		1.session 在Django中实现
+			request.session 表示的就是该浏览器本次会话所涉及到的存储空间
+			1.保存session
+				request.session['key'] = value
+			2.获取session
+				value = request.session['key']
+			3.删除session
+				del request.session['key']
+		2.在 settings.py 中，有关session的设置
+			1.SESSION_COOKIE_AGE
+				作用:指定sessionid在cookie中的保存时长
+			2.SESSION_EXPIRE_AT_BROWSER_CLOSE
+				作用:设置当浏览器关闭时,session则失效
+				取值:True
+2.Django ajax
+	
+
+
+
+
+
+
+def show_views(request):
+	return HttpResponse("Hello World")

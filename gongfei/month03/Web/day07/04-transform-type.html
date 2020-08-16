@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	//1.自动类型转换
+	var r1 = 100 + 10;
+	var r2 = 5 + "20";//"520"
+	var r3 = 50 + 2 + "1";//"521"
+	console.log(r2,r3);
+	var r4 = "1" + 2 + 50;//"1250"
+	console.log(r4);
+	var r5 = "100" + true;//"100true"
+	var r6 = "100" + undefined;//"100undefined"
+	var r7 = "100" + null;//"100null"
+	//其他情况
+	var res1 = "100" - 10;//100 - 10
+	console.log(res1);
+	//非数值字符串无法转换为number，转换失败返回NaN，只要有NaN参与数学运算，结果一律为NaN
+	var res2 = "hello" - 10;//NaN(Not a Number)
+	console.log(res2);
+	//true为1，false为0
+	var res3 = "100" - true;//100 - 1
+	var res4 = "100a" - true;//NaN - 1
+	console.log(res3,res4);
+	var res5 = "100" + true;//"100" + "true"
+	var res6 = "100" - undefined;//100 - NaN
+	//null转number为0
+	var res7 = "100" - null;//100 - 0
+	var res8 = 100 + true;//101
+	var res9 = true + false;//1+0
+	/*
+		true + null //1+0
+		true + undefiend//NaN
+		100 + null//100+0
+		100 + undefined//NaN
+	*/
+
+	//2.强制类型转换
+	var n1 = 100;
+	var n2 = true;
+	var n3 = null;
+	//转换字符串
+	var s1 = n1.toString();
+	var s2 = n2.toString();
+	//null属于对象类型，无法转字符串
+	//var s3 = n3.toString();//报错
+	console.log(n1,s1,typeof s1);
+	console.log(n2,s2,typeof s2);
+	var n4;
+	//undefined无法调用toString()
+	//console.log(n4,n4.toString());
+
+	//转换number
+	console.log(Number("100"));
+	console.log(Number("100a"),Number("hello"));
+	console.log(Number(true),Number(false));
+	console.log(Number(undefined),Number(null));
+	//解析number
+	console.log(parseInt("100"));
+	console.log(parseInt(35.5));
+	console.log(parseInt("35.5a"));//35
+	console.log(parseInt("a35.5"));//NaN
+	console.log(parseInt(true));//"true" -> NaN
+	console.log(parseFloat(35.5));
+	console.log(parseFloat("35.5.5"));//35.5
+
+	//转换Boolean
+	console.log(Boolean(100));
+	console.log(Boolean("100"));
+	console.log(Boolean(" "));//true
+	//以下为“零”值
+	console.log(Boolean(0));
+	console.log(Boolean(0.0));
+	console.log(Boolean(""));//false
+	console.log(Boolean(undefined));
+	console.log(Boolean(null));
+	console.log(Boolean(NaN));
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

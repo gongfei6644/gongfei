@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+  	//0.转换大小写（见上节）
+
+	var s1 = "hello";
+	//1.根据下标获取字符/编码
+	var r1 = s1.charAt();
+	console.log(r1);
+	var r2 = s1.charCodeAt();
+	console.log(r2);
+	//2.根据字符找下标
+	var r3 = s1.indexOf("l",2);
+	var r4 = s1.lastIndexOf("l",1);
+	console.log(r3,r4);
+	//3.截取字符串
+	var r5 = s1.substring(2,4);
+	var r6 = s1.substring(2);
+	console.log(r5,r6);
+	//4.分割字符串
+	var s2 = "2020-10-10";
+	var r7 = s2.split("-");
+	console.log(r7);
+	var r8 = s2.split("/");
+	console.log(r8);
+	//5.模式匹配
+	var s3 = "上知乎，搜知乎，问知乎，答知乎";
+	var res1 = s3.match("知乎");
+	console.log(res1);
+	var reg1 = /知乎/g;
+	var res2 = s3.match(reg1);
+	console.log(res2);
+	//查找并替换
+	var res3 = s3.replace("知乎","新浪");
+	var res4 = s3.replace(reg1,"新浪");
+	console.log(res3,res4,s3);
+
+
+
+
+
+
+
+
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

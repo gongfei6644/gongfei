@@ -1,0 +1,119 @@
+一、DOM
+	1.Document Object Model(文档对象模型)，提供操作文档的方法。每个html文件都视为一篇文档，操作文档实际围绕HTML标签进行。
+	2.节点对象
+		对文档中所有的内容进行封装，变成JS中的节点对象。
+		节点分类：
+			元素节点（标签）
+			属性节点（标签属性）
+			文本节点（文本内容）
+			<h1 id="d1" class="c1">标签</h1>
+	3.获取元素节点
+		1）根据标签名获取节点列表
+			document.getElementsByTagName("h1");
+		2）根据id属性值获取具体的元素节点
+			document.getElementById("");
+		3）根据class属性值获取节点列表
+			document.getElementsByClassName("");
+		4）根据name属性值获取节点列表
+			document.getElementsByName("");
+	4.操作元素节点的内容
+		1）innerHTML
+			读取或设置元素内容，可以识别标签语法
+		2）innerText
+			读取或设置元素内容，不能识别标签语法
+		3）value
+			读取或设置表单控件的值
+		练习：
+			创建输入框，按钮和div,点击按钮时获取输入框中的内容以一级标题的形式显示在div中
+	5.操作标签属性
+		1）元素节点调用相关方法
+			setAttribute("attrName","value");
+			getAttribute("attrName");
+			removeAttribute("attrName");
+		2）标签属性都是元素节点对象的属性，可以使用点语法访问
+			//不能直接访问class属性，更名为className
+			h2.className="c1 c2";
+	6.操作标签样式
+		1）为元素节点添加id或class属性对应选择器样式
+		2）操作元素节点的style属性，直接设置行内样式
+			style属性返回样式表对象，由CSS的属性组成,可以使用点语法访问。所有带有"-"的CSS属性一律更名为驼峰标识
+			例：
+				elem2.style.backgroundColor = "pink";
+				elem2.style.textAlign = "center";
+				elem2.style.lineHeight = "200px";
+	7.元素节点的层次属性
+		1）parentNode
+			获取唯一的父元素
+		2）childNodes
+			获取子节点数组，包含文本节点
+		3）children
+			获取子节点数组，不包含文本节点
+		4）nextSibling/nextElementSibling
+			获取下一个兄弟节点/获取下一个元素兄弟节点
+		5）previousSibling/previousElementSibling
+			获取前一个兄弟节点/获取前一个元素兄弟节点
+		6）attributes
+			获取属性节点列表
+	8.节点的创建，添加和删除
+		1）节点创建
+			创建元素节点:document.createElement("h1");
+		2）节点添加
+			添加和删除操作只能由父元素来执行
+			1.添加至父元素的末尾
+				parentNode.appendChild(elem);
+			2.添加在指定位置
+				parentNode.insertBefore(newElem,oldElem);
+		3）节点删除
+			parentNode.removeChild(elem);
+
+二、事件处理
+	1.事件及事件处理函数
+		事件：用户的行为或元素的状态
+		事件处理：元素监听用户行为或状态，在事件发生后进行处理（定义事件处理函数）
+		例：
+			<button onclick="show()">点击</button>
+	2.事件分类
+		事件名称都以"on"为前缀
+		1）鼠标事件
+			onclick鼠标单击
+			ondblclick鼠标双击
+			onmouseover鼠标移入
+			onmousemove鼠标移动
+			onmouseout鼠标移出
+		2）键盘事件
+			onkeydown按键被按下
+			onkeypress字符按键被按下
+			onkeyup按键抬起
+		3）窗口/文档/元素加载完毕
+			onload
+	3.元素绑定事件的方式
+		1）内联绑定
+			将事件名称作为标签属性绑定到元素上，事件处理函数必须是全局函数
+			例：
+				<button onclick="show()">点击</button>
+		2）动态绑定
+			元素节点使用点语法访问属性（事件名称）
+			例：
+				btn.onclick = function (){
+					//事件发生后执行的代码段
+				};
+		作业：
+			1.判断用户名是否合法
+				创建输入框，按钮，div,点击按钮时验证用户名是否在6~18位之间，满足条件，在div中以绿色文本提示，不满足以红色文本提示
+			2.参见效果图"添加元素练习",动态创建行和单元格，添加在表格中
+			//附加
+			3.实现轮播图
+				1）控制元素的显示与隐藏
+				2）切换图片路径
+				
+			
+			
+
+
+
+
+
+
+
+
+

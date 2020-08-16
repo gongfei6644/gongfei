@@ -1,0 +1,141 @@
+{% extends 'index.html' %}
+{% comment "重写title" %}
+{% endcomment %}
+{% block title %}
+  购物车页
+{% endblock %}
+
+{% comment "重写style" %}
+{% endcomment %}
+{% block style %}
+  <link rel="stylesheet" href="/static/css/cart.css">
+{% endblock %}
+
+{% comment "重写js" %}
+{% endcomment %}
+{% block js %}
+  <script src="/static/js/cart.js"></script>
+{% endblock %}
+
+{% comment "重写main" %}
+{% endcomment %}
+{% block main %}
+  <div id="main">
+		<h2>
+			shopping cart
+			<p>
+				choosed<span class="total-num">0</span>goods&nbsp;&nbsp;&nbsp;
+				account<span class="total-price">0.00￥</span>
+			</p>
+		</h2>
+		<div class="title">
+			<p class="check">
+				<img src="/static/images/cart/product_normal.png" id="checkall">All
+			</p>
+			<p class="goodsName">goods</p>
+			<p class="price">price(￥)</p>
+			<p class="count">count</p>
+			<p class="sum">sum</p>
+			<p class="action">operate</p>
+		</div>
+		<div class="content">
+			<div class="item">
+				<p class="check">
+				<img src="/static/images/cart/product_normal.png" class="choose">
+				</p>
+				<p class="goodsName">
+					<img src="/static/images/index/index_trunk2.png">
+					<span class="itemName">90分旅行箱 1A 德国拜耳PC材质，万象静音轮，海关密码锁</span><br>
+					<span>颜色：天空灰</span><br>
+					<span>规格：20寸</span>
+				</p>
+				<p class="price">
+					<span class="special">皮粉专享价</span>
+					<span>￥299.00</span>
+				</p>
+				<p class="count">
+					<a href="javascript:void(0)" class="decrement">-</a>
+					<!-- 只读的属性，不允许用户在text框中修改内容 -->
+					<input type="text" name="count" value="1" readonly>
+					<a href="javascript:void(0)" class="increment">+</a>
+				</p>
+				<p class="sum">￥299.00</p>
+				<p class="action">
+					<a href="javascript:void(0)">delete</a>
+				</p>
+			</div>
+			<div class="item">
+				<p class="check">
+				<img src="/static/images/cart/product_normal.png" class="choose">
+				</p>
+				<p class="goodsName">
+					<img src="/static/images/index/index_trunk2.png">
+					<span class="itemName">90分旅行箱 1A 德国拜耳PC材质，万象静音轮，海关密码锁</span><br>
+					<span>颜色：天空灰</span><br>
+					<span>规格：20寸</span>
+				</p>
+				<p class="price">
+					<span class="special">皮粉专享价</span>
+					<span>￥299.00</span>
+				</p>
+				<p class="count">
+					<a href="javascript:void(0)" class="decrement">-</a>
+					<input type="text" name="count" value="1" readonly>
+					<a href="javascript:void(0)" class="increment">+</a>
+				</p>
+				<p class="sum">￥299.00</p>
+				<p class="action">
+					<a href="javascript:void(0)">delete</a>
+				</p>
+			</div>
+			<div class="item">
+				<p class="check">
+				<img src="/static/images/cart/product_normal.png" class="choose">
+				</p>
+				<p class="goodsName">
+					<img src="/static/images/index/index_trunk2.png">
+					<span class="itemName">90分旅行箱 1A 德国拜耳PC材质，万象静音轮，海关密码锁</span><br>
+					<span>颜色：天空灰</span><br>
+					<span>规格：20寸</span>
+				</p>
+				<p class="price">
+					<span class="special">皮粉专享价</span>
+					<span>￥299.00</span>
+				</p>
+				<p class="count">
+					<a href="javascript:void(0)" class="decrement">-</a>
+					<input type="text" name="count" value="1" readonly>
+					<a href="javascript:void(0)" class="increment">+</a>
+				</p>
+				<p class="sum">￥299.00</p>
+				<p class="action">
+					<a href="javascript:void(0)">delete</a>
+				</p>
+			</div>
+			<div class="item">
+				<p class="check">
+				<img src="/static/images/cart/product_normal.png" class="choose">
+				</p>
+				<p class="goodsName">
+					<img src="/static/images/index/index_trunk2.png">
+					<span class="itemName">90分旅行箱 1A 德国拜耳PC材质，万象静音轮，海关密码锁</span><br>
+					<span>颜色：天空灰</span><br>
+					<span>规格：20寸</span>
+				</p>
+				<p class="price">
+					<span class="special">皮粉专享价</span>
+					<span>￥299.00</span>
+				</p>
+				<p class="count">
+					<a href="javascript:void(0)" class="decrement">-</a>
+					<input type="text" name="count" value="1" readonly>
+					<a href="javascript:void(0)" class="increment">+</a>
+				</p>
+				<p class="sum">￥299.00</p>
+				<p class="action">
+					<a href="javascript:void(0)">delete</a>
+				</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

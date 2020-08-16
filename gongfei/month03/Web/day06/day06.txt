@@ -1,0 +1,86 @@
+一、背景属性
+	1.背景颜色
+		background-color
+		除表单控件外，其他元素默认背景色为透明色
+	2.背景图片相关
+		1）background-image:url("");
+			1.图片尺寸>元素尺寸，从元素左上角开始渲染，超出部分不可见
+			2.图片尺寸<元素尺寸，默认会对图片进行重复平铺，直至铺满元素。
+		2）background-repeat
+			设置背景图片的重复方式，默认沿水平和垂直两个方向同时重复。
+			取值：repeat(默认)/repeat-x/repeat-y/no-repeat(不重复平铺)
+		3）background-position
+			设置背景图片的显示位置
+			取值：
+				1.取像素值 x y
+					设置背景图片在元素坐标系中的显示位置
+				2.方位值
+					水平：left/center/right
+					垂直：top/center/bottom
+					注意：如果某个方向上缺省，默认为center
+				3.百分比 x y
+					计算坐标点(元素尺寸-图片尺寸)*x%
+					特殊值：
+						0% 0% -> left top
+						100% 100% -> right bottom
+						50% 50% -> center
+		4）background-size:width height;
+			调整背景图片的尺寸
+			可以取像素值；也可以取百分比，根据元素尺寸计算宽高
+			特殊：
+				cover:等比拉伸至足够大，完全覆盖元素，超出部分不可见
+				contain:等比拉伸至足够大，刚好被元素容纳，不能超出元素。
+	3.背景属性简写
+		background:color url() repeat position;
+		注意：
+			1）只有设置背景图片url()之后，才能设置重复方式和位置
+			2）background-size单独设置
+二、文本属性
+	1.字体样式
+		1）font-size 设置字体大小
+		2）font-weight 设置字体粗细
+			取值：normal(400)/bold(700)
+				取关键字或无单位数值，100~900值越大，越粗
+		3）font-style 设置斜体
+			取值：italic
+		4）font-family 设置字体名称
+			取值：如果名称中出现中文或空格，必须加引号；可取多个值做备选字体，属性值之间使用逗号隔开
+		5）字体属性简写
+			属性：font
+			取值：style weight size family;
+			注意：
+				1.按顺序书写属性值
+				2.size和family是必填项,style和weight根据需要书写	
+	2.文本样式
+		1）color 文本颜色
+		2）text-decoration 设置文本装饰线
+			取值：none/underline/overline/line-through
+			注意：装饰线的颜色与文本色保持一致
+		3）text-align 设置文本的水平对齐方式
+			取值：left(默认)/center/right/justify(两端对齐)
+		4）line-height 设置行高
+			常用：设置行高与高度保持一致，实现一行文本的垂直居中
+三、显示属性
+	1.列表属性
+		list-style:none; 清除列表的项目符号
+	2.鼠标显示形状
+		属性：cursor
+		取值：
+			default 鼠标显示为箭头
+			pointer 鼠标显示为手指
+			text	鼠标悬停在文本内容上，默认显示为"I"
+
+
+		
+		
+		
+		
+		
+		
+				
+
+
+
+
+
+

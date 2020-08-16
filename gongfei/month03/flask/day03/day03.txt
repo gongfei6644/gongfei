@@ -1,0 +1,211 @@
+回顾：
+Flask模板
+1.引入render_template,借助于函数将模板文件响应回客户端
+2.模板中的变量
+	{{ 变量名 }}
+	变量源于render_template("",name="zs",age=100)
+	可以使用locals()将当前作用域中所有局部变量以字典的形式存储
+	render_template("",params=locals())
+3.模板中的控制语句
+	1）if语句
+		{% if age > 18 %}
+			#条件成立时执行，可以是静态内容，也可以操作变量
+			<h1> {{age}} </h1>
+			<h1> age </h1>
+		{% elif 条件2 %}
+		{% else %}
+		{% endif %}
+	2）循环
+		{% for user in params %}
+			# for in遍历
+			{{user.name}}
+		{% endfor %}
+4.静态文件的存储和访问
+	1）存储在固定的文件夹下，名为"static"
+	2）访问路径:"/static/子目录"
+5.模板的继承
+	1）父模板
+		定义允许被修改的模块
+		{% block container(块名) %}
+			<h1></h1>
+		{% endblock %}
+
+	2）子模板中使用
+		{% extends "父模板名称"%}
+		# 修改某些模块
+		{% block container%}
+			# 子模板中自定义的模块内容,替换父模板中的内容
+			# {{ super() }} 
+			#可以既继承父模板内容，也进行子模块扩展
+			<h2></h2>
+		{% endblock %}
+6.修改模板文件夹和静态文件夹的名称
+	app = Flask(__name__,
+	template_folder="t",
+	static_folder="s")
+	注意：
+		1）工程目录中的文件夹名称与参数设置的名称保持一致
+		2）再次书写静态文件访问路径时，需要注意文件夹名称的变更
+			/新名称/子目录
+--------------------------------
+
+
+一、网络请求
+	1.利用网络通信协议实现前后端数据交互，常用的网络通信协议：HTTP(s) ,规定数据的传输格式
+	2.请求
+		1.请求消息：客户端向服务器发送的消息
+		2.组成：
+			1）请求起始行
+				协议，请求方式（GET/POST）,资源路径
+			2）请求消息头
+				使用key:value字典的方式存储相关信息
+			3）请求主体
+				GET请求如果携带数据，以参数的形式直接拼在URL后面（?key1=value1&key2=value2）
+				只有post方式才会有请求主体
+				
+	3.响应
+		1.响应消息：服务器接收请求并处理之后，返回给客户端的消息（数据）
+		2.组成：
+			1）响应起始行
+				协议，响应状态码，原因短句
+				响应状态码：
+					2XX
+						200 正确接收到请求并已作出处理
+					3XX
+						301	永久重定向
+						302 临时重定向
+						304	Not Modifed请求资源未发生改动，重定向至缓存中请求
+					4XX
+						400 Bad Request（错误请求）
+						403	禁止访问
+						404	请求的资源不存在
+						405	请求方式不被允许
+					5XX
+						500	服务器内部错误
+						502	网关错误
+			2）响应消息头
+				描述响应回来的数据
+				以key:value存储
+			3）响应主体
+				保存响应数据
+二、Flask中的请求与响应
+	1.请求对象request
+		1）在request对象中封装了所有跟当前请求相关的信息
+		2）使用：
+			引入:from flask import request
+			使用：在视图函数中获取request对象内部的信息
+		3）request对象常用属性
+			scheme：获取此次请求使用的协议
+			method：获取请求方式（GET/POST）,默认为GET
+			args：获取GET方式提交的数据
+			form：获取POST方式提交的数据
+			cookies：获取浏览器cookies中保存的数据
+			files：获取上传的文件
+			path:获取请求的资源路径（不带参数）
+			full_path:获取请求的资源路径（带参数）
+			url:获取完整的请求地址
+			headers:获取请求消息头，使用key:value保存相关信息
+
+
+		4）获取请求中的数据
+			1.获取GET请求中的数据
+				1）request.args['key']
+				2）request.args.get('key','默认值')
+				3）request.args.getlist('key')
+					适用于一个key对应多个值的情况（复选框）
+				注：get当时如果未携带数据，在视图函数中直接读取requese.args['']数据，报400，报错
+
+			2.获取POST请求中的数据
+				request.form获取数据字典
+				1）request.form['key']
+				2）request.form.get('key')
+				3）request.form.getlist('key')
+				注：post方式即使未携带数据，直接获取字典中的值，返回为空
+		5）页面重定向
+			由服务器端通知浏览器重新向新的地址发送请求
+			使用：
+				引入redirect
+				使用函数redirect('重定向地址')
+				视图函数中返回
+					return redirect('重定向地址')
+			练习：
+				注册路由，渲染博客登录，登录页面中点击提交，跳转回首页
+				注释掉：
+				<input type="hidden" name="source_url" value="{{ request.META.HTTP_REFERER }}">
+		6）页面源
+			当前的请求是从哪一个源地址发起的
+			保存在请求消息头中("Referer":"")
+			示例：
+				# 从请求消息头中获取源地址（不一定有值）
+				if "Referer" in request.headers:
+						print(request.headers['Referer'])
+		7）文件上传
+			1.使用表单控件type="file"向服务器发送文件，因为文件，图片，音视频等都是二进制数据，必须设置表单的提交方式和编码类型
+				<form action="" method="post" enctype="multipart/form-data">
+			2.服务器端使用request.files获取上传的文件,返回字典
+				例：
+					f = request.files["key"]
+					#将文件保存至指定的文件夹下
+					f.save(保存路径)
+
+			
+			
+			
+			
+			
+			
+			
+			ImmutableMultiDict([('uimg', <FileStorage: '5794.png' ('image/png')>)])
+				
+		
+
+			
+		
+			
+
+
+				
+				
+			
+		
+
+
+
+
+
+		
+
+
+
+
+
+
+
+	2.响应对象response
+---------------------
+
+
+
+
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__enter__', '__eq__', '__exit__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_cached_json', '_get_data_for_json', '_get_file_stream', '_get_stream_for_parsing', '_load_form_data', '_parse_content_type', 'accept_charsets', 'accept_encodings', 'accept_languages', 'accept_mimetypes', 'access_route', 'application', 'args', 'authorization', 'base_url', 'blueprint', 'cache_control', 'charset', 'close', 'content_encoding', 'content_length', 'content_md5', 'content_type', 'cookies', 'data', 'date', 'dict_storage_class', 'disable_data_descriptor', 'encoding_errors', 'endpoint', 'environ', 'files', 'form', 'form_data_parser_class', 'from_values', 'full_path', 'get_data', 'get_json', 'headers', 'host', 'host_url', 'if_match', 'if_modified_since', 'if_none_match', 'if_range', 'if_unmodified_since', 'input_stream', 'is_json', 'is_multiprocess', 'is_multithread', 'is_run_once', 'is_secure', 'is_xhr', 'json', 'list_storage_class', 'make_form_data_parser', 'max_content_length', 'max_form_memory_size', 'max_forwards', 'method', 'mimetype', 'mimetype_params', 'on_json_loading_failed', 'parameter_storage_class', 'path', 'pragma', 'query_string', 'range', 'referrer', 'remote_addr', 'remote_user', 'routing_exception', 'scheme', 'script_root', 'shallow', 'stream', 'trusted_hosts', 'url', 'url_charset', 'url_root', 'url_rule', 'user_agent', 'values', 'view_args', 'want_form_data_parsed']
+
+
+						
+					
+				
+		
+		
+	
+
+
+
+
+	
+
+
+
+
+
+
+
+	

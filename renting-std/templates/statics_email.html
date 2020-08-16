@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>.table-c table{border-right:1px solid #F00;border-bottom:1px solid #000}.table-c table td{border-left:1px solid #F00;border-top:1px solid #000}</style>
+<h4>{{ params.ls_day_time }}日采集量统计</h4>
+<div class="table-c">
+<table width="900" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>网站</td>
+        <td>案例量</td>
+        <td>标准化量</td>
+        <td>标准化率</td>
+        <td>楼盘字段量</td>
+        <td>总价字段量</td>
+    </tr>
+    {% for web in params.web_list %}
+        <tr>
+            <td>{{ web }}</td>
+            <td><font color="blue">{% if params.dic[web]['case_count'] %} {{ params.dic[web]['case_count'] }} {% else %} 0 {% endif %}</font></td>
+            <td><font color="green">{% if params.dic[web]['std_count'] %}{{ params.dic[web]['std_count'] }} {% else %} 0 {% endif %}</font></td>
+            {% if params.dic[web]['std_rate']>=80 %}
+                <td><font color="black">{{ params.dic[web]['std_rate'] }}%</font></td>
+            {% else %}
+                <td><font color="red">{{ params.dic[web]['std_rate'] }}%</font></td>
+            {% endif %}
+            <td>{% if params.dic[web]['proj_name_count'] %}{{ params.dic[web]['proj_name_count'] }} {% else %} 0 {% endif %}</td>
+            <td>{% if params.dic[web]['totalprice_count'] %}{{ params.dic[web]['totalprice_count'] }} {% else %} 0 {% endif %}</td>
+        </tr>
+    {% endfor %}
+      <tr>
+          <td>合计</td>
+          <td><font color="blue">{{ params.dic['all_case_count'] }}</font></td>
+          <td><font color="red">{{ params.dic['all_std_count'] }}</font></td>
+          {% if params.dic['all_std_rate']>=80 %}
+                <td><font color="black">{{ params.dic['all_std_rate'] }}%</font></td>
+          {% else %}
+                 <td><font color="red">{{ params.dic['all_std_rate'] }}%</font></td>
+          {% endif %}
+          <td>{{ params.dic['all_proj_name_count'] }}</td>
+          <td>{{ params.dic['all_proj_name_count'] }}</td>
+      </tr></table></div>
+
+<style>.table-w table{border-right:1px solid #F00;border-bottom:1px solid #000}.table-w table td{border-left:1px solid #F00;border-top:1px solid #000}</style>
+<!--*2019年第33周(2019-08-12-2019-08-18)统计量-->
+<h4>{{ params.year_time}}年第{{ params.week_time }}周({{ params.mond_time }}-{{ params.sund_time }})统计量</h4>
+<div class="table-w">
+    <table width="900" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>网站/星期</td>
+            <td>星期一</td>
+            <td>星期二</td>
+            <td>星期三</td>
+            <td>星期四</td>
+            <td>星期五</td>
+            <td>星期六</td>
+            <td>星期日</td>
+            <td>合计</td>
+        </tr>
+        {% for web in params.web_list %}
+            <tr>
+                <td>{{ web }}</td>
+                <td><font color="blue">{% if params.dic[web]['mond_count'] %} {{ params.dic[web]['mond_count'] }} {% else %} 0 {% endif %}</font>
+                    <font color="red">/{% if params.dic[web]['mond_std_count'] %} {{ params.dic[web]['mond_std_count'] }} {% else %} 0 {% endif %}</font></td>
+                <td><font color="blue">{% if params.dic[web]['tuesd_count'] %} {{ params.dic[web]['tuesd_count'] }} {% else %} 0 {% endif %}</font>
+                    <font color="red">/{% if params.dic[web]['tuesd_std_count'] %} {{ params.dic[web]['tuesd_std_count'] }} {% else %} 0 {% endif %}</font></td>
+                <td><font color="blue">{% if params.dic[web]['wed_count'] %} {{ params.dic[web]['wed_count'] }} {% else %} 0 {% endif %}</font>
+                    <font color="red">/{% if params.dic[web]['wed_std_count'] %} {{ params.dic[web]['wed_std_count'] }} {% else %} 0 {% endif %}</font></td>
+                <td><font color="blue">{% if params.dic[web]['thurd_count'] %} {{ params.dic[web]['thurd_count'] }} {% else %} 0 {% endif %}</font>
+                    <font color="red">/{% if params.dic[web]['thurd_std_count'] %} {{ params.dic[web]['thurd_std_count'] }} {% else %} 0 {% endif %}</font></td>
+                <td><font color="blue">{% if params.dic[web]['frid_count'] %} {{ params.dic[web]['frid_count'] }} {% else %} 0 {% endif %}</font>
+                    <font color="red">/{% if params.dic[web]['frid_std_count'] %} {{ params.dic[web]['frid_std_count'] }} {% else %} 0 {% endif %}</font></td>
+                <td><font color="blue">{% if params.dic[web]['satd_count'] %} {{ params.dic[web]['satd_count'] }} {% else %} 0 {% endif %}</font>
+                    <font color="red">/{% if params.dic[web]['satd_std_count'] %} {{ params.dic[web]['satd_std_count'] }} {% else %} 0 {% endif %}</font></td>
+                <td><font color="blue">{% if params.dic[web]['sund_count'] %} {{ params.dic[web]['sund_count'] }} {% else %} 0 {% endif %}</font>
+                    <font color="red">/{% if params.dic[web]['sund_std_count'] %} {{ params.dic[web]['sund_std_count'] }} {% else %} 0 {% endif %}</font></td>
+                <td><font color="blue">{% if params.dic[web]['week_count'] %} {{ params.dic[web]['week_count'] }} {% else %} 0 {% endif %}</font>
+                    <font color="red">/{% if params.dic[web]['week_std_count'] %} {{ params.dic[web]['week_std_count'] }} {% else %} 0 {% endif %}</font></td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td>总计</td>
+            <td><font color="blue">{{ params.dic['all_mond_count'] }}</font>
+                <font color="red">/ {{ params.dic['all_mond_std_count'] }}</font></td>
+            <td><font color="blue">{{ params.dic['all_tuesd_count'] }}</font>
+                <font color="red">/ {{ params.dic['all_tuesd_std_count'] }}</font></td>
+            <td><font color="blue">{{ params.dic['all_wed_count'] }}</font>
+                <font color="red">/ {{ params.dic['all_wed_std_count'] }}</font></td>
+            <td><font color="blue">{{ params.dic['all_thurd_count'] }}</font>
+                <font color="red">/ {{ params.dic['all_thurd_std_count'] }}</font></td>
+            <td><font color="blue">{{ params.dic['all_frid_count'] }}</font>
+                <font color="red">/ {{ params.dic['all_frid_std_count'] }}</font></td>
+            <td><font color="blue">{{ params.dic['all_satd_count'] }}</font>
+                <font color="red">/ {{ params.dic['all_satd_std_count'] }}</font></td>
+            <td><font color="blue">{{ params.dic['all_sund_count'] }}</font>
+                <font color="red">/ {{ params.dic['all_sund_count'] }}</font></td>
+            <td><font color="blue">{{ params.dic['all_week_count'] }}</font>
+                <font color="red">/ {{ params.dic['all_week_std_count'] }}</font></td>
+        </tr>
+    </table>
+</div>
+
+<style>.table-w table{border-right:1px solid #F00;border-bottom:1px solid #000}.table-w table td{border-left:1px solid #F00;border-top:1px solid #000}</style>
+<h4>{{ params.ls_day_time }}各大网站任务采集量统计</h4>
+<div class="table-w">
+    <table width="900" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>城市</td>
+            {% for web in params.web_list %}
+                <td>{{ web }}</td>
+            {% endfor %}
+        </tr>
+        {% for province in params.province_list %}
+            <tr>
+                <td> {{ province }}</td>
+                {% for web in params.web_list %}
+                    {% if 'w' in (params.dic[web][province] | string) %}
+                         <td><font color='black'>{{ params.dic[web][province] }}</font></td>
+                    {% elif not params.dic[web][province] %}
+                        <td><font color='red'>0</font></td>
+                    {% else %}
+                        <td><font color='red'>{{ params.dic[web][province] }}</font></td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        <tr>
+            <td>合计</td>
+            {% for web in params.web_list %}
+                {% if not params.dic[web]['case_count'] %}
+                    <td>0</td>
+                {% else %}
+                    <td>{{ params.dic[web]['case_count'] }}</td>
+                {% endif %}
+            {% endfor %}
+        </tr>
+      </table></div>
+
+<style>.table-c table{border-right:1px solid #F00;border-bottom:1px solid #000}.table-c table td{border-left:1px solid #F00;border-top:1px solid #000}</style>
+<h4>{{ params.mon_time }}月采集量统计</h4>
+<div class="table-c"><table width="900" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>网站</td>
+      <td>案例量</td>
+      <td>标准化量</td>
+      <td>标准化率</td>
+      <td>楼盘字段量</td>
+      <td>总价字段量</td>
+    </tr>
+    {% for web in params.web_list %}
+        <tr>
+            <td>{{ web }}</td>
+            <td><font color="blue">{% if params.dic[web]['mon_count'] %} {{ params.dic[web]['mon_count'] }} {% else %} 0 {% endif %}</font></td>
+            <td><font color="green">{% if params.dic[web]['mon_std_count'] %} {{ params.dic[web]['mon_std_count'] }} {% else %} 0 {% endif %}</font></td>
+            {% if params.dic[web]['mon_std_rate']>=80 %}
+                <td><font color="black">{{ params.dic[web]['mon_std_rate'] }}%</font></td>
+            {% else %}
+                <td><font color="red">{{ params.dic[web]['mon_std_rate'] }}%</font></td>
+            {% endif %}
+            <td>{% if params.dic[web]['mon_proj_name_count'] %} {{ params.dic[web]['mon_proj_name_count'] }} {% else %} 0 {% endif %}</td>
+            <td>{% if params.dic[web]['mon_totalprice_count'] %} {{ params.dic[web]['mon_totalprice_count'] }} {% else %} 0 {% endif %}</td>
+        </tr>
+    {% endfor %}
+    <tr>
+        <td>合计</td>
+        <td><font color="blue">{{ params.dic['all_mon_count'] }}</font></td>
+        <td><font color="green">{{ params.dic['all_mon_std_count'] }}</font></td>
+        {% if params.dic['all_mon_std_rate']>= 80 %}
+            <td><font color="black">{{ params.dic['all_mon_std_rate'] }}%</font></td>
+        {% else %}
+            <td><font color="red">{{ params.dic['all_mon_std_rate'] }}%</font></td>
+        {% endif %}
+        <td>{{ params.dic['all_mon_proj_name_count'] }}</td>
+        <td>{{ params.dic['all_mon_totalprice_count'] }}</td>
+    </tr>
+    </table></div>
+<style>.table-c table{border-right:1px solid #F00;border-bottom:1px solid #000}.table-c table td{border-left:1px solid #F00;border-top:1px solid #000}</style>
+<h4>{{ params.ls_mon_time }}月采集量统计</h4>
+<div class="table-c">
+    <table width="900" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>网站</td>
+          <td>案例量</td>
+          <td>标准化量</td>
+          <td>标准化率</td>
+          <td>楼盘字段量</td>
+          <td>总价字段量</td>
+        </tr>
+            {% for web in params.web_list %}
+            <tr>
+                <td>{{ web }}</td>
+                <td><font color="blue">{% if params.dic[web]['ls_mon_count'] %} {{ params.dic[web]['ls_mon_count'] }} {% else %} 0 {% endif %}</font></td>
+                <td><font color="green">{% if params.dic[web]['ls_mon_std_count'] %} {{ params.dic[web]['ls_mon_std_count'] }} {% else %} 0 {% endif %}</font></td>
+                {% if params.dic[web]['ls_mon_std_rate']>=80 %}
+                    <td><font color="black">{{ params.dic[web]['ls_mon_std_rate'] }}%</font></td>
+                {% else %}
+                    <td><font color="red">{{ params.dic[web]['ls_mon_std_rate'] }}%</font></td>
+                {% endif %}
+                <td>{% if params.dic[web]['ls_mon_proj_name_count'] %} {{ params.dic[web]['ls_mon_proj_name_count'] }} {% else %} 0 {% endif %}</td>
+                <td>{% if params.dic[web]['ls_mon_totalprice_count'] %} {{ params.dic[web]['ls_mon_totalprice_count'] }} {% else %} 0 {% endif %}</td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td>合计</td>
+            <td><font color="blue">{{ params.dic['all_ls_mon_count'] }}</font></td>
+            <td><font color="green">{{ params.dic['all_ls_mon_std_count'] }}</font></td>
+            {% if params.dic['all_ls_mon_std_rate']>=80 %}
+                <td><font color="black">{{ params.dic['all_ls_mon_std_rate'] }}%</font></td>
+            {% else %}
+                <td><font color="red">{{ params.dic['all_ls_mon_std_rate'] }}%</font></td>
+            {% endif %}
+            <td>{{ params.dic['all_ls_mon_proj_name_count'] }}</td>
+            <td>{{ params.dic['all_ls_mon_totalprice_count'] }}</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

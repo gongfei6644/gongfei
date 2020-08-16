@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script src="index.js"></script>
+ </head>
+ <body>
+	<h1>标题</h1>
+	<h2>标题2</h2>
+	<h2>标题2</h2>
+	<Script>
+		//获取元素节点
+		//var h2 = document.getElementsByTagName("h2")[0];
+		var h2 = $("h2");//自己封装$()获取元素
+		h2.innerHTML = "好了";
+		//操作标签属性
+		h2.id="d2";
+		//不能直接访问class属性，更名为className
+		h2.className="c1 c2";
+		//移除指定标签属性
+		h2.id = "";
+		h2.className = null;
+
+		var h1 = document.getElementsByTagName("h1")[0];
+		h1.setAttribute("id","d1");
+		h1.setAttribute("class","c1");
+		h1.setAttribute("class","c1 c2");
+		console.log(h1.getAttribute("id"));
+		h1.removeAttribute("id");
+
+		
+
+
+
+
+	</script>
+ </body>
+</html>

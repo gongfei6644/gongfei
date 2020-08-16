@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+	function show(){
+		var list1 = document.getElementsByName("uname");
+		var list2 = document.getElementsByName("gender");
+		console.log(list1,list2);
+		//获取表单控件的值
+		console.log(list1[0].value);
+		console.log(list2[0].value);
+	}
+  </script>
+ </head>
+ <body>
+	<h1>标题</h1>
+	<h1 class="c1">标题</h1>
+	<h1 id="d1">标题</h1>
+	<h1 class="c1">标题</h1>
+	<input type="text" name="uname">
+	<input type="radio" name="gender" value="boy">
+	<input type="radio" name="gender" value="girl">
+	<button onclick="show()">显示</button>
+
+
+	<Script>
+		//获取节点列表
+		var elems = document.getElementsByTagName("h1");
+		console.log(elems);
+		//从列表中获取元素节点
+		var elem1 = elems[0];
+		//修改元素节点的内容
+		console.log(elem1,elem1.innerHTML);
+		elem1.innerHTML = "<span>haha</span>";
+		//从列表中获取第二个元素节点，修改内容为超链接文本
+		elems[1].innerHTML = "<a href=''>百度</a>";
+
+		//2.根据id属性值获取元素节点
+		var elem2 = document.getElementById("d1");
+		console.log(elem2,elem2.innerHTML);
+
+		//3.根据class属性值获取节点列表
+		var list1 = document.getElementsByClassName("c1");
+		/*
+		//window.a = 100;
+		//动态为列表添加属性
+		list1.innerHTML = "12345";
+		console.log(list1);
+		*/
+
+		//innerHTML是元素节点的属性
+		list1[0].innerHTML = "<a href=''>淘宝</a>";
+		list1[1].innerText = "<a href=''>淘宝</a>";
+		
+
+
+
+
+	</script>
+ </body>
+</html>

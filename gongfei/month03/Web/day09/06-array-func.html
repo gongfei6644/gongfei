@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+  	//操作末尾元素：push(data)/pop()
+	var arr = [1,2,3];
+	var r1 = arr.push(10,20);
+	console.log(r1,arr);
+	var r2 = arr.pop();
+	console.log(r2,arr);
+	//操作头部元素：unshift(data)/shift()
+	arr.unshift("a","b");
+	console.log(arr);
+	arr.unshift("c");
+	arr.unshift("d");
+	console.log(arr);
+	arr.shift();
+	console.log(arr);
+
+	//数组转换字符串
+	var s1 = arr.toString();
+	console.log(s1,arr);
+	var s2 = arr.join();
+	console.log(s2);
+	var s3 = arr.join("-");
+	console.log(s3);
+	var s4 = arr.join("");
+	console.log(s4);
+
+	//反转数组
+	var res = arr.reverse();
+	console.log(res,arr);
+	
+	//排序
+	arr.sort();
+	console.log(arr);
+
+	//遍历
+	arr.forEach(function (elem,index){
+		console.log(elem,index);
+	});
+
+
+
+
+
+
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

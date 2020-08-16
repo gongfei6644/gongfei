@@ -1,0 +1,66 @@
+{% extends 'index.html' %}
+
+{% block title %}
+  login
+{% endblock %}
+
+{% block style %}
+  <link rel="stylesheet" href="/static/css/login.css">
+{% endblock %}
+
+{% block js %}
+  <script src="/static/js/login.js"></script>
+{% endblock %}
+
+{% block main %}
+  <div id="main">
+	<form action="" method="">
+		<div class="content">
+			<p>
+				login
+				<a href="register">new customer regists</a>
+			</p>
+			<!-- 文本输入框 -->
+			<div class="text">
+				<input type="text" name="uname" placeholder="Pleaase input username">
+				<img src="/static/images/login/user.png">
+				<span></span>
+			</div>
+			<!-- 密码框 -->
+			<div class="text">
+				<input type="password" name="upwd" placeholder="Pleaase input password">
+				<img src="/static/images/login/password.png">
+			</div>
+			<!--验证码框-->
+			<div class="validate">
+				<img src="">
+				<input type="text" name="validateCode">
+			</div>
+			<!--自动登录，忘记密码-->
+			<div class="choose">
+				<input type="checkbox" name="savePwd">remember password
+				<a>forget password?</a>
+			</div>
+			<input type="submit" value="login" class="btn-login">
+		</div>
+	</form>
+  </div>
+{% endblock %}
+
+{% block nav %}{% endblock %}
+
+{% block top-nav %}{% endblock %}
+
+{% block welcome %}
+  <span>Welcome to login</span>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+
+
+
+
+
+
+
